@@ -112,7 +112,7 @@ Each AIP should have the following parts:
 
 -   Copyright Waiver - All AIPs must be in the public domain. See the bottom of this AIP for an example copyright waiver.
 
-EIP Formats and Templates
+AIP Formats and Templates
 -------------------------
 
 AIPs should be written in [markdown] format.
@@ -231,7 +231,7 @@ The editors don't pass judgment on AIPs. We merely do the administrative & edito
 History
 -------
 
-This document was derived heavily from [Ethereum's AIP-1] written by Martin Becze and Hudson Jameson, which in turn was derived from [Bitcoin's BIP-0001] written by Amir Taaki which in turn was derived from [Python's PEP-0001]. In many places text was simply copied and modified. So all writers of original text are not responsible for its use in the ADAMANT Improvement Process, and should not be bothered with technical questions specific to ADAMANT or the AIP. Please direct all comments to the AIP editors.
+This document was derived heavily from [Ethereum's EIP-1] written by Martin Becze and Hudson Jameson, which in turn was derived from [Bitcoin's BIP-0001] written by Amir Taaki which in turn was derived from [Python's PEP-0001]. In many places text was simply copied and modified. So all writers of original text are not responsible for its use in the ADAMANT Improvement Process, and should not be bothered with technical questions specific to ADAMANT or the AIP. Please direct all comments to the AIP editors.
 
 See [the revision history for further details](https://github.com/Adamant-im/AIPs/commits/master/AIPS/aip-1.md), which is also available by clicking on the History button in the top right of the AIP.
 
@@ -241,7 +241,7 @@ See [the revision history for further details](https://github.com/Adamant-im/AIP
   [pull request]: https://github.com/Adamant-im/AIPs/pulls
   [the Issues section of this repository]: https://github.com/Adamant-im/AIPs/issues
   [markdown]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-  [Ethereum's AIP-1]: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1.md
+  [Ethereum's EIP-1]: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1.md
   [Bitcoin's BIP-0001]: https://github.com/bitcoin/bips
   [Python's PEP-0001]: https://www.python.org/dev/peps/
 
