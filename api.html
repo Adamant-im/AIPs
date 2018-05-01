@@ -1,0 +1,7 @@
+---
+layout: page
+title: API
+---
+
+{% assign aips=site.pages|where:"type","Standards"|where:"category","API" %}
+{% include aiptable.html aips=aips %}
