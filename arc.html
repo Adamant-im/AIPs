@@ -1,0 +1,7 @@
+---
+layout: page
+title: ARC
+---
+
+{% assign aips=site.pages|where:"type","Standards"|where:"category","ARC" %}
+{% include aiptable.html aips=aips %}
