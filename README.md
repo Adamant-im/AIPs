@@ -1,5 +1,5 @@
 # AIPs
-ADAMANT Improvement Proposal (AIPs) repository describe standards for the ADAMANT Messenger platform, including core protocol specifications, client APIs, and contract standards.
+ADAMANT Improvement Proposal (AIPs) repository describe standards for the ADAMANT Messenger platform, including core protocol specifications and client APIs.
 
 # Contributing
 
