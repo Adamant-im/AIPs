@@ -1,0 +1,7 @@
+---
+layout: page
+title: Networking
+---
+
+{% assign aips=site.pages|where:"type","Standard"|where:"category","Networking" %}
+{% include aiptable.html aips=aips %}
