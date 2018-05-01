@@ -1,0 +1,7 @@
+---
+layout: page
+title: Informational
+---
+
+{% assign aips=site.pages|where:"type","Informational" %}
+{% include aiptable.html aips=aips %}
