@@ -1,0 +1,44 @@
+---
+layout: default
+title: Home
+---
+
+<h1 class="page-heading">AIPs </h1>
+<p>ADAMANT Improvement Proposals (AIPs) describe standards for the ADAMANT Messenger platform, including core protocol specifications, and client APIs.</p>
+
+<h2>Contributing</h2>
+<p>First review <a href="AIPS/aip-1">AIP-1</a>. Then clone the repository and add your EIP to it. There is a <a href="https://github.com/Adamant-im/AIPs/blob/master/aip-X.md">template AIP here</a>. Then submit a Pull Request to ADAMANT's <a href="https://github.com/Adamant-im/AIPs">AIPs repository</a>.</p>
+
+<h2>AIP status terms</h2>
+<ul>
+  <li><strong>Draft</strong> - an AIP that is open for consideration.</li>
+  <li><strong>Accepted</strong> - an AIP that is planned for immediate adoption, i.e. expected to be included in the next hard fork.</li>
+  <li><strong>Final</strong> - an AIP that has been adopted in a previous hard fork.</li>
+  <li><strong>Deferred</strong> an AIP that is not being considered for immediate adoption. May be reconsidered in the future for a subsequent hard fork.</li>
+</ul>
+
+<h2>AIP Types</h2>
+
+<p>AIPs are separated into a number of types, and each has its own list of AIPs.</p>
+
+<h3>Standard ({{site.pages|where:"type","Standard"|size}})</h3>
+
+<h4><a href="{{"core"|relative_url}}">Core</a> ({{site.pages|where:"type","Standard"|where:"category","Core"|size}})</h4>
+<p>Improvements requiring a node update.</p>
+
+<h4><a href="{{"networking"|relative_url}}">Networking</a> ({{site.pages|where:"type","Standard"|where:"category","Networking"|size}})</h4>
+<p>Internode communications updates</p>
+
+<h4><a href="{{"interface"|relative_url}}">Interface</a> ({{site.pages|where:"type","Standard"|where:"category","Interface"|size}})</h4>
+<p>Includes improvements around client API/RPC specifications and standards</p>
+
+<h4><a href="{{"api"|relative_url}}">ARC</a> ({{site.pages|where:"type","Standard"|where:"category","API"|size}})</h4>
+<p>API endpoint specifications</p>
+<h4><a href="{{"erc"|relative_url}}">ARC</a> ({{site.pages|where:"type","Standard"|where:"category","ARC"|size}})</h4>
+<p>Application-level standards and conventions, including URI schemes , library/package formats, and wallet formats.</p>
+
+<h3><a href="{{"informational"|relative_url}}">Informational</a> ({{site.pages|where:"type","Informational"|size}})</h3>
+<p>Describes an ADAMANT design issue, or provides general guidelines or information to the  community, but does not propose a new feature. Informational AIPs do not necessarily represent  community consensus or a recommendation, so users and implementers are free to ignore Informational AIPs or follow their advice.</p>
+
+<h3><a href="{{"meta"|relative_url}}">Meta</a> ({{site.pages|where:"type","Meta"|size}})</h3>
+<p>Describes a process surrounding ADAMANT or proposes a change to (or an event in) a process. </p>
