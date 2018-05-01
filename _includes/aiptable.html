@@ -1,0 +1,28 @@
+<style type="text/css">
+  .aiptable .title {
+    width: 67%;
+  }
+
+  .aiptable .author {
+    width: 33%;
+  }
+</style>
+{% for status in site.data.statuses %}
+  {% assign aips = include.aips|where:"status",status|sort:"aip" %}
+  {% assign count = aips|size %}
+  {% if count > 0 %}
+    <h2>{{status}}</h2>
+    <table class="aiptable">
+      <thead>
+        <tr><th class="aipnum">Number</th><th class="title">Title</th><th class="author">Author</th></tr>
+      </thead>
+      {% for page in aips %}
+        <tr>
+          <td class="aipnum"><a href="{{page.url|relative_url}}">{{page.aip|xml_escape}}</a></td>
+          <td class="title">{{page.title|xml_escape}}</td>
+          <td class="author">{% include authorlist.html authors=page.author %}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endfor %}
