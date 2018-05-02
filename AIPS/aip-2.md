@@ -1,8 +1,8 @@
 ---
-aip: <to be assigned>
+aip: 2
 title: URI Format for ADAMANT
 author: Dmitriy Soloduhin (@zyuhel) and Pavel Anokhov (@RealBonus)
-discussions-to: <email address>
+discussions-to: https://github.com/Adamant-im/AIPs/issues/2
 status: Draft
 type: Standards
 category: ARC
