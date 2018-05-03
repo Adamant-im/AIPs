@@ -10,13 +10,17 @@
 }
 .wrapper {
     position: relative;
+    max-width: -webkit-calc(960px - (30px * 2));
+    max-width: calc(960px - (30px * 2));
 }
 .uk-position-top-left {
     top: 0.7rem;
     left: 30px;
     position: absolute;
 }
-
+.site-nav {
+    z-index: 100; 
+}
 .uk-adm-logo {
     border: solid #eee;
     border-width: 1px;
