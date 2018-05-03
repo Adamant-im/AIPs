@@ -1,9 +1,9 @@
 <header class="site-header" role="banner">
-<div class="uk-position-top-left">
-<a href="https://adamant.im" class="uk-navbar-item uk-adm-logo" target="_blank">
-<img src="https://adamant.im/media/admlogo.svg" class="uk-responsive-height" alt=""></a>
-</div>
   <div class="wrapper">
+    <div class="uk-position-top-left">
+      <a href="https://adamant.im" class="uk-navbar-item uk-adm-logo" target="_blank">
+      <img src="https://adamant.im/media/admlogo.svg" class="uk-responsive-height" alt=""></a>
+    </div>
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
