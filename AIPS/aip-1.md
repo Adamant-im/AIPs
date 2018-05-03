@@ -123,29 +123,29 @@ AIP Header Preamble
 
 Each AIP must begin with an RFC 822 style header preamble, preceded and followed by three hyphens ('---'). The headers must appear in the following order. Headers marked with "*" are optional and are described below. All other headers are required.
 
-` aip` : < AIP number > (this is determined by the AIP editor)
+` aip ` : < AIP number > (this is determined by the AIP editor)
 
-` title` : < AIP title >
+` title ` : < AIP title >
 
-` author` : < a list of the author's or authors' name(s) and/or username(s), or name(s) and email(s). Details are below. >
+` author ` : < a list of the author's or authors' name(s) and/or username(s), or name(s) and email(s). Details are below. >
 
-` * discussions-to` : < url >
+` discussions-to `* : < url >
 
 ` status` : < Draft | Active | Accepted | Deferred | Rejected | Withdrawn | Final | Replaced >
 
-` type` : < Standard (Core, Networking, Interface, API, ARC)  | Informational | Meta >
+` type ` : < Standard (Core, Networking, Interface, API, ARC)  | Informational | Meta >
 
-` * category ` : < Core | Networking | Interface | API | ARC >
+` category `* : < Core | Networking | Interface | API | ARC >
 
-` created` : < date created on, in ISO 8601 (yyyy-mm-dd) format >
+` created ` : < date created on, in ISO 8601 (yyyy-mm-dd) format >
 
-` * requires` : < AIP number(s) >
+` requires `* : < AIP number(s) >
 
-` * replaces` : < AIP number(s) >
+` replaces `* : < AIP number(s) >
 
-` * replaced-by` : < AIP number(s) >
+` replaced-by `* : < AIP number(s) >
 
-` * resolution` : < url >
+` resolution `* : < url >
 
 #### Author header
 The author header optionally lists the names, email addresses or usernames of the authors/owners of the AIP. Those who prefer anonymity may use a username only, or a first name and a username. The format of the author header value must be:
