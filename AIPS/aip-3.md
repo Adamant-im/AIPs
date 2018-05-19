@@ -1,8 +1,8 @@
 ---
-aip: <to be assigned>
+aip: 3
 title: Storing data in chain
 author: Dmitriy Soloduhin (@zyuhel)
-discussions-to: https://github.com/Adamant-im/AIPs/issues/2
+discussions-to: https://github.com/Adamant-im/AIPs/issues/5
 status: Draft
 type: Standards
 category: ARC
