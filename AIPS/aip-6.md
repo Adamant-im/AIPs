@@ -1,8 +1,8 @@
 ---
-aip: <to be assigned>
+aip: 6
 title: Signal Messages
 author: Dmitriy Soloduhin (@zyuhel)
-discussions-to: 
+discussions-to: https://github.com/Adamant-im/AIPs/issues/9
 status: Draft
 type: Standards
 category: ARC
