@@ -1,8 +1,8 @@
 ---
-aip: <to be assigned>
-title: Rich Messages
+aip: 5
+title: Rich Content Messages
 author: Dmitriy Soloduhin (@zyuhel)
-discussions-to: 
+discussions-to: https://github.com/Adamant-im/AIPs/issues/8
 status: Draft
 type: Standards
 category: ARC
@@ -10,7 +10,7 @@ created: 2018-06-09
 requires: 4
 ---
 
-Exchanging Rich Messages
+Exchanging Rich Content Messages across different clients
 
 ## Simple Summary
 Extending messages with Flexible Rich Content.
