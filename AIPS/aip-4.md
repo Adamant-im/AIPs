@@ -1,8 +1,8 @@
 ---
-aip: <to be assigned>
+aip: 4
 title: Basic Encrypted Messages
 author: Dmitriy Soloduhin (@zyuhel)
-discussions-to: 
+discussions-to: https://github.com/Adamant-im/AIPs/issues/7
 status: Draft
 type: Standards
 category: ARC
