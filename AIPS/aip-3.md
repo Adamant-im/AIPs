@@ -25,11 +25,15 @@ Clients need to save different data across different devices. A standartized way
 Data storage should use State storing (KVS) functionality added in [v0.2.0 node release](https://github.com/Adamant-im/adamant/releases/tag/v0.2.0).
 Selected key should be choosen according usage. If some key is going to be reused across different applications, corresponding AIP should be created, to ensure that all application will handle it similarly.
 
-Value can be stored as plain string or JSON, all encrypted values should be stored as JSON. If value is stored in plainstring, it mustn't begin with symbol {, because in that case it will be treated as JSON. Plain string values should be unencrypted and can be used to store some public identifiers.
-JSON values can store different objects. If JSON object has *message* and *nonce* keys, it should show that this object holds sensitive encrypted data.
+Unencrypted values are stored as-is, no additional actions are needed.
 
-For compatibility between clients encrypted data may be encrypted using [NaCL.secretbox](https://nacl.cr.yp.to/secretbox.html) using SHA-256 hash of private key as secret key. But this is recommendation, and not requirement.
+If a value needs to be encrypted, the following logic is to be applied:
+1. Wrap the value into JSON: ```{ "payload": <your value> }```
+2. Convert the above JSON to string; prefix and suffix the stringified JSON with a random string (alphanumeric ASCII-chars recommended; do not use `{` or `}`)
+3. Encrypt the resulting string using [NaCL.secretbox](https://nacl.cr.yp.to/secretbox.html). Secret key is a SHA-256 hash of the Adamant private key.
+4. Resulting nonce and encrypted message are wrapped into JSON: ```{ "message": <encrypted message>, "nonce": <nonce> }```, which is then saved into the KVS.
 
+Any KVS value that is a valid JSON and has both `nonce` and `message` fields should be treated as encrypted according to the above algorithm.
 
 ## Rationale
 Using two different systems for separate storage of public and sensitive data can be considered not rationale. It should be clear, that clients should distinguish between secret and public data, to know that data should be decoded. Public data could have some identifiers that are not efficient to store as json, because they are just plain strings or some data that can be written in string format. So ability to store strings and json objects should be considered as right way. Nodes shouldn't interfere with data stored in objects. So all data handling should be done on client.
