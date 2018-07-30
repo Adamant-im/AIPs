@@ -22,7 +22,7 @@ In order to improve user experience, ADAMANT clients should provide a way to ass
 
 ## Specification
 
-Contacts list is stored as a JSON-object in the ADAMANT KVS as described in the AIP-3. The KVS key is `contact_list`.
+Contacts list is stored as a JSON-object in the ADAMANT KVS as described in the [AIP-3](https://aips.adamant.im/AIPS/aip-3). The KVS key is `contact_list`.
 
 The keys of the above JSON are ADAMANT UIDs, values are objects, where alias is stored in the `displayName` property.
 
@@ -41,7 +41,7 @@ Example:
 
 Other properties besides `displayName` may be added to values to store various contact details.
 
-Note, that contact list may contain sensitive info and, therefore, needs to be encrypted as described in AIP-3.
+Note, that contact list may contain sensitive info and, therefore, needs to be encrypted (see [AIP-3](https://aips.adamant.im/AIPS/aip-3)).
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
