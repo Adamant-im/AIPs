@@ -41,7 +41,7 @@ Example:
 
 Other properties besides `displayName` may be added to values to store various contact details.
 
-Since ADAMANT blockchain charges every write to the KVS, it is strongly recommended to 
+Note, that contact list may contain sensitive info and, therefore, needs to be encrypted as described in AIP-3.
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
