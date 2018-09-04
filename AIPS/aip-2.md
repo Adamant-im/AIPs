@@ -20,7 +20,7 @@ URIs embedded in QR-codes, hyperlinks in web-pages, emails or chat messages prov
 
 ## Motivation
 <!--The motivation is critical for AIPs that want to change the protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.-->
-Help integrating ADAMANT into world. Standartise QR-codes between different ADAMANT Messenger realization. 
+Help integrating ADAMANT into the World. Standartise QR-codes between different ADAMANT Messenger realizations. 
 
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
@@ -35,8 +35,8 @@ value                   = uri encoded string
 ```
 
 ### Semantics
-`address` is mandatory and starts with U letter. It should follow ADAMANT address format. 
-`parameters` - optional argument value pairs. Define specific actions to be done with following address. Some specifications should follow in consecutive ARCs
+`address` is mandatory and starts with U letter. It should follow ADAMANT address format.
+`parameters` is optional argument-value pairs and defines specific actions to be done with following address. Some specifications should follow in consecutive ARCs.
 
 
 ## Rationale
