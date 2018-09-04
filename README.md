@@ -15,9 +15,9 @@ If your AIP requires images, the image files should be included in a subdirector
 When you believe your AIP is mature and ready to progress past the draft phase, you should open a PR changing the state of your AIP to 'Accepted'. An editor will review your draft and ask if anyone objects to its being accepted. After that implementation will start. And state will be change to 'Final' as soon as implementation will be done and pushed live
 
 # AIP status terms
-* **Draft** - an AIP that is open for consideration
-* **Accepted** - an AIP that is planned for immediate adoption, i.e. expected to be included in the next hard fork.
-* **Final** - an AIP that has been adopted in a previous hard fork.
-* **Deferred** - an AIP that is not being considered for immediate adoption. May be reconsidered in the future for a subsequent hard fork.
-* **Rejected** - an AIP that has been rejected
-* **Replaced** - an AIP that has been replaced by next AIP
+* **Draft**: an AIP that is open for consideration
+* **Accepted**: an AIP that is planned for immediate adoption, i.e. expected to be included in the next hard fork
+* **Final**: an AIP that has been adopted in a previous hard fork
+* **Deferred**: an AIP that is not being considered for immediate adoption. May be reconsidered in the future for a subsequent hard fork
+* **Rejected**: an AIP that has been rejected
+* **Replaced**: an AIP that has been replaced by next AIP
