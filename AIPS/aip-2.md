@@ -36,6 +36,7 @@ value                   = uri encoded string
 
 ### Semantics
 `address` is mandatory and starts with U letter. It should follow ADAMANT address format.
+
 `parameters` is optional argument-value pairs and defines specific actions to be done with following address. Some specifications should follow in consecutive ARCs.
 
 
