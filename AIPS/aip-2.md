@@ -39,6 +39,13 @@ value                   = uri encoded string
 
 `parameters` is optional argument-value pairs and defines specific actions to be done with following address. Some specifications should follow in consecutive ARCs.
 
+Commonly known parameters:
+- `label` is a contact name. Often used on business cards.
+
+### Examples
+```
+adm:U9821606738809290000?label=John+Doe
+```
 
 ## Rationale
 <!--The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.-->
