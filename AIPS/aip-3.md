@@ -1,6 +1,6 @@
 ---
 aip: 3
-title: Storing data in chain
+title: Storing data in chain (KVS)
 author: Dmitriy Soloduhin (@zyuhel)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/5
 status: Draft
@@ -9,7 +9,7 @@ category: ARC
 created: 2018-05-19
 ---
 
-Storing sensitive and shared data in ADAMANT blockchain.
+Storing sensitive (encrypted) and shared (unencrypted) data in ADAMANT blockchain.
 
 ## Simple Summary
 Define ways of storing data in blockchain, so that different clients has understanding of how to handle it.
@@ -17,7 +17,7 @@ Define ways of storing data in blockchain, so that different clients has underst
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-Clients need to save different data across different devices. A standartized way of saving and retrieving data will help enchance user experience.
+Clients need to save different data across different devices. A standartized way of saving and retrieving data will help enchance user experience. Explanation and example of usage: [What is ‘Key-Value Store’ in ADAMANT and How is it used to Store Contact Names?](https://medium.com/adamant-im/what-is-key-value-store-in-adamant-and-how-is-it-used-to-store-contact-names-4ee5f82ab77f)
 
 
 ## Specification
@@ -30,13 +30,14 @@ Unencrypted values are stored as-is, no additional actions are needed.
 If a value needs to be encrypted, the following logic is to be applied:
 1. Wrap the value into JSON: ```{ "payload": <your value> }```
 2. Convert the above JSON to string; prefix and suffix the stringified JSON with a random string (alphanumeric ASCII-chars recommended; do not use `{` or `}`)
-3. Encrypt the resulting string using [NaCL.secretbox](https://nacl.cr.yp.to/secretbox.html). Secret key is a SHA-256 hash of the Adamant private key.
+3. Encrypt the resulting string using [NaCL.secretbox](https://nacl.cr.yp.to/secretbox.html). Secret key is a SHA-256 hash of the ADAMANT private key.
 4. Resulting nonce and encrypted message are wrapped into JSON: ```{ "message": <encrypted message>, "nonce": <nonce> }```, which is then saved into the KVS.
 
 Any KVS value that is a valid JSON and has both `nonce` and `message` fields should be treated as encrypted according to the above algorithm.
 
 ## Rationale
-Using two different systems for separate storage of public and sensitive data can be considered not rationale. It should be clear, that clients should distinguish between secret and public data, to know that data should be decoded. Public data could have some identifiers that are not efficient to store as json, because they are just plain strings or some data that can be written in string format. So ability to store strings and json objects should be considered as right way. Nodes shouldn't interfere with data stored in objects. So all data handling should be done on client.
+Using two different systems for separate storage of public and sensitive data can be considered as not rationale. It should be clear that clients should distinguish between secret and public data, to know that data should be decoded. Public data could have some identifiers that are not efficient to store as JSON, because they are just plain strings or some data that can be written in string format. So ability to store strings and JSON objects should be considered as right way. Nodes shouldn't interfere with data stored in objects. So all data handling should be done on client.
+
 Regarding encryption, most of KVS stored data is needed for use of one user, holder of the private/secret key of an account. So using NaCL public-key authenticated encryption (box) has no sense. To not introduce new encryption libraries, we can use Secret-key authenticated encryption (secretbox), using SHA-256 of private key as secret key.
 
 
