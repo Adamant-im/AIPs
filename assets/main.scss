@@ -52,6 +52,8 @@ body {
 }
 .uk-list-footer li {
     line-height: 40px;
+    white-space: nowrap;
+
 }
 
 .uk-child-width-expand>:not([class*=uk-width]) {
