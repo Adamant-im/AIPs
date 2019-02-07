@@ -1,8 +1,8 @@
 ---
-aip: <to be assigned>
+aip: 14
 title: Chatrooms API 
 author: Dmitriy Soloduhin (@zyuhel) and Sergey Ushakov (@sergushakov)
-discussions-to: <to be added>
+discussions-to: https://github.com/Adamant-im/AIPs/issues/14
 status: Draft
 type: Standards
 category API
