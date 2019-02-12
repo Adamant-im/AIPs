@@ -44,13 +44,13 @@ Commonly known parameters:
 - `anti_spam` is a string that contact use as anti-spam code
 - `action` is action that supposed to perform
 - `amount` is amount in ADM to send
-- `message` is a message which supposed to be sent to contact
+- `message` is a message which supposed to be sent to contact (or as a comment to a transfer)
 
 Supposed `action` values:
 - `send_tokens` for sending tokens to address
 - `send_message` for sending message to address
 
-It is up to application how to process actions.
+It is up to application how to process actions and it depends when user retrieves URL in the app. F. e., in Send tokens window, it can parse only `amount` and `message` values.
 
 ### Examples
 ```
