@@ -3,7 +3,7 @@ aip: 5
 title: Rich Content Messages
 author: Dmitriy Soloduhin (@zyuhel)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/8
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2018-06-09
