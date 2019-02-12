@@ -3,7 +3,7 @@ aip: 2
 title: URI Format for ADAMANT
 author: Dmitriy Soloduhin (@zyuhel) and Pavel Anokhov (@RealBonus)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/2
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2018-05-02
