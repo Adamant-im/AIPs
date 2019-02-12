@@ -19,6 +19,8 @@ How to create and process links to web apps, which includes ADAMANT contacts.
 URIs embedded in QR-codes, web-pages, emails or chat messages provide a way to create or open chat with specific contact and name it.
 It is a preferred URI format for ADAMANT addresses in QR codes, as it can replace [AIP-2](https://aips.adamant.im/AIPS/aip-2). This allows make unique QR codes for both users who new to ADAMANT, and who already use ADAMANT.
 
+So if QR with URI is scanned in general QR scanner app, it will open web app, but if QR is scanned from ADAMANT iOS app in Send tokens window, ADAMANT address can be parsed.
+
 ## Motivation
 <!--The motivation is critical for AIPs that want to change the protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.-->
 Help integrating ADAMANT into the World. Standartise links to ADAMANT web applications between different realizations. 
@@ -41,8 +43,7 @@ value                   = uri encoded string
 Commonly known parameters:
 - `adm` is a valid ADAMANT address, starts with U letter.
 
-If `adm` parameter included, other parameters can be used:
-- `label` is a contact name. Often used on business cards.
+If `adm` parameter included, other parameters can be used according to as [AIP-2](https://aips.adamant.im/AIPS/aip-2#semantics).
 
 ### All type of ADAMANT Messenger apps behaviour
 
