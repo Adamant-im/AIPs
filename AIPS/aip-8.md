@@ -13,7 +13,7 @@ created: 2019-02-12
 <!--You can leave these HTML comments in your merged AIP and delete the visible duplicate text guides, they will not appear and may be helpful to refer to if you edit it again. This is the suggested template for new AIPs. Note that an AIP number will be assigned by an editor. When opening a pull request to submit your AIP, please use an abbreviated title in the filename, `aip-draft_title_abbrev.md`. The title should be 44 characters or less.-->
 
 ## Simple Summary
-How to create and process URIs, which includes ADAMANT contacts.
+How to create and process URIs, which includes ADAMANT contacts and actions.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
@@ -23,9 +23,9 @@ This AIP extends [AIP-2](https://aips.adamant.im/AIPS/aip-2). AIP-8 is a preferr
 
 ## Motivation
 <!--The motivation is critical for AIPs that want to change the protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.-->
-Current URI format [AIP-2](https://aips.adamant.im/AIPS/aip-2) is not suitable for people who are not familiar with ADAMANT. Using this extension helps new users to contact friends in ADAMANT, and existing users can share their ADAMANT address easily.
+Current URI format [AIP-2](https://aips.adamant.im/AIPS/aip-2) is not suitable for people who are not familiar with ADAMANT and don't use ADAMANT apps yet. Using this extension helps new users to contact friends in ADAMANT, and existing users can share their ADAMANT address easily.
 
-So if QR with URI is scanned in general QR scanner app, it will open web app, but if QR is scanned from ADAMANT iOS app in Send tokens window, ADAMANT address can be parsed.
+So if QR with URI is scanned in general QR scanner app, it will open web app, but if QR is scanned from ADAMANT app, address can be parsed.
 
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
