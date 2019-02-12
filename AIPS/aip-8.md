@@ -59,7 +59,7 @@ iOS and Anroid apps should only read parameters from URIs.
 
 ### Examples
 ```
-https://msg.adamant.im?adm=U9821606738809290000&label=John+Doe
+https://msg.adamant.im?address=U9821606738809290000&label=John+Doe
 ```
 Creates or open chat with U9821606738809290000. Name him as "John Doe" if contact is not named yet.
 
