@@ -1,9 +1,9 @@
 ---
 aip: 2
-title: URI Format for ADAMANT
-author: Dmitriy Soloduhin (@zyuhel) and Pavel Anokhov (@RealBonus)
+title: URI Format for ADAMANT addresses
+author: Dmitriy Soloduhin (@zyuhel), Pavel Anokhov (@RealBonus), Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/2
-status: Draft
+status: Active
 type: Standards
 category: ARC
 created: 2018-05-02
@@ -41,11 +41,27 @@ value                   = uri encoded string
 
 Commonly known parameters:
 - `label` is a contact name. Often used on business cards.
+- `anti_spam` is a string that contact use as anti-spam code
+- `action` is action that supposed to perform
+- `amount` is amount in ADM to send
+- `message` is a message which supposed to be sent to contact
+
+Supposed `action` values:
+- `send_tokens` for sending tokens to address
+- `send_message` for sending message to address
+
+It is up to application how to process actions.
 
 ### Examples
 ```
 adm:U9821606738809290000?label=John+Doe
 ```
+Includes contact address and its name.
+
+```
+adm:U9821606738809290000?label=John+Doe&anti_spam=nospamers&action=send_message&message=Just+say+hello
+```
+Suppose user app open chat window with U9821606738809290000, name him as "John Doe" if he is not named yet, and put message "Just say hello" to input field ready to send. 
 
 ## Rationale
 <!--The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.-->
