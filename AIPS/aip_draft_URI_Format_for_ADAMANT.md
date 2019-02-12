@@ -32,8 +32,8 @@ URI can contain optional `parameters`:
 - `message` is a message which supposed to be sent to contact (or as a comment for a transfer)
 
 Supposed `action` values:
-- `send_tokens` for sending tokens to address. Can open Send tokens screen. If dialog with address exists, send In-Chat. 
-- `send_message` for sending message to address. Can open or create chat with address.
+- `send_tokens` for sending tokens to address. Should open Send tokens screen. If dialog with address exists, app should send In-Chat. 
+- `send_message` for sending message to address. Should open or create chat with address.
 
 It is up to application how to process actions and it depends when user retrieves URL in the app. F. e., in Send tokens window, it can parse only `amount` and `message` values.
 
@@ -47,7 +47,7 @@ Suppose user app open chat window with U9821606738809290000, name him as "John D
 ```
 adm:U9821606738809290000?label=John+Doe&action=send_tokens&amount=1.12&message=For+beer
 ```
-Opens Send tokens screen to U9821606738809290000. Fills inputs with amount of 1.12 ADM, comment "For beer". 
+Opens Send tokens screen to U9821606738809290000 with amount of 1.12 ADM and comment "For beer". 
 
 ## Rationale
 <!--The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.-->
