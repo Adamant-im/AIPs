@@ -3,7 +3,7 @@ aip: 6
 title: Signal Messages
 author: Dmitriy Soloduhin (@zyuhel)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/9
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2018-06-09
