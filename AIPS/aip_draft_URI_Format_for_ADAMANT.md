@@ -4,7 +4,7 @@ title: URI Format for ADAMANT
 author: Dmitriy Soloduhin (@zyuhel), Pavel Anokhov (@RealBonus), Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/2
 status: Draft
-replaces: 2
+extends: 2
 type: Standards
 category: ARC
 created: 2019-02-12
@@ -21,11 +21,12 @@ This AIP extends [AIP-2](https://aips.adamant.im/AIPS/aip-2) and adds new parame
 
 ## Motivation
 <!--The motivation is critical for AIPs that want to change the protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.-->
-Propose parameters to include in URI actions and their parameters.
+Propose parameters to include in URI actions and their parameters. Standartise QR-codes between different ADAMANT Messenger realizations.
 
 ## Specification
 
 URI can contain optional `parameters`:
+- `label` is a contact name. If address has no name in KVS address book yet, app should name it.
 - `action` is action that supposed to perform
 - `amount` is amount in ADM to send
 - `message` is a message which supposed to be sent to contact (or as a comment for a transfer)
@@ -46,7 +47,7 @@ Suppose user app open chat window with U9821606738809290000, name him as "John D
 ```
 adm:U9821606738809290000?label=John+Doe&action=send_tokens&amount=1.12&message=For+beer
 ```
-If chat with U9821606738809290000 exists, opens Send tokens screen In-Chat. Other way, opens general Send tokens window. Fills inputs with amount of 1.12 ADM, comment "For beer". 
+Opens Send tokens screen to U9821606738809290000. Fills inputs with amount of 1.12 ADM, comment "For beer". 
 
 ## Rationale
 <!--The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.-->
