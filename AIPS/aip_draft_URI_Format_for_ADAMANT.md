@@ -21,10 +21,11 @@ This AIP extends [AIP-2](https://aips.adamant.im/AIPS/aip-2) and adds new parame
 
 ## Motivation
 <!--The motivation is critical for AIPs that want to change the protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.-->
-Propose parameters to include in URI actions and 
+Propose parameters to include in URI actions and their parameters.
+
+## Specification
 
 URI can contain optional `parameters`:
-- `label` is a contact name. Often used on business cards.
 - `action` is action that supposed to perform
 - `amount` is amount in ADM to send
 - `message` is a message which supposed to be sent to contact (or as a comment for a transfer)
