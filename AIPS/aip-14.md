@@ -27,7 +27,7 @@ New endpoint /api/chatrooms should be added to ADAMANT node. It users REST notat
 To get all chats of user U000000000000 we need to send GET request to /api/chatrooms/U000000000000 
 To get all messages of dialog between U000000000000 and U000000000001 we need to send GET request to /api/chatrooms/U000000000000/U000000000001 
 
-For all chats list Api will return `chats` field that shoud have such structure:
+For all chats list API will return `chats` field that shoud have such structure:
 
 ```
 {
@@ -52,8 +52,8 @@ For all chats list Api will return `chats` field that shoud have such structure:
 
 Available arguments:
 
-* `orderBy` - order by field, same as in transaction list api, by default = timestamp:desc&
-* `offset` - offset, same as in transaction list api, by default = 0
+* `orderBy` - order by field, same as in transaction list API, by default = timestamp:desc&
+* `offset` - offset, same as in transaction list API, by default = 0
 * `limit` - limit field
 * `withPayments` - should be added, if token transfer transaction should be returned
 
@@ -63,8 +63,8 @@ For specific dialog, list of all transactions in the chat should be returned in 
 
 Available arguments:
 
-* `orderBy` - order by field, same as in transaction list api, by default = timestamp:desc&
-* `offset` - offset, same as in transaction list api, by default = 0
+* `orderBy` - order by field, same as in transaction list API, by default = timestamp:desc&
+* `offset` - offset, same as in transaction list API, by default = 0
 * `limit` - limit field
 * `withPayments` - should be added, if token transfer transaction should be returned
 
