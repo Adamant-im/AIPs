@@ -5,7 +5,7 @@ author: Dmitriy Soloduhin (@zyuhel) and Sergey Ushakov (@sergushakov)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/14
 status: Draft
 type: Standards
-category API
+category: API
 created: 2019-01-21
 ---
 
