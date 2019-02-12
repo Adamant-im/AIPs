@@ -1,8 +1,8 @@
 ---
-aip: draft
+aip: 9
 title: URI Format for ADAMANT
-author: Dmitriy Soloduhin (@zyuhel), Pavel Anokhov (@RealBonus), Aleksei Lebedev
-discussions-to: https://github.com/Adamant-im/AIPs/issues/2
+author: Aleksei Lebedev
+discussions-to: https://github.com/Adamant-im/AIPs/issues/19
 status: Draft
 extends: 2
 type: Standards
