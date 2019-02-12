@@ -19,7 +19,7 @@ How to create and process URIs, which includes ADAMANT contacts.
 <!--A short (~200 word) description of the technical issue being addressed.-->
 URIs embedded in QR-codes, web-pages, emails or chat messages provide a way to create or open chat with specific contact and name it.
 
-This AIP extends [AIP-2](https://aips.adamant.im/AIPS/aip-2). AIP-8 is a preferred URI format for ADAMANT addresses in QR codesAll types of ADAMANT apps should read both types of URI, but generate URI only as AIP-8 explains.
+This AIP extends [AIP-2](https://aips.adamant.im/AIPS/aip-2). AIP-8 is a preferred URI format for ADAMANT addresses in QR codes. All types of ADAMANT apps should read both types of URI, but generate URI only as AIP-8 explains.
 
 ## Motivation
 <!--The motivation is critical for AIPs that want to change the protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.-->
