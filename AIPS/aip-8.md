@@ -4,6 +4,7 @@ title: URI Format for ADAMANT web applications and processing links with ADAMANT
 author: Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/8
 status: Draft
+replaces: 2
 type: Standards
 category: ARC
 created: 2019-02-12
