@@ -4,6 +4,7 @@ title: URI Format for ADAMANT addresses
 author: Dmitriy Soloduhin (@zyuhel), Pavel Anokhov (@RealBonus), Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/2
 status: Active
+referenced-by: [AIP-8](https://aips.adamant.im/AIPS/aip-8)
 type: Standards
 category: ARC
 created: 2018-05-02
@@ -13,6 +14,8 @@ created: 2018-05-02
 
 ## Simple Summary
 A standard way of creating ADAMANT URIs for various use-cases.
+
+Note: See preferrable way for URIs in [AIP-8](https://aips.adamant.im/AIPS/aip-8).
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
