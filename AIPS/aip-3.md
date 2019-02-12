@@ -3,7 +3,7 @@ aip: 3
 title: Storing data in chain (KVS)
 author: Dmitriy Soloduhin (@zyuhel)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/5
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2018-05-19
