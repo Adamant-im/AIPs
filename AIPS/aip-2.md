@@ -4,7 +4,6 @@ title: URI Format for ADAMANT addresses
 author: Dmitriy Soloduhin (@zyuhel), Pavel Anokhov (@RealBonus), Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/2
 status: Active
-referenced-by: [AIP-8](https://aips.adamant.im/AIPS/aip-8)
 type: Standards
 category: ARC
 created: 2018-05-02
@@ -14,8 +13,6 @@ created: 2018-05-02
 
 ## Simple Summary
 A standard way of creating ADAMANT URIs for various use-cases.
-
-Note: See preferrable way for URIs in [AIP-8](https://aips.adamant.im/AIPS/aip-8).
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
@@ -44,7 +41,6 @@ value                   = uri encoded string
 
 Commonly known parameters:
 - `label` is a contact name. Often used on business cards.
-- `anti_spam` is a string that contact use as anti-spam code
 - `action` is action that supposed to perform
 - `amount` is amount in ADM to send
 - `message` is a message which supposed to be sent to contact (or as a comment to a transfer)
@@ -62,7 +58,7 @@ adm:U9821606738809290000?label=John+Doe
 Includes contact address and its name.
 
 ```
-adm:U9821606738809290000?label=John+Doe&anti_spam=nospamers&action=send_message&message=Just+say+hello
+adm:U9821606738809290000?label=John+Doe&action=send_message&message=Just+say+hello
 ```
 Suppose user app open chat window with U9821606738809290000, name him as "John Doe" if he is not named yet, and put message "Just say hello" to input field ready to send. 
 
