@@ -28,9 +28,10 @@ Messages are encrypted using curve25519xsalsa20poly1305 ([NaCl box](https://nacl
 Private and public keys of account are instances of Ed25519 signing keys, so they should be converted into Curve25519 Diffie-Hellman keys first.
 
 ## Syntax
-Messaging blockcahin transaction type is `8`.
 
-Here is transaction [`asset`](https://aips.adamant.im/AIPS/aip-10#specification) contents syntax:
+Transaction sytax is based on [AIP-10: Genaral transaction structure](https://aips.adamant.im/AIPS/aip-10). Messaging blockcahin transaction type is `8`.
+
+Here is transaction `asset` contents syntax:
 ````
 chat: {
   message: HEXIFIED_ENCRYPTED_MESSAGE
