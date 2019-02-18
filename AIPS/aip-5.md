@@ -20,7 +20,7 @@ Define a specification of Rich Content messages, so that various clients can han
 
 
 ## Specification
-Rich messages are encrypted as specified in [AIP-4](https://github.com/Adamant-im/AIPs/blob/master/AIPS/aip-4.md).
+Rich messages are encrypted as specified in [AIP-4](https://aips.adamant.im/AIPS/aip-4).
 
 To mark message as Rich text, put `2` value in `type` field of transaction `asset`.
 
