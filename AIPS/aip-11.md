@@ -1,6 +1,6 @@
 ---
 aip: 11
-title: Behavior for KVS fetching
+title: Behavior for KVS data
 author: Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/27
 requires: 3
