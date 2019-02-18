@@ -80,7 +80,7 @@ Sends private (encrypted) full contact list for U15677078342684640219.
 Sends private (encrypted) updated contact records for U15677078342684640219.
 
 ## Rationale
-Using `type` of storing and reading KVS offers perfonace upgrade for client apps.
+Using `type` of storing and reading KVS offers perfomance upgrade for client apps.
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
