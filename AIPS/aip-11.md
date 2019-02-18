@@ -12,7 +12,7 @@ created: 2019-02-18
 ---
 
 ## Simple Summary
-Describe how clients should process stored data of different contents, allowing to write and read it faster.
+Describes how clients should process stored data for different content, allowing to write and read it faster.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
