@@ -52,14 +52,9 @@ Tx `asset` contents must include any number of `state` JSON objects, which repre
 }
 
 Contents explained:
-- `key` is a name of key for KVS record. String, mandatory.
-- `value` is data part for `key`. Mandatory, type depends on `type`.
-- `type` is a type of `value`. Integer, mandatory. 
-
-Types allowed:
-- `0` for string
-- `ни хуя не понимаю. как-то приложение все же работает при этом`
-
+- `key` describes contents of KVS record. Possible values must be described in future AIPs. String, mandatory.
+- `value` is data for `key`. Mandatory, type depends on contents.
+- `type` points how to process KVS records for this `key`. It may be incremental or full re-write of previous values. Must be described in future AIPs. Integer, mandatory. Default `0`.
 
 ### Examples
 
@@ -85,6 +80,7 @@ Types allowed:
 
 This transaction write public Ether address for U11977883563659338220.
 
+```
 {
 "transaction":{
   "type": 9,
@@ -102,8 +98,9 @@ This transaction write public Ether address for U11977883563659338220.
   "timestamp": 45603645,
   "signature": "dbafce549f1..."}
 }
+```
 
-Sends private (encrypted) contact_list record for U15677078342684640219.
+Sends private (encrypted) contact_list records for U15677078342684640219.
 
 ## Rationale
 Using two different systems for separate storage of public and sensitive data can be considered as not rationale. It should be clear that clients should distinguish between secret and public data, to know that data should be decoded. Public data could have some identifiers that are not efficient to store as JSON, because they are just plain strings or some data that can be written in string format. So ability to store strings and JSON objects should be considered as right way. Nodes shouldn't interfere with data stored in objects. So all data handling should be done on client.
