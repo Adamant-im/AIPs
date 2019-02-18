@@ -51,6 +51,7 @@ Field `message` should contain encrypted JSON of Rich Text. Below shown a base s
 
 ### Examples
 
+````
 {
 "transaction":{
 	"type": 8,
@@ -67,6 +68,7 @@ Field `message` should contain encrypted JSON of Rich Text. Below shown a base s
 	"timestamp": 46116887,
 	"signature": "8fc2a54604109a6fcdccec2..."}
 }
+````
 
 Sends Rich message describing In-Chat Ether transfer.
 
