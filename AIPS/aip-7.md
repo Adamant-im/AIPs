@@ -22,11 +22,11 @@ In order to improve user experience, ADAMANT clients should provide a way to ass
 
 ## Specification
 
-Contacts list is stored as a JSON object in the ADAMANT KVS as described in the [AIP-3](https://aips.adamant.im/AIPS/aip-3). The KVS key is `contact_list`.
+Contacts list is stored as a JSON object in the ADAMANT KVS as described in the [AIP-3](https://aips.adamant.im/AIPS/aip-3). This object *must be encrypted* and passed as `value` with `key` = `contact_list`.
 
 The keys of the above JSON are ADAMANT UIDs, values are objects, where aliases are stored in the `displayName` property.
 
-Example:
+Example of `value` object for storing Contact list:
 
 ```json
 {
@@ -41,7 +41,31 @@ Example:
 
 Other properties besides `displayName` may be added to values to store various contact details.
 
-Note, that contacts lists may contain sensitive info and, therefore, needs to be encrypted (see [AIP-3](https://aips.adamant.im/AIPS/aip-3)).
+Note, that contacts lists may contain sensitive info and, therefore, must be encrypted (see [AIP-3](https://aips.adamant.im/AIPS/aip-3)).
+
+### Examples
+
+```
+{
+"transaction":{
+  "type": 9,
+  "amount": 0,
+  "senderId": "U15677078342684640219",
+  "senderPublicKey": "e16e624fd0...",
+  "asset":{
+    "state":{
+      "key": "contact_list",
+      "value":"{
+        \"message\": \"6df8c172feef228d930130...\",
+        \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
+        "type": 0}
+    },
+  "timestamp": 45603645,
+  "signature": "dbafce549f1..."}
+}
+```
+
+Sends private (encrypted) contact_list records for U15677078342684640219.
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
