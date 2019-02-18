@@ -61,6 +61,8 @@ Value of chat `type` is `1` for basic encrypted message. For other types of mess
 	"signature": "aa468db9b70b731931308f7c7d0d1..."}
 }
 
+Sends message to U7972131227889954319.
+
 ## Rationale
 Currently used mechanisms should also be documented, to make process of extending and updating clearer. 
 
