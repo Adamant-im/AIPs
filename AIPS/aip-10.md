@@ -40,13 +40,22 @@ Transaction must be sent to any live ADAMANT node for validation via node's API 
 Node uses SHA-256 for Tx validation.
 
 Transaction keys explained:
-- `type` is a type of transaction. It says node how to interpret it. Integer, mandatory.
+- `type` is a type of transaction. It says node how to interpret it, see below. Integer, mandatory.
 - `amount` is an integer value in 1/10^8 ADM for transferring. If transaction is not a trasfer, value `0` must be provided.
 - `senderId` is ADAMANT address of Tx sender. String, mandatory.
 - `senderPublicKey` is ADAMANT public key of Tx sender. String, mandatory.
 - `asset` is data to be processed by node. Its structure depends on `type`. String, optional.
 - `timestamp` is client's timestamp. Node compares its own and client's timestamp while validating Tx. Unixtime, mandatory.
 - `signature` is digital signature which allows node to validate Tx sender. String, mandatory.
+
+Here is reserved types of transactions:
+- `0` is for sending tokens
+- `1` is for second signature
+- `2` is for delegate registration
+- `3` is for voting 
+- `4` is for multisignature
+- `8` is for messaging
+- `9` is for storing data (KVS)
 
 ### Examples
 
@@ -56,22 +65,21 @@ Transaction keys explained:
   "type": 9,
   "amount": 0,
   "senderId": "U11977883563659338220",
-  "senderPublicKey":"d2cbc26c2ef6...",
+  "senderPublicKey": "d2cbc26c2ef6...",
   "asset":{
     "state":{
-      "key":
-      "eth:address",
-      "value":"0xf4a2d5997eb0575b7ad7c10b0b178524c336f9e9",
-      "type":0
+      "key": "eth:address",
+      "value": "0xf4a2d5997eb0575b7ad7c10b0b178524c336f9e9",
+      "type": 0
       }
     },
-  "timestamp":45603372,
-  "signature":"86cbe525042bf83802..."}
+  "timestamp": 45603372,
+  "signature": "86cbe525042bf83802..."}
 }
 
 ```
 
-This transaction writes public Ether address for U11977883563659338220.
+This transaction writes public Ether address for U11977883563659338220 in blockchain.
 
 ## Rationale
 
