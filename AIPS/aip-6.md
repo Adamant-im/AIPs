@@ -22,9 +22,7 @@ Sometimes it is needed to send encrypted messages, that shouldn't appear in chat
 Signal messages follows encryption algorithm defined in [AIP-4](https://aips.adamant.im/AIPS/aip-4). 
 Chat `type` of signal messages is `3`. This chat type should not be returned on chat endpoints on any compliant node, unless request for this chat type is forced by corresponding filter.
 
-This type of messages should not be visible in dialogs. 
-
-Signal messages should be sent to `recipientId` that process this of message.
+Clients should not make be this messages visible in dialogs. 
 
 ## Syntax
 
