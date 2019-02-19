@@ -47,7 +47,7 @@ ADAMANT transaction must comply with JSON scheme:
 Format types descriptions:
 - `ADAMANT_ID` — ADAMANT address starting with `U`, string
 - `ADAMANT_TIMESTAMP` — 32 bit integer epoch timestamp (in seconds starting from Sep 02 2017 17:00:00 GMT+0000)
-- `AMOUNT` — tokens quantity in 64 bit integer, 8 decimal points. 1 ADM is 10^8.
+- `AMOUNT` — tokens quantity in 64 bit integer, 8 decimal points (100000000 equals to 1 ADM)
 - `PUBLIC_KEY` — 256 bit public key in hex, string
 - `SIGNATURE` — ed25519 signature of SHA256 hash of transaction data in hex, string
 - `TX_ID` — reversed first 8 bytes of SHA256 hash of transaction data and signature as integer
@@ -64,9 +64,9 @@ Explanation of transaction fields:
 - `asset` — transaction data specific for different [transaction types](#transaction-types). Used also in signature calculation. If omitted, it is set to empty object `{}`.
 - `timestamp` — transaction timestamp. Nodes do not accept transactions stamped in future. Mandatory when posting a transaction to node.
 - `signature` — transaction signature. Mandatory when posting a transaction to node.
-- `confirmations` — number of confirmations. must be omitted when posting a transaction to node.
-- `height` — block height where transaction forged. must be omitted when posting a transaction to node.
-- `blockId` — block id where transaction forged. must be omitted when posting a transaction to node.
+- `confirmations` — number of confirmations. Must be omitted when posting a transaction to node.
+- `height` — block height where transaction forged. Must be omitted when posting a transaction to node.
+- `blockId` — block id where transaction forged. Must be omitted when posting a transaction to node.
 
 ### Transaction types
 
