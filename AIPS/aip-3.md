@@ -1,7 +1,7 @@
 ---
 aip: 3
 title: Storing data in chain (KVS)
-author: Dmitriy Soloduhin (@zyuhel), Aleksei Lebedev
+author: Dmitriy Soloduhin (@zyuhel), Aleksei Lebedev(@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/5
 requires: 10
 status: Accepted
