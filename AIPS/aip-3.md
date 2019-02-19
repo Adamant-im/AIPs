@@ -1,8 +1,9 @@
 ---
 aip: 3
 title: Storing data in chain (KVS)
-author: Dmitriy Soloduhin (@zyuhel)
+author: Dmitriy Soloduhin (@zyuhel), Aleksei Lebedev(@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/5
+requires: 10
 status: Accepted
 type: Standards
 category: ARC
@@ -35,12 +36,75 @@ If a value needs to be encrypted, the following logic is to be applied:
 
 Any KVS value that is a valid JSON and has both `nonce` and `message` fields should be treated as encrypted according to the above algorithm.
 
+## Syntax
+
+Transaction sytax is based on [AIP-10: General transaction structure for API calls](https://aips.adamant.im/AIPS/aip-10). KVS transaction type is 9.
+
+Transaction `asset` object  must include single `state` object, which represents key-value pairs and store type:
+
+"asset":{
+    "state":{
+      "key": KEY_NAME,
+      "value": VALUE,
+      "type": KEY_TYPE
+    }
+}
+
+Contents explained:
+- `key` describes contents of KVS record. Possible values must be described in future AIPs. String, mandatory.
+- `value` is data for `key`. Mandatory, type depends on contents.
+- `type` points how to process KVS records for this `key`. It may be incremental or full re-write of previous values. Must be described in future AIPs. Integer, mandatory. Default `0`.
+
+### Examples
+
+```
+{
+"transaction":{
+  "type": 9,
+  "amount": 0,
+  "senderId": "U11977883563659338220",
+  "senderPublicKey":"d2cbc26c2ef6...",
+  "asset":{
+    "state":{
+      "key": "eth:address",
+      "value": "0xf4a2d5997eb0575b7ad7c10b0b178524c336f9e9",
+      "type": 0
+      }
+    },
+  "timestamp": 45603372,
+  "signature": "86cbe525042bf83802..."}
+}
+
+```
+
+This transaction write public Ether address for U11977883563659338220.
+
+```
+{
+"transaction":{
+  "type": 9,
+  "amount": 0,
+  "senderId": "U15677078342684640219",
+  "senderPublicKey": "e16e624fd0...",
+  "asset":{
+    "state":{
+      "key": "contact_list",
+      "value":"{
+        \"message\": \"6df8c172feef228d930130...\",
+        \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
+        "type": 0}
+    },
+  "timestamp": 45603645,
+  "signature": "dbafce549f1..."}
+}
+```
+
+Sends private (encrypted) contact_list records for U15677078342684640219.
+
 ## Rationale
 Using two different systems for separate storage of public and sensitive data can be considered as not rationale. It should be clear that clients should distinguish between secret and public data, to know that data should be decoded. Public data could have some identifiers that are not efficient to store as JSON, because they are just plain strings or some data that can be written in string format. So ability to store strings and JSON objects should be considered as right way. Nodes shouldn't interfere with data stored in objects. So all data handling should be done on client.
 
 Regarding encryption, most of KVS stored data is needed for use of one user, holder of the private/secret key of an account. So using NaCL public-key authenticated encryption (box) has no sense. To not introduce new encryption libraries, we can use Secret-key authenticated encryption (secretbox), using SHA-256 of private key as secret key.
-
-
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
