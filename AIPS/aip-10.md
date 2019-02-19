@@ -1,7 +1,7 @@
 ---
 aip: 10
 title: General transaction structure for API calls
-author: Aleksei Lebedev(@adamant-al), Dmitriy Soloduhin(@zyuhel)
+author: Dmitriy Soloduhin (@zyuhel), Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/21
 status: Draft
 type: Standards
@@ -17,13 +17,14 @@ Describing general structure of any ADAMANT transaction when communicating with 
 
 Transaction objects is the only way to write data into ADAMANT blockchain. This AIP aims to standartize transaction object structure. Any specific transaction type must follow this standard.
 
-Transactions objects are returned while quering ADAMANT Nodes, also it is used when sending data to receiving endpoints.
-Since Node version [0.4.2](https://github.com/Adamant-im/adamant/releases/tag/v0.4.2) incoming transactions can be sent to unified `/api/transaction` endpoint. 
+Transaction objects used when sending data to nodes' endpoints and also returned when quering ADAMANT nodes.
+
+Since Node version [0.4.2](https://github.com/Adamant-im/adamant/releases/tag/v0.4.2) transactions can be sent to unified `/api/transaction` endpoint. 
 
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
 
-ADAMANT transaction MUST comply with JSON scheme:
+ADAMANT transaction must comply with JSON scheme:
 ```
 {
   "id": TX_ID,
@@ -44,30 +45,28 @@ ADAMANT transaction MUST comply with JSON scheme:
 ```
 
 Format types descriptions:
-- `ADAMANT_ID` - ADAMANT Address starting with `U`
-- `ADAMANT_TIMESTAMP` - 32 bit epoch timestamp (seconds starting from Sep 02 2017 17:00:00 GMT+0000)
-- `AMOUNT` -  64 bit integer, 8 decimal points. (to get amount in ADM it should be divided by 10^8) 
-- `PUBLIC_KEY` - 256 bit public key in hex, string
-- `SIGNATURE` - ed25519 signature of SHA256 hash of transaction data in hex, string
-- `TX_ID`  - reversed first 8 bytes of SHA256 hash of transaction data and signature as integer
-- `BLOCK_ID`  - reversed first 8 bytes of SHA256 hash of signed block header
-- `TX_TYPE` - integer representing [transaction type](#transaction-types)
-
+- `ADAMANT_ID` — ADAMANT address starting with `U`, string
+- `ADAMANT_TIMESTAMP` — 32 bit integer epoch timestamp (in seconds starting from Sep 02 2017 17:00:00 GMT+0000)
+- `AMOUNT` — tokens quantity in 64 bit integer, 8 decimal points. 1 ADM is 10^8.
+- `PUBLIC_KEY` — 256 bit public key in hex, string
+- `SIGNATURE` — ed25519 signature of SHA256 hash of transaction data in hex, string
+- `TX_ID` — reversed first 8 bytes of SHA256 hash of transaction data and signature as integer
+- `BLOCK_ID` — reversed first 8 bytes of SHA256 hash of signed block header
+- `TX_TYPE` — integer representing [transaction type](#transaction-types)
 
 Explanation of transaction fields:
-- `type` - Type of transaction. It says node how to interpret it, see below. Mandatory for transaction posting.
-- `amount` - Amount of ADM to transfer. For non transfer transactions value will be 0. Mandatory for transaction posting.
-- `fee` - Fee for operation.
-- `senderId` - ADAMANT address of transaction sender. Mandatory for transaction posting.
-- `senderPublicKey` - Public key of transaction sender. Mandatory for transaction posting.
-- `recipientId` - ADAMANT address of transaction receiver. If not defined is null, mandatory for chat and transfer [transaction types](#transaction-types) (0,8) 
-- `asset` - transaction data, specific for different [transaction types](#transaction-types), used in signature calculation, if omitted equal to empty object `{}` 
-- `timestamp` - transaction timestamp. Node will node accept transactions in future. Mandatory for transaction posting.
-- `signature` - transaction signature. Mandatory for transaction posting.
-- `confirmations` - number of confirmations, MUST NOT be send for transaction posting.
-- `height` - block height, MUST NOT be send for transaction posting.
-- `blockId` - block id, MUST NOT be send for transaction posting.
-
+- `type` — type of transaction. It says node how to interpret it, see below. Mandatory when posting a transaction to node.
+- `amount` — amount to transfer. For non-transfer transactions must be `0`. Mandatory when posting a transaction to node.
+- `fee` — fee for operation. Depends on `type` of transaction.
+- `senderId` — ADAMANT address of sender. Mandatory when posting a transaction to node.
+- `senderPublicKey` — public key of sender. Mandatory when posting a transaction to node.
+- `recipientId` — ADAMANT address of recepient. Default is null. Mandatory for [chats and transfers (0,8)](#transaction-types).
+- `asset` — transaction data specific for different [transaction types](#transaction-types). Used also in signature calculation. If omitted, it is set to empty object `{}`.
+- `timestamp` — transaction timestamp. Nodes do not accept transactions stamped in future. Mandatory when posting a transaction to node.
+- `signature` — transaction signature. Mandatory when posting a transaction to node.
+- `confirmations` — number of confirmations. must be omitted when posting a transaction to node.
+- `height` — block height where transaction forged. must be omitted when posting a transaction to node.
+- `blockId` — block id where transaction forged. must be omitted when posting a transaction to node.
 
 ### Transaction types
 
@@ -123,12 +122,11 @@ This transaction writes public Ether address for U11977883563659338220 in blockc
 	"asset": {}
 }
 ```
-Transaction transferring 0.49 ADM from U15423595369615486571 to U11962225491348738609
-
+Transaction returned by ADAMANT node. Transfer of 0.49 ADM from U15423595369615486571 to U11962225491348738609.
 
 ## Rationale
 
-Specifiying current behaviour will help develop alternative clients/nodes and give opportunity to improve current scheme in the future.
+Describing current transaction structure will help to develop alternative ADAMANT clients and nodes.
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
