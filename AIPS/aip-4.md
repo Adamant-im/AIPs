@@ -1,7 +1,7 @@
 ---
 aip: 4
 title: Basic Encrypted Messages
-author: Dmitriy Soloduhin (@zyuhel), Aleksei Lebedev
+author: Dmitriy Soloduhin (@zyuhel), Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/7
 requires: 10
 status: Accepted
