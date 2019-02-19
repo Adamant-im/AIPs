@@ -38,9 +38,9 @@ Any KVS value that is a valid JSON and has both `nonce` and `message` fields sho
 
 ## Syntax
 
-Transaction sytax is based on [AIP-10: Genaral transaction structure](https://aips.adamant.im/AIPS/aip-10). KVS transaction must be marked as `type: 9`.
+Transaction sytax is based on [AIP-10: General transaction structure for API calls](https://aips.adamant.im/AIPS/aip-10). KVS transaction type is 9.
 
-Tx `asset` contents must include single `state` object, which represents key-value pairs and store type:
+Transaction `asset` object  must include single `state` object, which represents key-value pairs and store type:
 
 "asset":{
     "state":{
