@@ -1,6 +1,6 @@
 ---
 aip: 13
-title: Public wallet addresses
+title: Public non-ADM wallet addresses
 author: Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/31
 status: Draft
@@ -10,17 +10,17 @@ created: 2019-02-20
 requires: 3
 ---
 
-Storing public wallet addresses in the ADAMANT blockchain.
+Storing public non-ADM wallet addresses in the ADAMANT blockchain.
 
 ## Simple Summary
 
-Define a way to store wallet addresses (i.e. Ether, DOGE) in the blockchain.
+Define a way to store non-ADM wallet addresses (i.e. Ether, DOGE) in the blockchain.
 
 ## Abstract
 
-Transferring tokens in chats is one of essential ADAMANT features. It allows to send different external (not ADM) tokens to interlocutors without specifying any token addresses. To make storing and sending tokens secure, only user has control over private keys for these tokens. See [ADAMANT Messenger: Secure ETH Transfers](https://medium.com/adamant-im/adamant-messenger-secure-eth-transfers-b27984a3ce05) for details.
+Transferring tokens in chats is one of essential ADAMANT features. It allows to send different external (non-ADM) tokens to interlocutors without specifying any token addresses. To make storing and sending tokens secure, only user has control over private keys for these tokens. See [ADAMANT Messenger: Secure ETH Transfers](https://medium.com/adamant-im/adamant-messenger-secure-eth-transfers-b27984a3ce05) for details.
 
-In chat payments are possible due to public wallet addresses, stored in blockchain, so any client app can fetch them and use as recepient in token's blockchain.
+In-chat payments are possible due to public wallet addresses stored in blockchain. Any client app can fetch user's wallet address and use it to send tokens in its own blockchain. E.g., to send Ethers to ADAMANT user U11977883563659338220 in chat, client app can fetch public record with ETH address of U11977883563659338220, and send correspondent transaction to Ethereum network.
 
 ## Specification
 
