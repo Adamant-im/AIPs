@@ -1,7 +1,7 @@
 ---
 aip: 14
 title: Chatrooms API 
-author: Dmitriy Soloduhin (@zyuhel) and Sergey Ushakov (@sergushakov)
+author: Dmitriy Soloduhin (@zyuhel), Sergey Ushakov (@sergushakov)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/14
 status: Draft
 type: Standards
@@ -32,7 +32,7 @@ Let user address is U000000000000 and he communicate with U000000000001. To get 
 API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` structures:
 
 ```
-{
+"chats": [{
 	"lastTransaction": {
 		"id": LAST_TRANSACTION_ID,
 		"type": LAST_TRANSACTION_TRANSACTION_TYPE,
@@ -51,7 +51,8 @@ API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` 
 			"publicKey": "PUBLIC_KEY_2"
 		}, {...}
 	]
-}
+}, {...}
+]
 ```
 
 //ARRAY WITH PARTICIPIANTS IN THIS DIALOG
