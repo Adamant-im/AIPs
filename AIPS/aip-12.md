@@ -23,10 +23,17 @@ As such transactions actually goes through own tokens' networks, special ADM mes
 ## Specification
 
 General way of making in-chat transfer:
-- Send ADM rich message describing this transaction according to [AIP-5](https://aips.adamant.im/AIPS/aip-5)
+- Send ADM rich message describing this transaction according to [AIP-5](https://aips.adamant.im/AIPS/aip-5). See syntax below.
 - Send external token transaction in its own network
 - Watch for external token transaction in its own network and update its status
 
+Clients must support four types of transactions statuses both of incoming and outgoing transfers until final status reached:
+- `Pending` — transaction is not confirmed yet
+- `Confirmed` — transaction is confirmed on token's network. Final status.
+- `Cancelled` — transaction is cancelled or not accepted on token's network. Final status.
+- `Inconsistent` — ADAMANT message information about transaction differs from information, fetched from token's network. It relies to amount, recepient and senders ids, and timestamp. Amount should be compared with meaningful accurancy (e. g., 0.00000001 Ether and 0.0000009998 Ether is the same). Timestamp should be compared with 24 hour accurancy. Final status.
+
+C
 
 
 
