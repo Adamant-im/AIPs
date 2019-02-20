@@ -16,74 +16,62 @@ Describes behaviour for transferryg different tokens in chats.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-Transferring tokens in chats is one of essential ADAMANT features. It allows to send different tokens to interlocutors without specifying any token addresses.
+Transferring external (not ADM) tokens in chats is possible due to [public storage of wallet addresses in blockcahin, AIP 13](https://aips.adamant.im/AIPS/aip-13).
 
-As [AIP-3](https://aips.adamant.im/AIPS/aip-3) stands, users save its public and private information in ADAMANT blockchain. To write and read it faster and cheaper, different types of records should be introduced, including full re-write and incremental.
+As such transactions actually goes through own tokens' networks, special ADM messages needed to show them in chats. To make sure all ADAMANT Messenger apps process in-chats crypto transfers same way, a standard needed.
 
 ## Specification
-<!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
 
-When sending KVS transaction, `type` field of `state` object must be as follows:
-- `0` for full re-writing of contents by specified `key` value
-- `1` for incremental appending contents
+General way of making in-chat transfer:
+- Send ADM rich message describing this transaction according to [AIP-5](https://aips.adamant.im/AIPS/aip-5)
+- Send external token transaction in its own network
+- Watch for external token transaction in its own network and update its status
 
-Client apps should decide wether to use `0` or `1` write type by themselves. It depends on content type `key`, and volume of updated information. For example, if user updates one's contact name, it is faster and cheaper to store only updated record with `1` type. When significant quantity of contact names updated, it is reasonable to re-write all of contacl list with single store transaction with `0` type.
 
-Nodes API should process KVS properly. Values `type` and `key` are public, so node must filter and return KVS records on client's demand. This will reduce traffic and processing time. For every `key` value, node must return latest transactions with `0` type, following updates with `1` type.
 
-Client app should process received KVS records in reasonable way.
 
+Clients shouldn't render unsupported or unknown message types, instead they must show a message about unsupported rich message type and/or text fallback if it is available.
+
+## Syntax
+
+Field `message` must contain *encrypted* JSON of transaction info, including ticker, amount and transaction id.
+
+Optional field `text_fallback` can be added to show explanation text messages on clients that doesn't support this Message Type. 
+
+Below shown a base structure of Rich Text JSON object.
+
+````
+{
+  type: "RICH_MESSAGE_TYPE",
+  text_fallback: "OPTIONAL_FALLBACK_FOR_CLIENTS_NOT_SUPPORTING_THIS_MESSAGE_TYPE"
+}
+````
 
 ### Examples
 
-
-```
+````
 {
 "transaction":{
-  "type": 9,
-  "amount": 0,
-  "senderId": "U15677078342684640219",
-  "senderPublicKey": "e16e624fd0...",
-  "asset":{
-    "state":{
-      "key": "contact_list",
-      "value":"{
-        \"message\": \"6df8c172feef228d930130...\",
-        \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
-        "type": 0}
-    },
-  "timestamp": 45603645,
-  "signature": "dbafce549f1..."}
+	"type": 8,
+	"amount": 0,
+	"senderId": "U15677078342684640219",
+	"senderPublicKey": "e16e624fd0a5123294b448c21f30a07a0435533c693b146b14e66830e4e20404",
+	"asset":{
+		"chat":{
+		"message": "70cbd07ff2ceaf0fc38a01ef9...",
+		"own_message": "e98794eaedf47e...",
+		"type": 2}
+		},
+	"recipientId": "U7972131227889954319",
+	"timestamp": 46116887,
+	"signature": "8fc2a54604109a6fcdccec2..."}
 }
-```
+````
 
-Sends private (encrypted) full contact list for U15677078342684640219.
-
-```
-{
-"transaction":{
-  "type": 9,
-  "amount": 0,
-  "senderId": "U15677078342684640219",
-  "senderPublicKey": "e16e624fd0...",
-  "asset":{
-    "state":{
-      "key": "contact_list",
-      "value":"{
-        \"message\": \"6df8c172feef228d930130...\",
-        \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
-        "type": 1}
-    },
-  "timestamp": 45603645,
-  "signature": "dbafce549f1..."}
-}
-```
-
-Sends private (encrypted) updated contact records for U15677078342684640219.
+Sends Rich message describing In-Chat Ether transfer.
 
 ## Rationale
-Using `type` of storing and reading KVS offers perfomance upgrade for client apps.
+Rich messages, such as different objects/ media / crypto transfers, should be handled in same way between different clients. 
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
-
