@@ -41,7 +41,7 @@ Clients shouldn't render unsupported or unknown crypto transfers, instead they m
 
 ## Syntax
 
-Field `message` must contain *encrypted* JSON of transaction info, including ticker, amount, comments and transaction id.
+Field `message` must contain *encrypted* JSON of transaction info, including ticker symbol, amount, comments and transaction id.
 
 Below shown structure of `message` object:
 
@@ -56,10 +56,10 @@ Below shown structure of `message` object:
 ````
 
 Object's fields as described:
-- `type` represents token's network and looks like `ticker_transaction`, e.g., `ETH_transaction`. Mandatory.
-- `amount` is transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
-- `comments` is optional, and may include comment for this transfer, shown to both recepient and sender.
-- `hash` is transaction id in token's network. Used to check transaction status. Mandatory.
+- `type` represents token's network and looks like `tickersymbol_transaction`, e.g., `ETH_transaction`. Mandatory.
+- `amount` — transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
+- `comments` — optional, and may include comment for this transfer, shown to both recepient and sender.
+- `hash` — transaction id in token's network. Used to check transaction status. Mandatory.
 - `text_fallback` can be added to show explanation text messages on client apps that doesn't support specified `type`. 
 
 ### Examples
@@ -78,20 +78,22 @@ Object `message` *before encryption*, sending 0.002 Ethers with comment "I like 
 
 ````
 {
-"transaction":{
-	"type": 8,
-	"amount": 0,
-	"senderId": "U15677078342684640219",
-	"senderPublicKey": "e16e624fd0a5123294b448c21f30a07a0435533c693b146b14e66830e4e20404",
-	"asset":{
-		"chat":{
-		"message": "70cbd07ff2ceaf0fc38a01ef9...",
-		"own_message": "e98794eaedf47e...",
-		"type": 2}
-		},
-	"recipientId": "U7972131227889954319",
-	"timestamp": 46116887,
-	"signature": "8fc2a54604109a6fcdccec2..."}
+  "transaction": {
+    "type": 8,
+    "amount": 0,
+    "senderId": "U15677078342684640219",
+    "senderPublicKey": "e16e624fd0a5123294b448c21f30a07a0435533c693b146b14e66830e4e20404",
+    "asset": {
+      "chat": {
+        "message": "70cbd07ff2ceaf0fc38a01ef9...",
+        "own_message": "e98794eaedf47e...",
+        "type": 2
+      }
+    },
+    "recipientId": "U7972131227889954319",
+    "timestamp": 46116887,
+    "signature": "8fc2a54604109a6fcdccec2..."
+  }
 }
 ````
 
