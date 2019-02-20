@@ -44,6 +44,7 @@ Value of chat `type` is `1` for basic encrypted message. For other types of mess
 
 ### Examples
 
+```json
 {"transaction":{
 	"type": 8,
 	"amount": 0,
@@ -60,6 +61,7 @@ Value of chat `type` is `1` for basic encrypted message. For other types of mess
 	"timestamp": 46115307,
 	"signature": "aa468db9b70b731931308f7c7d0d1..."}
 }
+```
 
 Sends message to U7972131227889954319.
 
