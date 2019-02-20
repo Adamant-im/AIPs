@@ -1,7 +1,7 @@
 ---
 aip: 12
-title: Crypto transfers messages
-author: Aleksei Lebedev
+title: Non-ADM crypto transfer messages
+author: Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/29
 requires: 5
 extends: https://aips.adamant.im/AIPS/aip-5
@@ -12,13 +12,17 @@ created: 2019-02-20
 ---
 
 ## Simple Summary
-Describes behaviour for transferryg different tokens in chats.
+Describes behaviour for transferring different tokens in chats.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-Transferring external (not ADM) tokens in chats is possible due to [public storage of wallet addresses in blockcahin, AIP 13](https://aips.adamant.im/AIPS/aip-13).
+Transferring external (non-ADM) tokens in chats is possible due to [public storage of wallet addresses in blockcahin, AIP 13](https://aips.adamant.im/AIPS/aip-13). 
 
-As such transactions actually goes through own tokens' networks, special ADM messages needed to show them in chats. To make sure all ADAMANT Messenger apps process in-chats crypto transfers same way, a standard needed.
+As such transactions actually goes through own tokens' networks, special ADM messages needed to show them in chats.
+
+## Motivation
+
+To make sure all ADAMANT Messenger apps process in-chats crypto transfers same way, a standard needed.
 
 ## Specification
 
