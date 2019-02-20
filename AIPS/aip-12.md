@@ -8,14 +8,16 @@ extends: https://aips.adamant.im/AIPS/aip-5
 status: Draft
 type: Standards
 category: ARC
-created: 2019-02-19
+created: 2019-02-20
 ---
 
 ## Simple Summary
-Describes how clients should process stored data for different content, allowing to write and read it faster.
+Describes behaviour for transferryg different tokens in chats.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
+Transferring tokens in chats is one of essential ADAMANT features. It allows to send different tokens to interlocutors without specifying any token addresses.
+
 As [AIP-3](https://aips.adamant.im/AIPS/aip-3) stands, users save its public and private information in ADAMANT blockchain. To write and read it faster and cheaper, different types of records should be introduced, including full re-write and incremental.
 
 ## Specification
