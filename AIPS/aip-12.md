@@ -31,7 +31,7 @@ Clients must support four types of transactions statuses both of incoming and ou
 - `Pending` — transaction is not confirmed yet
 - `Confirmed` — transaction is confirmed on token's network. Final status.
 - `Cancelled` — transaction is cancelled or not accepted on token's network. Final status.
-- `Inconsistent` — ADAMANT message information about transaction differs from information, fetched from token's network. It relies to amount, recepient and senders ids, and timestamp. Amount should be compared with meaningful accuracy (e. g., 0.00000001 Ether and 0.0000009998 Ether is the same). Timestamp should be compared with 24 hour accurancy. Final status.
+- `Inconsistent` — information about transaction, fetched from rich message in ADAMANT newtwork, differs from information, fetched from token's network. It relies to amount, recepient and senders ids, and timestamp. Amount should be compared with meaningful accuracy (e. g., 0.00000001 Ether and 0.0000009998 Ether is the same). Timestamp should be compared with 24 hour accurancy. Final status.
 
 Clients shouldn't render unsupported or unknown crypto transfers, instead they must show a message about unsupported rich message type and/or text fallback if it is available.
 
