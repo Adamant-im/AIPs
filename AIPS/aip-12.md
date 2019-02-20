@@ -37,20 +37,41 @@ Clients shouldn't render unsupported or unknown crypto transfers, instead they m
 
 ## Syntax
 
-Field `message` must contain *encrypted* JSON of transaction info, including ticker, amount and transaction id.
+Field `message` must contain *encrypted* JSON of transaction info, including ticker, amount, comments and transaction id.
 
-Optional field `text_fallback` can be added to show explanation text messages on clients that doesn't support this Message Type. 
-
-Below shown a base structure of Rich Text JSON object.
+Below shown structure of `message` object:
 
 ````
 {
-  type: "RICH_MESSAGE_TYPE",
-  text_fallback: "OPTIONAL_FALLBACK_FOR_CLIENTS_NOT_SUPPORTING_THIS_MESSAGE_TYPE"
+	type: String
+	text_fallback: String
+	amount: String
+	comments: String
+	hash: String
 }
 ````
 
+Object's fields as described:
+- `type` represents token's network and looks like `ticker_transaction`, e.g., `ETH_transaction`. Mandatory.
+-  `amount` is transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
+
+
+Optional field `text_fallback` can be added to show explanation text messages on clients that doesn't support this Message Type. 
+
+
 ### Examples
+
+````
+{
+	type: "ETH_transaction"
+	text_fallback: "OPTIONAL_FALLBACK_FOR_CLIENTS_NOT_SUPPORTING_THIS_MESSAGE_TYPE"
+	amount: "0.002"
+	comments: "I like to send it, send it"
+	hash: "0xfa46d2b3c99878f1f9863fcbdb0bc27d220d7065c6528543cbb83ced84487deb"
+}
+````
+
+Object `message` *before encryption*, sending 0.002 Ethers with comment "I like to send it, send it".
 
 ````
 {
