@@ -1,7 +1,7 @@
 ---
 aip: 15
 title: QRs for ADAMANT addresses
-author: Aleksei Lebedev
+author: Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/33
 status: Draft
 requires: 8, 9
@@ -26,7 +26,7 @@ Well known view of ADAMANT QRs with addresses helps users to understand if QR co
 
 ## Specification
 
-QR design must include infrmational part (URI) and ADAMANT logo in the center of QR.
+QR design must include informational part (URI) and ADAMANT logo in the center of QR.
 
 ### Examples
 
