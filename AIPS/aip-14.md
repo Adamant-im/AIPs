@@ -11,20 +11,23 @@ created: 2019-01-21
 
 ## Simple Summary
 <!--"If you can't explain it simply, you don't understand it well enough." Provide a simplified and layman-accessible explanation of the AIP.-->
-To simplify access to chats and have one common endpoint for chats and group chats in the future. Current REST API need to be extended.
+To simplify access to chats and offer one common endpoint for chats and group chats in the future. Current node's REST API need to be extended.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-Current API for retriving chats are the same as the one for transactions, it creates different problems with optimizing light client usage. To get full list of contacts, clients must download all transactions for that users. This behaviour is very slow for users with multiple chats. Good solution will be create new chatroom object that is going to help fetching and paginating through the chatrooms.
+Current API for retriving chats are the same as for general transactions. It leads to inffective work of messaging applications. To get full list of contacts, apps have to download all of transactions for that users. This behaviour is very slow for users with multiple chats. 
+
+Effective solution is to create new chatroom endpoint that offers fetching contacts, chats and paginating through chatrooms.
 
 ## Motivation
 <!--The motivation is critical for AIPs that want to change the protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.-->
-It will help to make first load faster. Users will be able to quickly receive recent chats.
+Chattrooms will make messenger apps faster.
 
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
-New endpoint /api/chatrooms should be added to ADAMANT node. It users REST notation. For example user address is U000000000000 and he communicate with U000000000001.  
-To get all chats of user U000000000000 we need to send GET request to /api/chatrooms/U000000000000 
+New endpoint `/api/chatrooms` should be added to ADAMANT node. It uses REST notation. 
+
+Let user address is U000000000000 and he communicate with U000000000001. To get all of user's U000000000000 chats, we need to send GET request to /api/chatrooms/U000000000000 
 To get all messages of dialog between U000000000000 and U000000000001 we need to send GET request to /api/chatrooms/U000000000000/U000000000001 
 
 For all chats list API will return `chats` field that shoud have such structure:
