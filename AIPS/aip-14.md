@@ -21,37 +21,40 @@ Effective solution is to create new chatroom endpoint that offers fetching conta
 
 ## Motivation
 <!--The motivation is critical for AIPs that want to change the protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.-->
-Chattrooms will make messenger apps faster.
+Chatrooms will make messenger apps faster.
 
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
 New endpoint `/api/chatrooms` should be added to ADAMANT node. It uses REST notation. 
 
-Let user address is U000000000000 and he communicate with U000000000001. To get all of user's U000000000000 chats, we need to send GET request to /api/chatrooms/U000000000000 
-To get all messages of dialog between U000000000000 and U000000000001 we need to send GET request to /api/chatrooms/U000000000000/U000000000001 
+Let user address is U000000000000 and he communicate with U000000000001. To get user's U000000000000 chats, GET request to `/api/chatrooms/U000000000000` should be sent. To get chat between U000000000000 and U000000000001, GET request to `/api/chatrooms/U000000000000/U000000000001` should be sent.
 
-For all chats list API will return `chats` field that shoud have such structure:
+API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` structures:
 
 ```
 {
+	"lastTransaction": {
 		"id": LAST_TRANSACTION_ID,
 		"type": LAST_TRANSACTION_TRANSACTION_TYPE,
 		"timestamp": LAST_TRANSACTION_TIMESTAMP,
-		"senderId": LAST_TRANSACTION_SENDER
+		"senderId": LAST_TRANSACTION_SENDER, 
 		"recipientId": LAST_TRANSACTION_RECIPIENT,
 		"amount": LAST_TRANSACTION_AMOUNT,
-		"asset": LAST_TRANSACTION_ASSET
-		"participants": [//ARRAY WITH PARTICIPIANTS IN THIS DIALOG
-                  {  
-                 			"address": "ADRESS_1",
-                 			"publicKey": "PUBLIC_KEY_1"
-                 	}, {
-                  		"address": "ADDRESS_2",
-                   		"publicKey": "PUBLIC_KEY_2"
-                  }
-    ]
-	}
+		"asset": LAST_TRANSACTION_ASSET,
+	},
+	"participants": [ 
+		{
+			"address": "ADRESS_1",
+			"publicKey": "PUBLIC_KEY_1"
+		}, {
+			"address": "ADDRESS_2",
+			"publicKey": "PUBLIC_KEY_2"
+		}, {...}
+	]
+}
 ```
+
+//ARRAY WITH PARTICIPIANTS IN THIS DIALOG
 
 Available arguments:
 
