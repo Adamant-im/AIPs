@@ -56,7 +56,7 @@ Below shown structure of `message` object:
 ````
 
 Object's fields as described:
-- `type` represents token's network and looks like `tickersymbol_transaction`, e.g., `ETH_transaction`. Mandatory.
+- `type` represents token's network and looks like `tickerSymbol_transaction`, e.g., `ETH_transaction`. Mandatory.
 - `amount` — transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
 - `comments` — optional, and may include comment for this transfer, shown to both recepient and sender.
 - `hash` — transaction id in token's network. Used to check transaction status. Mandatory.
