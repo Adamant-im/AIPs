@@ -53,11 +53,10 @@ Below shown structure of `message` object:
 
 Object's fields as described:
 - `type` represents token's network and looks like `ticker_transaction`, e.g., `ETH_transaction`. Mandatory.
--  `amount` is transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
-
-
-Optional field `text_fallback` can be added to show explanation text messages on clients that doesn't support this Message Type. 
-
+- `amount` is transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
+- `comments` is optional, and may include comment for this transfer, shown to both recepient and sender.
+- `hash` is transaction id in token's network. Used to check transaction status. Mandatory.
+- `text_fallback` can be added to show explanation text messages on client apps that doesn't support specified `type`. 
 
 ### Examples
 
