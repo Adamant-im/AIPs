@@ -1,7 +1,7 @@
 ---
 aip: 14
 title: Chatrooms API 
-author: Dmitriy Soloduhin (@zyuhel), Sergey Ushakov (@sergushakov)
+author: Dmitriy Soloduhin (@zyuhel), Sergey Ushakov (@sergushakov), Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/14
 status: Draft
 type: Standards
@@ -31,7 +31,7 @@ Let user address is U000000000000 and he communicate with U000000000001. To get 
 
 API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` structures:
 
-```json
+```
 "chats": [{
 	"lastTransaction": {
 		"id": TX_ID,
@@ -74,7 +74,7 @@ Available arguments:
 * `withoutPayments` — should be added, if transfer type `0` should not be returned
 
 ## Examples
-```json
+```
 {
 	"success": true,
 	"nodeTimestamp": 46531132,
@@ -114,7 +114,7 @@ Available arguments:
 
 Result of `api/chatrooms/U7972131227889954319` request.
 
-```json
+```
 
 {
 	"success": true,
@@ -163,15 +163,11 @@ Result of `api/chatrooms/U7972131227889954319/U15677078342684640219` request.
 
 ## Rationale
 <!--The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.-->
-Chat clients need to get chats list faster, it will help to start messaging faster. Also to start using chats, clients need to get public keys of all participants, so to minimize number of request, it is better to return public key with chat lists. 
-And because token transfers shown in some clients, for them to get benefits of using new API, withTransfers key was added
-
+Messenger clients need to get chats faster. As clients need to know public keys of all chats participants, it is rational to return them in requests.  Token transfers may be hidden in some clients, so `withoutPayments` parameter added. `offset` and `limit` parameters allows to fetch data by parts and make client apps even faster.
 
 ## Backwards Compatibility
 <!--All AIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The AIP must explain how the author proposes to deal with these incompatibilities. AIP submissions without a sufficient backwards compatibility treatise may be rejected outright.-->
-This API improvement will add new API endpoint, and won't change backward compatibility for any previous clients.
-
-
+This improvement adds new API endpoint, and won't change backward compatibility for any previous clients.
 
 ## Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
