@@ -60,7 +60,7 @@ API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` 
 ]
 ```
 
-Format types and fields described in [AIP-10: General transaction structure for API calls](https://aips.adamant.im/AIPS/aip-10#specification). Array `participants` includes both sender's and recepient's addresses and public keys for chat dialog. Object `lastTransaction` contains ifromation about last transaction with specific participant, including `asset` data.
+Format types and fields described in [AIP-10: General transaction structure for API calls](https://aips.adamant.im/AIPS/aip-10#specification). Array `participants` includes both sender's and recepient's addresses and public keys for chat dialog. Object `lastTransaction` contains information about last transaction with specific participant, including `asset` data.
 
 Along with `chats` array, endpoint returns `count` of chats integer value.
 
