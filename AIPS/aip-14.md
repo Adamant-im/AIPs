@@ -34,26 +34,36 @@ API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` 
 ```
 "chats": [{
 	"lastTransaction": {
-		"id": LAST_TRANSACTION_ID,
-		"type": LAST_TRANSACTION_TRANSACTION_TYPE,
-		"timestamp": LAST_TRANSACTION_TIMESTAMP,
-		"senderId": LAST_TRANSACTION_SENDER, 
-		"recipientId": LAST_TRANSACTION_RECIPIENT,
-		"amount": LAST_TRANSACTION_AMOUNT,
-		"asset": LAST_TRANSACTION_ASSET,
+		"id": TX_ID,
+		"type": TX_TYPE,
+		"timestamp": ADAMANT_TIMESTAMP,
+		"senderId": ADAMANT_ID, 
+		"recipientId": ADAMANT_ID,
+		"amount": AMOUNT,
+		"asset": JSON_OBJECT,
 	},
 	"participants": [ 
 		{
-			"address": "ADRESS_1",
-			"publicKey": "PUBLIC_KEY_1"
+			"address": "ADAMANT_ID",
+			"publicKey": "PUBLIC_KEY"
 		}, {
-			"address": "ADDRESS_2",
-			"publicKey": "PUBLIC_KEY_2"
+			"address": "ADAMANT_ID",
+			"publicKey": "PUBLIC_KEY"
 		}, {...}
 	]
 }, {...}
 ]
 ```
+
+Format types descriptions:
+- `TX_ID` — reversed first 8 bytes of SHA256 hash of transaction data and signature as integer
+- `TX_TYPE` — integer representing [transaction type](https://aips.adamant.im/AIPS/aip-10#transaction-types)
+- `ADAMANT_ID` — ADAMANT address starting with `U`, string
+- `ADAMANT_TIMESTAMP` — 32 bit integer epoch timestamp (in seconds starting from Sep 02 2017 17:00:00 GMT+0000)
+- `AMOUNT` — tokens quantity in 64 bit integer, 8 decimal points (100000000 equals to 1 ADM)
+- `PUBLIC_KEY` — 256 bit public key in hex, string
+- `SIGNATURE` — ed25519 signature of SHA256 hash of transaction data in hex, string
+- `BLOCK_ID` — reversed first 8 bytes of SHA256 hash of signed block header
 
 //ARRAY WITH PARTICIPIANTS IN THIS DIALOG
 
