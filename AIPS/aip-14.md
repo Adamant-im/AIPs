@@ -31,7 +31,7 @@ Let user address is U000000000000 and he communicate with U000000000001. To get 
 
 API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` structures:
 
-```
+```json
 "chats": [{
 	"lastTransaction": {
 		"id": TX_ID,
@@ -60,28 +60,18 @@ API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` 
 ]
 ```
 
-Format types and fields described in [AIP-10: General transaction structure for API calls](https://aips.adamant.im/AIPS/aip-10#specification). Array `participants` includes both sender's and recepient's addresses and public keys for chat dialog.
+Format types and fields described in [AIP-10: General transaction structure for API calls](https://aips.adamant.im/AIPS/aip-10#specification). Array `participants` includes both sender's and recepient's addresses and public keys for chat dialog. Object `lastTransaction` contains ifromation about last transaction with specific participant, including `asset` data.
 
 Along with `chats` array, endpoint returns `count` of chats integer value.
 
+List of all transactions in chat with specific recipient `/api/chatrooms/U000000000000/U000000000001` is returned in `messages` response field.
 
 Available arguments:
 
-* `orderBy` - order by field, same as in transaction list API, by default = timestamp:desc&
-* `offset` - offset, same as in transaction list API, by default = 0
-* `limit` - limit field
-* `withPayments` - should be added, if token transfer transaction should be returned
-
-
-
-For specific dialog, list of all transactions in the chat should be returned in `messages` response field. Public keys and address of all participants should be available in `participants` response field. 
-
-Available arguments:
-
-* `orderBy` - order by field, same as in transaction list API, by default = timestamp:desc&
-* `offset` - offset, same as in transaction list API, by default = 0
-* `limit` - limit field
-* `withPayments` - should be added, if token transfer transaction should be returned
+* `orderBy` — order by field, same as in [transactions list API](https://github.com/Adamant-im/adamant-console/wiki/Available-Commands#transactions), default is `timestamp:desc&`
+* `offset` — offset, same as in transactions list API, default is `0`
+* `limit` — limit field, same as in transactions list API, default `HUI_HUI`
+* `withoutPayments` — should be added, if transfer type `0` should not be returned
 
 ## Examples
 ```json
@@ -126,7 +116,49 @@ Result of `api/chatrooms/U7972131227889954319` request.
 
 ```json
 
+{
+	"success": true,
+	"nodeTimestamp": 46534772,
+	"messages": [{
+		"id": "10194689778297980241",
+		"height": 840833,
+		"blockId": "18442279251222439707",
+		"type": 8,
+		"timestamp": 11049579,
+		"senderPublicKey": "d2885bc8d4aa68f0f4c919077c1edcb9c9020a715f20cb6db7578cd6f68055bb",
+		"requesterPublicKey": null,
+		"senderId": "U7972131227889954319",
+		"recipientId": "U15677078342684640219",
+		"recipientPublicKey": "e16e624fd0a5123294b448c21f30a07a0435533c693b146b14e66830e4e20404",
+		"amount": 0,
+		"fee": 500000,
+		"signature": "0e5651909e77adb0bef384884e1f09c006b9403c1c9abeb36832df5c1fedeca6b5f2771bf84b273d27580e440acd823e6fbb3d2a55bf033512adc25711832501",
+		"signSignature": null,
+		"signatures": [],
+		"confirmations": null,
+		"stored_value": null,
+		"stored_key": null,
+		"asset": {
+			"chat": {
+				"message": "579636a8943c5f766e3bbbfaf75528d8a9e9b89878c0551c7f887f35c51034f32ba8bad35495e3f2c95af977c9b08d7b86c160c97456d1e426",
+				"own_message": "a13976c2635255df4d96ad412f60630478e146b9d6fe82db",
+				"type": 0
+			}
+		}
+	}, {...}
+	],
+	"participants": [{
+		"address": "U7972131227889954319",
+		"publicKey": "d2885bc8d4aa68f0f4c919077c1edcb9c9020a715f20cb6db7578cd6f68055bb"
+	}, {
+		"address": "U15677078342684640219",
+		"publicKey": "e16e624fd0a5123294b448c21f30a07a0435533c693b146b14e66830e4e20404"
+	}],
+	"count": "341"
+}	
 ```
+
+Result of `api/chatrooms/U7972131227889954319/U15677078342684640219` request.
 
 
 ## Rationale
