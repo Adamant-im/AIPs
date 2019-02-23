@@ -37,9 +37,14 @@ API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` 
 		"id": TX_ID,
 		"type": TX_TYPE,
 		"timestamp": ADAMANT_TIMESTAMP,
+		"senderPublicKey": PUBLIC_KEY,
 		"senderId": ADAMANT_ID, 
 		"recipientId": ADAMANT_ID,
+		"recipientPublicKey": PUBLIC_KEY,
 		"amount": AMOUNT,
+		"fee": AMOUNT,
+		"signatures": [array of SIGNATURE],
+  		"confirmations": UNSIGNED INTEGER,
 		"asset": JSON_OBJECT,
 	},
 	"participants": [ 
@@ -63,7 +68,6 @@ Format types descriptions:
 - `AMOUNT` — tokens quantity in 64 bit integer, 8 decimal points (100000000 equals to 1 ADM)
 - `PUBLIC_KEY` — 256 bit public key in hex, string
 - `SIGNATURE` — ed25519 signature of SHA256 hash of transaction data in hex, string
-- `BLOCK_ID` — reversed first 8 bytes of SHA256 hash of signed block header
 
 //ARRAY WITH PARTICIPIANTS IN THIS DIALOG
 
