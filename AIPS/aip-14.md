@@ -60,16 +60,10 @@ API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` 
 ]
 ```
 
-Format types descriptions:
-- `TX_ID` — reversed first 8 bytes of SHA256 hash of transaction data and signature as integer
-- `TX_TYPE` — integer representing [transaction type](https://aips.adamant.im/AIPS/aip-10#transaction-types)
-- `ADAMANT_ID` — ADAMANT address starting with `U`, string
-- `ADAMANT_TIMESTAMP` — 32 bit integer epoch timestamp (in seconds starting from Sep 02 2017 17:00:00 GMT+0000)
-- `AMOUNT` — tokens quantity in 64 bit integer, 8 decimal points (100000000 equals to 1 ADM)
-- `PUBLIC_KEY` — 256 bit public key in hex, string
-- `SIGNATURE` — ed25519 signature of SHA256 hash of transaction data in hex, string
+Format types and fields described in [AIP-10: General transaction structure for API calls](https://aips.adamant.im/AIPS/aip-10#specification). Array `participants` includes both sender's and recepient's addresses and public keys for chat dialog.
 
-//ARRAY WITH PARTICIPIANTS IN THIS DIALOG
+Along with `chats` array, endpoint returns `count` of chats integer value.
+
 
 Available arguments:
 
@@ -88,6 +82,51 @@ Available arguments:
 * `offset` - offset, same as in transaction list API, by default = 0
 * `limit` - limit field
 * `withPayments` - should be added, if token transfer transaction should be returned
+
+## Examples
+```json
+{
+	"success": true,
+	"nodeTimestamp": 46531132,
+	"chats": [{
+		"id": "7452709338464950789",
+		"type": 8,
+		"timestamp": 25726425,
+		"senderPublicKey": "ce67b26e33391dd88ea2bc0173256b9c68a038888fc3de5b8b9887581ddd3239",
+		"senderId": "U10879844458425463425",
+		"recipientId": "U7972131227889954319",
+		"recipientPublicKey": "d2885bc8d4aa68f0f4c919077c1edcb9c9020a715f20cb6db7578cd6f68055bb",
+		"amount": 0,
+		"fee": 100000,
+		"signatures": [],
+		"confirmations": null,
+		"stored_value": null,
+		"stored_key": null,
+		"asset": {
+			"chat": {
+				"message": "7b1e6e21f1f8e4be646133d5814b2ca5c60c0a9bac",
+				"own_message": "2a6b950be00ac83d289853251491486d0d403c81e5ce1213",
+				"type": 1
+			}
+		},
+		"participants": [{
+			"address": "U10879844458425463425",
+			"publicKey": "ce67b26e33391dd88ea2bc0173256b9c68a038888fc3de5b8b9887581ddd3239"
+		}, {
+			"address": "U7972131227889954319",
+			"publicKey": "d2885bc8d4aa68f0f4c919077c1edcb9c9020a715f20cb6db7578cd6f68055bb"
+		}]
+	}, {...}
+	],
+	"count": "63"
+}
+```
+
+Result of `api/chatrooms/U7972131227889954319` request.
+
+```json
+
+```
 
 
 ## Rationale
