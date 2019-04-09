@@ -36,6 +36,7 @@ API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` 
 	"lastTransaction": {
 		"id": TX_ID,
 		"type": TX_TYPE,
+		"height": TX_HEIGHT,
 		"timestamp": ADAMANT_TIMESTAMP,
 		"senderPublicKey": PUBLIC_KEY,
 		"senderId": ADAMANT_ID, 
