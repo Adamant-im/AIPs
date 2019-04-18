@@ -76,7 +76,7 @@ Here are reserved types of transactions:
 - `2` is for delegate registration
 - `3` is for voting 
 - `4` is for multisignature
-- `8` is for messaging
+- `8` is for messaging (including Rich content) and In-Chat token transfers
 - `9` is for storing data (KVS)
 
 ### Examples
