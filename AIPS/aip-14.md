@@ -3,7 +3,7 @@ aip: 14
 title: Chatrooms API 
 author: Dmitriy Soloduhin (@zyuhel), Sergey Ushakov (@sergushakov), Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/14
-status: Draft
+status: Accepted
 type: Standards
 category: API
 created: 2019-01-21
