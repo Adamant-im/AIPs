@@ -49,7 +49,7 @@ Below shown structure of `message` object:
 {
 	type: String
 	text_fallback: String
-	amount: String
+	amount: Float
 	comments: String
 	hash: String
 }
@@ -57,7 +57,7 @@ Below shown structure of `message` object:
 
 Object's fields as described:
 - `type` represents token's network and looks like `tickerSymbol_transaction`, e.g., `ETH_transaction`. Mandatory.
-- `amount` — transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
+- `amount` — transferred value in tokens of its network, number. Mandatory.
 - `comments` — optional, and may include comment for this transfer, shown to both recepient and sender.
 - `hash` — transaction id in token's network. Used to check transaction status. Mandatory.
 - `text_fallback` can be added to show explanation text messages on client apps that doesn't support specified `type`. 
