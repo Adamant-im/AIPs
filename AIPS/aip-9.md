@@ -26,28 +26,24 @@ Propose parameters to include in URI actions and their parameters. Standartise Q
 ## Specification
 
 URI can contain optional `parameters`:
-- `label` is a contact name. If address has no name in KVS address book yet, app should name it.
-- `action` is action that supposed to perform
+- `label` is a contact name as in [AIP-2](https://aips.adamant.im/AIPS/aip-2). If address has no name in KVS address book yet, app should name it.
 - `amount` is amount in ADM to send
 - `message` is a message which supposed to be sent to contact (or as a comment for a transfer)
 
-Supposed `action` values:
-- `send_tokens` for sending tokens to address. Should open Send tokens screen. If dialog with address exists, app should send In-Chat. 
-- `send_message` for sending message to address. Should open or create chat with address.
-
-It is up to application how to process actions and it depends when user retrieves URL in the app. F. e., in Send tokens window, it can parse only `amount` and `message` values.
+It is up to application how to process parameters, it depends when user retrieves URL in the app. F. e., in In-Chat Send tokens screen, it can parse `amount` and `message` values.
 
 ### Examples
 
 ```
-adm:U9821606738809290000?label=John+Doe&action=send_message&message=Just+say+hello
+adm:U9821606738809290000?label=John+Doe&message=Just+say+hello
 ```
-Suppose user app open chat window with U9821606738809290000, name him as "John Doe" if he is not named yet, and put message "Just say hello" to input field ready to send. 
+App adds chat with U9821606738809290000, name him as "John Doe" if he is not named yet, and put message "Just say hello" to input field ready to send. 
 
 ```
-adm:U9821606738809290000?label=John+Doe&action=send_tokens&amount=1.12&message=For+beer
+adm:U9821606738809290000?label=John+Doe&amount=1.12&message=Buy+a+beer
 ```
-Opens Send tokens screen to U9821606738809290000 with amount of 1.12 ADM and comment "For beer". 
+If user read this string from QR in Send Tokens screen, app fills `to` field with U9821606738809290000, `amount` with 1.12 ADM, and `comment` with "Buy a beer". 
+If app processes this string that received from outside, it adds chat with U9821606738809290000, name him as "John Doe" if he is not named yet, and put message "Buy a beer". 
 
 ## Rationale
 <!--The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.-->
