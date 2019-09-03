@@ -92,7 +92,7 @@ This transaction write public Ether address for U11977883563659338220.
       "value":"{
         \"message\": \"6df8c172feef228d930130...\",
         \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
-        "type": 0}
+      "type": 0}
     },
   "timestamp": 45603645,
   "signature": "dbafce549f1..."}
