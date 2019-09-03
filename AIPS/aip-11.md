@@ -48,7 +48,7 @@ Client app should process received KVS records in reasonable way.
       "value":"{
         \"message\": \"6df8c172feef228d930130...\",
         \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
-        "type": 0}
+      "type": 0}
     },
   "timestamp": 45603645,
   "signature": "dbafce549f1..."}
@@ -70,7 +70,7 @@ Sends private (encrypted) full contact list for U15677078342684640219.
       "value":"{
         \"message\": \"6df8c172feef228d930130...\",
         \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
-        "type": 1}
+      "type": 1}
     },
   "timestamp": 45603645,
   "signature": "dbafce549f1..."}
