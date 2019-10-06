@@ -4,7 +4,7 @@ title: URI Format for ADAMANT
 author: Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/16
 extends: https://aips.adamant.im/AIPS/aip-2
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2019-02-12
