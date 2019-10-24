@@ -27,7 +27,7 @@ Chatrooms will make messenger apps faster.
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
 New endpoint `/api/chatrooms` should be added to ADAMANT node. It uses REST notation. 
 
-Let user address is U000000000000 and he communicate with U000000000001. To get user's U000000000000 chats, GET request to `/api/chatrooms/U000000000000` should be sent. To get chat between U000000000000 and U000000000001, GET request to `/api/chatrooms/U000000000000/U000000000001` should be sent.
+Let user address is U000000000000 and he communicate with U000000000001. To get user's U000000000000 chats, GET request to `/api/chatrooms/U000000000000` should be sent. To get chat messages between U000000000000 and U000000000001, GET request to `/api/chatrooms/U000000000000/U000000000001` should be sent.
 
 API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` structures:
 
@@ -63,9 +63,9 @@ API endpoint for `/api/chatrooms/U000000000000` returns list of general `chats` 
 
 Format types and fields described in [AIP-10: General transaction structure for API calls](https://aips.adamant.im/AIPS/aip-10#specification). Array `participants` includes both sender's and recepient's addresses and public keys for chat dialog. Object `lastTransaction` contains information about last transaction with specific participant, including `asset` data.
 
-Along with `chats` array, endpoint returns `count` of chats integer value.
-
 List of all transactions in chat with specific recipient `/api/chatrooms/U000000000000/U000000000001` is returned in `messages` response field.
+
+Along with `chats` array, endpoint returns `count` of chats or messages integer value. `count` is independant from `limit` argument, always returning total count.
 
 Available arguments:
 
