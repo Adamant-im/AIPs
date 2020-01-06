@@ -3,7 +3,7 @@ aip: 15
 title: QR codes for ADAMANT addresses
 author: Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/33
-status: Draft
+status: Accepted
 requires: 8, 9
 type: Standards
 category: ARC
