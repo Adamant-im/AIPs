@@ -3,8 +3,9 @@ aip: 1
 title: AIP Purpose and Guidelines
 status: Active
 type: Meta
-author: Dmitriy Soloduhin <devs@adamant.im>
+author: Dmitriy Soloduhin, Aleksei Lebedev <devs@adamant.im>
 created: 2018-05-01
+updated: 2021-11-02
 ---
 
 What is an AIP?
@@ -17,7 +18,7 @@ AIP Rationale
 
 We intend AIPs to be the primary mechanisms for proposing new features, for collecting community input on an issue, and for documenting the design decisions that have gone into live network. Because the AIPs are maintained as text files in a versioned repository, their revision history is the historical record of the feature proposal.
 
-Also AIPs help with bringing multiple implementation of ADAMANT Messengers to come to common standart with communication and storing data in blockchain.
+Also AIPs help with bringing multiple implementation of ADAMANT Messengers to come to common standard with communication and storing data in blockchain.
 
 For ADAMANT implementers, AIPs are a convenient way to track the progress of their implementation. Ideally each implementation maintainer would list the AIPs that they have implemented. This will give end users a convenient way to know the current status of a given implementation or library.
 
@@ -26,14 +27,13 @@ AIP Types
 
 There are three types of AIP:
 
--   A **Standard AIP** describes any change that affects most or all ADAMANT implementations, such as a change to the the network protocol, a change in block or transaction validity rules, proposed application standards/conventions, or any change or addition that affects the interoperability of applications using ADAMANT. Furthermore Standard AIPs can be broken down into the following categories.
-    -   **Core**: improvements affecting node features. 
-    -   **Networking**: includes improvements around network itself and cross-node communications.
-    -   **API**: includes improvements around client API/RPC specifications and standards, and also certain language-level standards. 
-    -   **ARC**: (ADAMANT Request for Comments) application-level standards and conventions, including standards such URI schemes, library/package formats, naming restrictions and wallet formats.
-
--   An **Informational AIP** describes an ADAMANT design issue, or provides general guidelines or information to the community, but does not propose a new feature. Informational AIPs do not necessarily represent  community consensus or a recommendation, so users and implementers are free to ignore Informational AIPs or follow their advice.
--   A **Meta AIP** describes a process surrounding ADAMANT or proposes a change to (or an event in) a process. Meta AIPs focus mostly on social mechanisms and processes, not on tecnical implementation. Technical implementation for Meta AIPs can be made in Standart AIPs.
+- A **Standard AIP** describes any change that affects most or all ADAMANT implementations, such as a change to the the network protocol, a change in block or transaction validity rules, proposed application standards/conventions, or any change or addition that affects the interoperability of applications using ADAMANT. Furthermore Standard AIPs can be broken down into the following categories.
+  - **Core**: improvements affecting node features.
+  - **Networking**: includes improvements around network itself and cross-node communications.
+  - **API**: includes improvements around client API/RPC specifications and standards, and also certain language-level standards.
+  - **ARC**: (ADAMANT Request for Comments) application-level standards and conventions, including standards such URI schemes, library/package formats, naming restrictions and wallet formats.
+- An **Informational AIP** describes an ADAMANT design issue, or provides general guidelines or information to the community, but does not propose a new feature. Informational AIPs do not necessarily represent  community consensus or a recommendation, so users and implementers are free to ignore Informational AIPs or follow their advice.
+- A **Meta AIP** describes a process surrounding ADAMANT or proposes a change to (or an event in) a process. Meta AIPs focus mostly on social mechanisms and processes, not on technical implementation. Technical implementation for Meta AIPs can be made in Standard AIPs.
 
 AIP Work Flow
 -------------
@@ -75,42 +75,42 @@ What belongs in a successful AIP?
 
 Each AIP should have the following parts:
 
--   Preamble—RFC 822 style headers containing metadata about the AIP, including the AIP number, a short descriptive title (limited to a maximum of 44 characters), and the author details. See [below](#Aip-header-preamble) for details.
+- Preamble—RFC 822 style headers containing metadata about the AIP, including the AIP number, a short descriptive title (limited to a maximum of 44 characters), and the author details. See [below](#Aip-header-preamble) for details.
 <!-- -->
 
--   Simple Summary—“If you can’t explain it simply, you don’t understand it well enough.” Provide a simplified and layman-accessible explanation of the AIP.
-
-<!-- -->
-
--   Abstract—a short (~200 word) description of the technical issue being addressed.
+- Simple Summary—“If you can’t explain it simply, you don’t understand it well enough.” Provide a simplified and layman-accessible explanation of the AIP.
 
 <!-- -->
 
--   Motivation (*optional)—The motivation is critical for AIPs that want to change the ADAMANT protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.
+- Abstract—a short (~200 word) description of the technical issue being addressed.
 
 <!-- -->
 
--   Specification—The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.
+- Motivation (*optional)—The motivation is critical for AIPs that want to change the ADAMANT protocol. It should clearly explain why the existing protocol specification is inadequate to address the problem that the AIP solves. AIP submissions without sufficient motivation may be rejected outright.
 
 <!-- -->
 
--   Rationale—The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.
+- Specification—The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.
 
 <!-- -->
 
--   Backwards Compatibility—All AIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The AIP must explain how the author proposes to deal with these incompatibilities. AIP submissions without a sufficient backwards compatibility treatise may be rejected outright.
+- Rationale—The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages. The rationale may also provide evidence of consensus within the community, and should discuss important objections or concerns raised during discussion.
 
 <!-- -->
 
--   Test Cases—Test cases for an implementation are mandatory for AIPs that are affecting consensus changes. Other AIPs can choose to include links to test cases if applicable.
+- Backwards Compatibility—All AIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The AIP must explain how the author proposes to deal with these incompatibilities. AIP submissions without a sufficient backwards compatibility treatise may be rejected outright.
 
 <!-- -->
 
--   Implementations—The implementations must be completed before any AIP is given status “Final”, but it need not be completed before the AIP is accepted. While there is merit to the approach of reaching consensus on the specification and rationale before writing code, the principle of “rough consensus and running code” is still useful when it comes to resolving many discussions of API details.
+- Test Cases—Test cases for an implementation are mandatory for AIPs that are affecting consensus changes. Other AIPs can choose to include links to test cases if applicable.
 
 <!-- -->
 
--   Copyright Waiver—All AIPs must be in the public domain. See the bottom of this AIP for an example copyright waiver.
+- Implementations—The implementations must be completed before any AIP is given status “Final”, but it need not be completed before the AIP is accepted. While there is merit to the approach of reaching consensus on the specification and rationale before writing code, the principle of “rough consensus and running code” is still useful when it comes to resolving many discussions of API details.
+
+<!-- -->
+
+- Copyright Waiver—All AIPs must be in the public domain. See the bottom of this AIP for an example copyright waiver.
 
 AIP Formats and Templates
 -------------------------
@@ -131,13 +131,15 @@ Each AIP must begin with an RFC 822 style header preamble, preceded and followed
 
 ` discussions-to `* : < url >
 
-` status` : < Draft / Active / Accepted / Deferred / Rejected / Withdrawn / Final / Replaced >
+` status ` : < Draft / Active / Accepted / Deferred / Rejected / Withdrawn / Final / Replaced >
 
 ` type ` : < Standard (Core, Networking, Interface, API, ARC) / Informational / Meta >
 
 ` category `* : < Core / Networking / Interface / API / ARC >
 
 ` created ` : < date created on, in ISO 8601 (yyyy-mm-dd) format >
+
+` updated ` : < date updated on, in ISO 8601 (yyyy-mm-dd) format >
 
 ` requires `* : < AIP number(s) >
 
@@ -148,6 +150,7 @@ Each AIP must begin with an RFC 822 style header preamble, preceded and followed
 ` resolution `* : < url >
 
 #### Author header
+
 The author header optionally lists the names, email addresses or usernames of the authors/owners of the AIP. Those who prefer anonymity may use a username only, or a first name and a username. The format of the author header value must be:
 
 Random J. User &lt;address@doma.in&gt;
@@ -183,42 +186,39 @@ Auxiliary Files
 
 AIPs may include auxiliary files such as diagrams. Such files must be named AIP-XXXX-Y.ext, where “XXXX” is the AIP number, “Y” is a serial number (starting at 1), and “ext” is replaced by the actual file extension (e.g. “png”).
 
-
 AIP Editors
 -----------
 
 The current AIP editors are
 
-` * Dmitriy Soloduhin (@zyuhel)`
+`* Dmitriy Soloduhin (@zyuhel)`
 
-` * Alexey Lebedev (@adamant-al)`
+`* Alexey Lebedev (@adamant-al)`
 
-` * Alexander Kiselev (@MaaKut)`
-
-
+`* Alexander Kiselev (@MaaKut)`
 
 AIP Editor Responsibilities and Workflow
 --------------------------------------
 
 For each new AIP that comes in, an editor does the following:
 
--   Read the AIP to check if it is ready: sound and complete. The ideas must make technical sense, even if they don't seem likely to be accepted.
--   The title should accurately describe the content.
--   Check the AIP for language (spelling, grammar, sentence structure, etc.), markup (Github flavored Markdown), code style
+- Read the AIP to check if it is ready: sound and complete. The ideas must make technical sense, even if they don't seem likely to be accepted.
+- The title should accurately describe the content.
+- Check the AIP for language (spelling, grammar, sentence structure, etc.), markup (Github flavored Markdown), code style
 
 If the AIP isn't ready, the editor will send it back to the author for revision, with specific instructions.
 
 Once the AIP is ready for the repository, the AIP editor will:
 
--   Assign an AIP number (generally the PR number or, if preferred by the author, the Issue # if there was discussion in the Issues section of this repository about this AIP)
+- Assign an AIP number (generally the PR number or, if preferred by the author, the Issue # if there was discussion in the Issues section of this repository about this AIP)
 
 <!-- -->
 
--   Accept the corresponding pull request
+- Accept the corresponding pull request
 
 <!-- -->
 
--   Send a message back to the AIP author with the next step.
+- Send a message back to the AIP author with the next step.
 
 Many AIPs are written and maintained by developers with write access to the Ethereum codebase. The AIP editors monitor AIP changes, and correct any structure, grammar, spelling, or markup mistakes we see.
 
@@ -234,12 +234,12 @@ See [the revision history for further details](https://github.com/Adamant-im/AIP
 Bibliography
 ------------
 
-- [pull request]: https://github.com/Adamant-im/AIPs/pulls
-- [the Issues section of this repository]: https://github.com/Adamant-im/AIPs/issues
-- [markdown]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-- [Ethereum's EIP-1]: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1.md
-- [Bitcoin's BIP-0001]: https://github.com/bitcoin/bips
-- [Python's PEP-0001]: https://www.python.org/dev/peps/
+- [pull request](https://github.com/Adamant-im/AIPs/pulls)
+- [the Issues section of this repository](https://github.com/Adamant-im/AIPs/issues)
+- [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [Ethereum's EIP-1](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1.md)
+- [Bitcoin's BIP-0001](https://github.com/bitcoin/bips)
+- [Python's PEP-0001](https://www.python.org/dev/peps/)
 
 Copyright
 ---------
