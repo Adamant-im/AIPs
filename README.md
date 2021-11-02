@@ -1,7 +1,8 @@
 # AIPs
+
 ADAMANT Improvement Proposal (AIPs) repository describe standards for the ADAMANT Messenger platform, including core protocol specifications and client APIs.
 
-# Contributing
+## Contributing
 
  1. Review [AIP-1](AIPS/aip-1.md).
  2. Fork the repository by clicking "Fork" in the top right.
