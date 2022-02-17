@@ -12,11 +12,12 @@ created: 2019-02-20
 ---
 
 ## Simple Summary
+
 Describes behaviour for transferring different tokens in chats.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-Transferring external (non-ADM) tokens in chats is possible due to [public storage of wallet addresses in blockcahin, AIP 13](https://aips.adamant.im/AIPS/aip-13). 
+Transferring external (non-ADM) tokens in chats is possible due to [public storage of wallet addresses in blockcahin, AIP 13](https://aips.adamant.im/AIPS/aip-13).
 
 As such transactions actually goes through own tokens' networks, special ADM messages needed to show them in chats.
 
@@ -27,11 +28,13 @@ To make sure all ADAMANT Messenger apps process in-chats crypto transfers same w
 ## Specification
 
 General way of making in-chat transfer:
+
 - Send ADM rich message describing this transaction according to [AIP-5](https://aips.adamant.im/AIPS/aip-5). See syntax below.
 - Send external token transaction in its own network
 - Watch for external token transaction in its own network and update its status
 
 Clients must support four types of transactions statuses both of incoming and outgoing transfers until final status reached:
+
 - `Pending` — transaction is not confirmed yet
 - `Confirmed` — transaction is confirmed on token's network. Final status.
 - `Cancelled` — transaction is cancelled or not accepted on token's network. Final status.
@@ -47,36 +50,37 @@ Below shown structure of `message` object:
 
 ````
 {
-	type: String
-	text_fallback: String
-	amount: String
-	comments: String
-	hash: String
+  type: String
+  text_fallback: String
+  amount: String
+  comments: String
+  hash: String
 }
 ````
 
 Object's fields as described:
+
 - `type` represents token's network and looks like `tickerSymbol_transaction`, e.g., `ETH_transaction`. Mandatory.
 - `amount` — transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
 - `comments` — optional, and may include comment for this transfer, shown to both recepient and sender.
 - `hash` — transaction id in token's network. Used to check transaction status. Mandatory.
-- `text_fallback` can be added to show explanation text messages on client apps that doesn't support specified `type`. 
+- `text_fallback` can be added to show explanation text messages on client apps that doesn't support specified `type`.
 
 ### Examples
 
 ````
 {
-	type: "ETH_transaction"
-	text_fallback: "OPTIONAL_FALLBACK_FOR_CLIENTS_NOT_SUPPORTING_THIS_MESSAGE_TYPE"
-	amount: "0.002"
-	comments: "I like to send it, send it"
-	hash: "0xfa46d2b3c99878f1f9863fcbdb0bc27d220d7065c6528543cbb83ced84487deb"
+  type: "ETH_transaction"
+  text_fallback: "OPTIONAL_FALLBACK_FOR_CLIENTS_NOT_SUPPORTING_THIS_MESSAGE_TYPE"
+  amount: "0.002"
+  comments: "I like to send it, send it"
+  hash: "0xfa46d2b3c99878f1f9863fcbdb0bc27d220d7065c6528543cbb83ced84487deb"
 }
 ````
 
 Object `message` *before encryption*, sending 0.002 Ethers with comment "I like to send it, send it".
 
-````
+```` json
 {
   "transaction": {
     "type": 8,
@@ -100,7 +104,9 @@ Object `message` *before encryption*, sending 0.002 Ethers with comment "I like 
 Sends Rich message describing In-Chat Ether transfer from U15677078342684640219 to U7972131227889954319.
 
 ## Rationale
-Crypto transfers must be handled in same way between different clients. 
+
+Crypto transfers must be handled in same way between different clients.
 
 ## Copyright
+
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

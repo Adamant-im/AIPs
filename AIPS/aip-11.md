@@ -12,6 +12,7 @@ created: 2019-02-18
 ---
 
 ## Simple Summary
+
 Describes how clients should process stored data for different content, allowing to write and read it faster.
 
 ## Abstract
@@ -22,6 +23,7 @@ As [AIP-3](https://aips.adamant.im/AIPS/aip-3) stands, users save its public and
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
 
 When sending KVS transaction, `type` field of `state` object must be as follows:
+
 - `0` for full re-writing of contents by specified `key` value
 - `1` for incremental appending contents
 
@@ -31,57 +33,60 @@ Nodes API should process KVS properly. Values `type` and `key` are public, so no
 
 Client app should process received KVS records in reasonable way.
 
-
 ### Examples
 
-
-```
-{
-"transaction":{
-  "type": 9,
-  "amount": 0,
-  "senderId": "U15677078342684640219",
-  "senderPublicKey": "e16e624fd0...",
-  "asset":{
-    "state":{
-      "key": "contact_list",
-      "value":"{
-        \"message\": \"6df8c172feef228d930130...\",
-        \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
-      "type": 0}
+``` json
+{ 
+  "transaction": {
+    "type": 9,
+    "amount": 0,
+    "senderId": "U15677078342684640219",
+    "senderPublicKey": "e16e624fd0...",
+    "asset": {
+      "state": {
+        "key": "contact_list",
+        "value":"{
+          \"message\": \"6df8c172feef228d930130...\",
+          \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
+        "type": 0
+      }
     },
-  "timestamp": 45603645,
-  "signature": "dbafce549f1..."}
+    "timestamp": 45603645,
+    "signature": "dbafce549f1..."
+  }
 }
 ```
 
 Sends private (encrypted) full contact list for U15677078342684640219.
 
-```
-{
-"transaction":{
-  "type": 9,
-  "amount": 0,
-  "senderId": "U15677078342684640219",
-  "senderPublicKey": "e16e624fd0...",
-  "asset":{
-    "state":{
-      "key": "contact_list",
-      "value":"{
-        \"message\": \"6df8c172feef228d930130...\",
-        \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
-      "type": 1}
+``` json
+{ 
+  "transaction": {
+    "type": 9,
+    "amount": 0,
+    "senderId": "U15677078342684640219",
+    "senderPublicKey": "e16e624fd0...",
+    "asset": {
+      "state": {
+        "key": "contact_list",
+        "value":"{
+          \"message\": \"6df8c172feef228d930130...\",
+          \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
+        "type": 1
+      }
     },
-  "timestamp": 45603645,
-  "signature": "dbafce549f1..."}
+    "timestamp": 45603645,
+    "signature": "dbafce549f1..."
+  }
 }
 ```
 
 Sends private (encrypted) updated contact records for U15677078342684640219.
 
 ## Rationale
+
 Using `type` of storing and reading KVS offers perfomance upgrade for client apps.
 
 ## Copyright
-Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
 
+Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

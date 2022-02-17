@@ -28,22 +28,23 @@ Public wallet addresses are stored as JSON objects in the ADAMANT KVS as describ
 
 ### Examples
 
-```
+``` json
 {
-"transaction":{
-  "type": 9,
-  "amount": 0,
-  "senderId": "U11977883563659338220",
-  "senderPublicKey":"d2cbc26c2ef6...",
-  "asset":{
-    "state":{
-      "key": "eth:address",
-      "value": "0xf4a2d5997eb0575b7ad7c10b0b178524c336f9e9",
-      "type": 0
+  "transaction": {
+    "type": 9,
+    "amount": 0,
+    "senderId": "U11977883563659338220",
+    "senderPublicKey": "d2cbc26c2ef6...",
+    "asset": {
+      "state": {
+        "key": "eth:address",
+        "value": "0xf4a2d5997eb0575b7ad7c10b0b178524c336f9e9",
+        "type": 0
       }
     },
-  "timestamp": 45603372,
-  "signature": "86cbe525042bf83802..."}
+    "timestamp": 45603372,
+    "signature": "86cbe525042bf83802..."
+  }
 }
 
 ```
@@ -51,4 +52,5 @@ Public wallet addresses are stored as JSON objects in the ADAMANT KVS as describ
 This transaction write public Ether address for U11977883563659338220.
 
 ## Copyright
+
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

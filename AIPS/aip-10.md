@@ -10,6 +10,7 @@ created: 2019-02-12
 ---
 
 ## Simple Summary
+
 Describing general structure of any ADAMANT transaction when communicating with API endpoints.
 
 ## Abstract
@@ -19,12 +20,13 @@ Transaction objects is the only way to write data into ADAMANT blockchain. This 
 
 Transaction objects used when sending data to nodes' endpoints and also returned when quering ADAMANT nodes.
 
-Since Node version [0.4.2](https://github.com/Adamant-im/adamant/releases/tag/v0.4.2) transactions can be sent to unified `/api/transaction` endpoint. 
+Since Node version [0.4.2](https://github.com/Adamant-im/adamant/releases/tag/v0.4.2) transactions can be sent to unified `/api/transaction` endpoint.
 
 ## Specification
 <!--The technical specification should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for different platforms.-->
 
 ADAMANT transaction must comply with JSON scheme:
+
 ```
 {
   "id": TX_ID,
@@ -45,6 +47,7 @@ ADAMANT transaction must comply with JSON scheme:
 ```
 
 Format types descriptions:
+
 - `ADAMANT_ID` — ADAMANT address starting with `U`, string
 - `ADAMANT_TIMESTAMP` — 32 bit integer epoch timestamp (in seconds starting from Sep 02 2017 17:00:00 GMT+0000)
 - `AMOUNT` — tokens quantity in 64 bit integer, 8 decimal points (100000000 equals to 1 ADM)
@@ -55,6 +58,7 @@ Format types descriptions:
 - `TX_TYPE` — integer representing [transaction type](#transaction-types)
 
 Explanation of transaction fields:
+
 - `type` — type of transaction. It says node how to interpret it, see below. Mandatory when posting a transaction to node.
 - `amount` — amount to transfer. For non-transfer transactions must be `0`. Mandatory when posting a transaction to node.
 - `fee` — fee for operation. Depends on `type` of transaction.
@@ -71,57 +75,59 @@ Explanation of transaction fields:
 ### Transaction types
 
 Here are reserved types of transactions:
+
 - `0` is for sending tokens
 - `1` is for second signature
 - `2` is for delegate registration
-- `3` is for voting 
+- `3` is for voting
 - `4` is for multisignature
 - `8` is for messaging (including Rich content) and In-Chat token transfers
 - `9` is for storing data (KVS)
 
 ### Examples
 
-```
+``` json
 {
-"transaction":{
-  "type": 9,
-  "amount": 0,
-  "senderId": "U11977883563659338220",
-  "senderPublicKey": "d2cbc26c2ef6...",
-  "asset":{
-    "state":{
-      "key": "eth:address",
-      "value": "0xf4a2d5997eb0575b7ad7c10b0b178524c336f9e9",
-      "type": 0
+  "transaction": {
+    "type": 9,
+    "amount": 0,
+    "senderId": "U11977883563659338220",
+    "senderPublicKey": "d2cbc26c2ef6...",
+    "asset": {
+      "state": {
+        "key": "eth:address",
+        "value": "0xf4a2d5997eb0575b7ad7c10b0b178524c336f9e9",
+        "type": 0
       }
     },
-  "timestamp": 45603372,
-  "signature": "86cbe525042bf83802..."}
+    "timestamp": 45603372,
+    "signature": "86cbe525042bf83802..."
+  }
 }
 
 ```
 
 This transaction writes public Ether address for U11977883563659338220 in blockchain.
 
-
-``` 
+``` json
 {
-	"id": "2119283124838898701",
-	"height": 1895256,
-	"blockId": "8715847094891653948",
-	"type": 0,
-	"timestamp": 16472909,
-	"senderPublicKey": "cdab95b082b9774bd975677c868261618c7ce7bea97d02e0...",
-	"senderId": "U15423595369615486571",
-	"recipientId": "U11962225491348738609",
-	"amount": 49000000,
-	"fee": 50000000,
-	"signature": "17132c3e62ce2671911e1ca...",
-	"signatures": [],
-	"confirmations": 5895508,
-	"asset": {}
+  "id": "2119283124838898701",
+  "height": 1895256,
+  "blockId": "8715847094891653948",
+  "type": 0,
+  "timestamp": 16472909,
+  "senderPublicKey": "cdab95b082b9774bd975677c868261618c7ce7bea97d02e0...",
+  "senderId": "U15423595369615486571",
+  "recipientId": "U11962225491348738609",
+  "amount": 49000000,
+  "fee": 50000000,
+  "signature": "17132c3e62ce2671911e1ca...",
+  "signatures": [],
+  "confirmations": 5895508,
+  "asset": {}
 }
 ```
+
 Transaction returned by ADAMANT node. Transfer of 0.49 ADM from U15423595369615486571 to U11962225491348738609.
 
 ## Rationale
@@ -129,4 +135,5 @@ Transaction returned by ADAMANT node. Transfer of 0.49 ADM from U154235953696154
 Describing current transaction structure will help to develop alternative ADAMANT clients and nodes.
 
 ## Copyright
+
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

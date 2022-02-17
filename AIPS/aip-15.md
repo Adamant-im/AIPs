@@ -13,6 +13,7 @@ created: 2019-02-20
 <!--You can leave these HTML comments in your merged AIP and delete the visible duplicate text guides, they will not appear and may be helpful to refer to if you edit it again. This is the suggested template for new AIPs. Note that an AIP number will be assigned by an editor. When opening a pull request to submit your AIP, please use an abbreviated title in the filename, `aip-draft_title_abbrev.md`. The title should be 44 characters or less.-->
 
 ## Simple Summary
+
 A standard way of generating ADAMANT QR codes with addresses.
 
 ## Abstract
@@ -35,4 +36,5 @@ QR code design must include informational part (URI) and ADAMANT logo in the cen
 QR data contents: https://msg.adamant.im?address=U9821606738809290000&label=John+Doe&action=send_message&message=Just+say+hello
 
 ## Copyright
+
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

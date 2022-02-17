@@ -28,14 +28,14 @@ The keys of the above JSON are ADAMANT UIDs, values are objects, where aliases a
 
 Example of `value` object for storing Contact list:
 
-```json
+``` json
 {
-    "U9821606738809290000": {
-        "displayName": "John Doe"
-    },
-    "U9821606738809290001": {
-        "displayName": "Jane Doe"
-    }
+  "U9821606738809290000": {
+    "displayName": "John Doe"
+  },
+  "U9821606738809290001": {
+    "displayName": "Jane Doe"
+  }
 }
 ```
 
@@ -45,29 +45,30 @@ Note, that contacts lists may contain sensitive info and, therefore, must be enc
 
 ### Examples
 
-```
+``` json
 {
-    "transaction": {
-         "type": 9,
-         "amount": 0,
-         "senderId": "U15677078342684640219",
-         "senderPublicKey": "e16e624fd0...",
-         "asset": {
-             "state": {
-                 "key": "contact_list",
-                 "value":" {
-                      \"message\": \"6df8c172feef228d930130...\",
-                      \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
-                 "type": 0
-             }
-         },
-         "timestamp": 45603645,
-         "signature": "dbafce549f1..."
-     }
+  "transaction": {
+    "type": 9,
+    "amount": 0,
+    "senderId": "U15677078342684640219",
+    "senderPublicKey": "e16e624fd0...",
+    "asset": {
+      "state": {
+        "key": "contact_list",
+        "value":"{
+          \"message\": \"6df8c172feef228d930130...\",
+          \"nonce\": \"f6c7b76d55db945bb026cd221d5...\"}",
+        "type": 0
+      }
+    },
+    "timestamp": 45603645,
+    "signature": "dbafce549f1..."
+  }
 }
 ```
 
 Sends private (encrypted) contact_list records for U15677078342684640219.
 
 ## Copyright
+
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

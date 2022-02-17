@@ -79,7 +79,7 @@ Available arguments:
 
 Result of `api/chatrooms/U7972131227889954319` request:
 
-```
+``` json
 {
   "success": true,
   "nodeTimestamp": 46531132,
@@ -119,7 +119,7 @@ Result of `api/chatrooms/U7972131227889954319` request:
 
 Result of `api/chatrooms/U7972131227889954319/U15677078342684640219` request:
 
-```
+``` json
 {
   "success": true,
   "nodeTimestamp": 46534772,
