@@ -5,7 +5,7 @@ author: Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/29
 requires: 5
 extends: https://aips.adamant.im/AIPS/aip-5
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2019-02-20

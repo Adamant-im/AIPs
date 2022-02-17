@@ -3,7 +3,7 @@ aip: 10
 title: General transaction structure for API calls
 author: Dmitriy Soloduhin (@zyuhel), Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/21
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2019-02-12

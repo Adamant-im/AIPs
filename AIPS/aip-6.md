@@ -64,7 +64,7 @@ Subscribes user iOS device for Push notifications. U10629337621822775991 is gene
 
 ## Rationale
 
-Some sort of client-service communication is needed for internal processes, such as Push server registration. This process should take place on ADAMANT network itself, instead of relying of some third party transfer medium. This type of messages should follow all security guidelines, and must not distrurb users with technic data. 
+Some sort of client-service communication is needed for internal processes, such as Push server registration. This process should take place on ADAMANT network itself, instead of relying of some third party transfer medium. This type of messages should follow all security guidelines, and must not distrurb users with technic data.
 
 ## Copyright
 

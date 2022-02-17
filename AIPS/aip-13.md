@@ -3,7 +3,7 @@ aip: 13
 title: Public non-ADM wallet addresses
 author: Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/31
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2019-02-20
