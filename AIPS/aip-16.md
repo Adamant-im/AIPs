@@ -39,7 +39,7 @@ A client which receives such a message, can process it different ways. A typical
 
 ## Syntax
 
-Field `message` must contain *encrypted* JSON of `replyto_id` message and the message itself.
+Accordig to AIP-5, field `transaction.asset.chat.message` must contain *encrypted stringified* JSON. For quote/reply, this JSON includes `replyto_id` and the message itself.
 
 Below shown structure of `message` object:
 
@@ -57,7 +57,7 @@ Object's fields as described:
 
 ### Examples
 
-Object `message` *before encryption*, sending "I've got it. Will be there in time." message in reply to 7452709338464950789 ADM transaction:
+Object `transaction.asset.chat.message` *before encryption*, sending "I've got it. Will be there in time." message in reply to 7452709338464950789 ADM transaction:
 
 ```` json
 {
@@ -66,16 +66,17 @@ Object `message` *before encryption*, sending "I've got it. Will be there in tim
 }
 ````
 
-Object `message` *before encryption*, sending 0.002 ETH in reply to 7452709338464950789 ADM transaction:
+Object `transaction.asset.chat.message` *before encryption*, sending 0.002 ETH in reply to 7452709338464950789 ADM transaction:
 
 ```` json
 {
   "replyto_id": "7452709338464950789",
-  "reply_message": "{
-          \"type\": \"ETH_transaction\",
-          \"amount\": \"0.002\",
-          \"comments\": \"I like to send it, send it\",
-          \"hash\": \"0xfa46d2b3c99878f1f9863fcbdb0bc27d220d7065c6528543cbb83ced84487deb\"}",
+  "reply_message": {
+    "type": "ETH_transaction",
+    "amount": "0.002",
+    "comments": "I like to send it, send it",
+    "hash": "0xfa46d2b3c99878f1f9863fcbdb0bc27d220d7065c6528543cbb83ced84487deb"
+  },
 }
 ````
 
