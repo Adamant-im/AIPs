@@ -72,7 +72,7 @@ Object `transaction.asset.chat.message` *before encryption*, sending 0.002 ETH i
 {
   "replyto_id": "7452709338464950789",
   "reply_message": {
-    "type": "ETH_transaction",
+    "type": "eth_transaction",
     "amount": "0.002",
     "comments": "I like to send it, send it",
     "hash": "0xfa46d2b3c99878f1f9863fcbdb0bc27d220d7065c6528543cbb83ced84487deb"
