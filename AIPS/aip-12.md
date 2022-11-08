@@ -13,7 +13,7 @@ created: 2019-02-20
 
 ## Simple Summary
 
-Describes behaviour for transferring different tokens in chats.
+Describes behaviour for transferring different coins/tokens in chats.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
@@ -33,9 +33,10 @@ General way of making in-chat transfer:
 - Send external token transaction in its own network
 - Watch for external token transaction in its own network and update its status
 
-Clients must support four types of transactions statuses both of incoming and outgoing transfers until final status reached:
+Clients must support five types of transactions statuses both of incoming and outgoing transfers until final status reached:
 
-- `Pending` — transaction is not confirmed yet
+- `Pending` — transaction just send, and a token node doesn't know it yet
+- `Registered` — a token node replies a tx as registered, but not confirmed yet
 - `Confirmed` — transaction is confirmed on token's network. Final status.
 - `Cancelled` — transaction is cancelled or not accepted on token's network. Final status.
 - `Inconsistent` — information about transaction, fetched from rich message in ADAMANT network, differs from information, fetched from token's network. It relies to amount, recipient and senders ids, and timestamp. Amount should be compared with meaningful accuracy (e. g., 0.00000001 Ether and 0.0000009998 Ether is the same). Timestamp should be compared with 24 hour accuracy. Final status.
