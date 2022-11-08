@@ -5,13 +5,19 @@ author: Dmitriy Soloduhin (@zyuhel), Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/21
 status: Accepted
 type: Standards
-category: ARC
+category: API
 created: 2019-02-12
 ---
 
 ## Simple Summary
 
 Describing general structure of any ADAMANT transaction when communicating with API endpoints.
+
+Further reading:
+
+- [Node's API documentation](https://github.com/Adamant-im/adamant/wiki)
+- [Swagger schema for ADAMANT node](https://github.com/Adamant-im/adamant-schema)
+- [Try out ADAMANT API](https://schema.adamant.im)
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
