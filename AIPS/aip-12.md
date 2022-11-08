@@ -17,7 +17,7 @@ Describes behaviour for transferring different tokens in chats.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-Transferring external (non-ADM) tokens in chats is possible due to [public storage of wallet addresses in blockcahin, AIP 13](https://aips.adamant.im/AIPS/aip-13).
+Transferring external (non-ADM) tokens in chats is possible due to [public storage of wallet addresses in blockchain, AIP 13](https://aips.adamant.im/AIPS/aip-13).
 
 As such transactions actually goes through own tokens' networks, special ADM messages needed to show them in chats.
 
@@ -38,7 +38,7 @@ Clients must support four types of transactions statuses both of incoming and ou
 - `Pending` — transaction is not confirmed yet
 - `Confirmed` — transaction is confirmed on token's network. Final status.
 - `Cancelled` — transaction is cancelled or not accepted on token's network. Final status.
-- `Inconsistent` — information about transaction, fetched from rich message in ADAMANT newtwork, differs from information, fetched from token's network. It relies to amount, recepient and senders ids, and timestamp. Amount should be compared with meaningful accuracy (e. g., 0.00000001 Ether and 0.0000009998 Ether is the same). Timestamp should be compared with 24 hour accurancy. Final status.
+- `Inconsistent` — information about transaction, fetched from rich message in ADAMANT network, differs from information, fetched from token's network. It relies to amount, recipient and senders ids, and timestamp. Amount should be compared with meaningful accuracy (e. g., 0.00000001 Ether and 0.0000009998 Ether is the same). Timestamp should be compared with 24 hour accuracy. Final status.
 
 Clients shouldn't render unsupported or unknown crypto transfers, instead they must show a message about unsupported rich message type and/or text fallback if it is available.
 
@@ -62,7 +62,7 @@ Object's fields as described:
 
 - `type` represents token's network and looks like `tickerSymbol_transaction`, e.g., `ETH_transaction`. Mandatory.
 - `amount` — transferred value in tokens of its network. Decimal separator is `.`. Mandatory.
-- `comments` — optional, and may include comment for this transfer, shown to both recepient and sender.
+- `comments` — optional, and may include comment for this transfer, shown to both recipient and sender.
 - `hash` — transaction id in token's network. Used to check transaction status. Mandatory.
 - `text_fallback` can be added to show explanation text messages on client apps that doesn't support specified `type`.
 

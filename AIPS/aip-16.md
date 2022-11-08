@@ -17,7 +17,7 @@ Adds Quote/Reply-to message possibility for ADAMANT Messenger apps.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-A message which sent in reply to other message must be stored with reply-to indetificator.
+A message which sent in reply to other message must be stored with reply-to identifier.
 
 ## Motivation
 
@@ -39,7 +39,7 @@ A client which receives such a message, can process it different ways. A typical
 
 ## Syntax
 
-Accordig to AIP-5, field `transaction.asset.chat.message` must contain *encrypted stringified* JSON. For quote/reply, this JSON includes `replyto_id` and the message itself.
+According to AIP-5, field `transaction.asset.chat.message` must contain *encrypted stringified* JSON. For quote/reply, this JSON includes `replyto_id` and the message itself.
 
 Below shown structure of `message` object:
 

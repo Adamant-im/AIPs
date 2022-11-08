@@ -30,7 +30,7 @@ Private and public keys of account are instances of Ed25519 signing keys, so the
 
 ## Syntax
 
-Transaction sytax is based on [AIP-10: Genaral transaction structure](https://aips.adamant.im/AIPS/aip-10). Messaging blockcahin transaction type is `8`.
+Transaction syntax is based on [AIP-10: General transaction structure](https://aips.adamant.im/AIPS/aip-10). Messaging blockchain transaction type is `8`.
 
 Here is transaction `asset` contents syntax:
 

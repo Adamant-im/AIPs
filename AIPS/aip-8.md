@@ -62,7 +62,7 @@ Supposed scenarios for web apps for processing URIs:
 
 ### Other apps behaviour specifics
 
-iOS and Anroid apps should only read parameters from URIs.
+iOS and Android apps should only read parameters from URIs.
 
 ### Examples
 

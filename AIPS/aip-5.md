@@ -18,7 +18,7 @@ Extending messages with Flexible Rich Content.
 
 ## Abstract
 
-Define a specification of Rich Content messages, so that various clients can handle them. 
+Define a specification of Rich Content messages, so that various clients can handle them.
 
 ## Specification
 

@@ -18,7 +18,7 @@ Describing general structure of any ADAMANT transaction when communicating with 
 
 Transaction objects is the only way to write data into ADAMANT blockchain. This AIP aims to standartize transaction object structure. Any specific transaction type must follow this standard.
 
-Transaction objects used when sending data to nodes' endpoints and also returned when quering ADAMANT nodes.
+Transaction objects used when sending data to nodes' endpoints and also returned when querying ADAMANT nodes.
 
 Since Node version [0.4.2](https://github.com/Adamant-im/adamant/releases/tag/v0.4.2) transactions can be sent to unified `/api/transaction` endpoint.
 
@@ -64,7 +64,7 @@ Explanation of transaction fields:
 - `fee` — fee for operation. Depends on `type` of transaction.
 - `senderId` — ADAMANT address of sender. Mandatory when posting a transaction to node.
 - `senderPublicKey` — public key of sender. Mandatory when posting a transaction to node.
-- `recipientId` — ADAMANT address of recepient. Default is null. Mandatory for [chats and transfers (0,8)](#transaction-types).
+- `recipientId` — ADAMANT address of recipient. Default is null. Mandatory for [chats and transfers (0,8)](#transaction-types).
 - `asset` — transaction data specific for different [transaction types](#transaction-types). Used also in signature calculation. If omitted, it is set to empty object `{}`.
 - `timestamp` — transaction timestamp. Nodes do not accept transactions stamped in future. Mandatory when posting a transaction to node.
 - `signature` — transaction signature. Mandatory when posting a transaction to node.
