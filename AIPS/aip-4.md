@@ -69,6 +69,29 @@ Value of chat `type` is `1` for basic encrypted message. For other types of mess
 
 Sends message to U7972131227889954319.
 
+```json
+{
+  "transaction": {
+    "type": 8,
+    "amount": 49000000,
+    "senderId": "U15677078342684640219",
+    "senderPublicKey": "e16e624fd0a5123294b448c21f30a07...",
+    "asset": {
+      "chat": {
+        "message": "4bf88eb80f4710e5aec4...",
+        "own_message": "9dded63b476e75a146e3f...",
+        "type": 1
+      }
+    },
+    "recipientId": "U7972131227889954319",
+    "timestamp": 46115307,
+    "signature": "aa468db9b70b731931308f7c7d0d1..."
+  }
+}
+```
+
+Transfer of 0.49 ADM to U7972131227889954319 with comment.
+
 ## Rationale
 
 Currently used mechanisms should also be documented, to make process of extending and updating clearer.
