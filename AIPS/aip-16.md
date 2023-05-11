@@ -55,6 +55,8 @@ Object's fields as described:
 - `replyto_id` — ADM transaction ID of a message which a user replies to. Mandatory.
 - `reply_message` — Text of a reply. It may include nested JSON (i. e. Crypto transfer). Mandatory.
 
+Reply transaction is always a message, type `8`. See [AIP-10](https://aips.adamant.im/AIPS/aip-10#transaction-types). In case of `amount` > `0`, reply is in-chat ADM transfer with comment.
+
 ### Examples
 
 Object `transaction.asset.chat.message` *before encryption*, sending "I've got it. Will be there in time." message in reply to 7452709338464950789 ADM transaction:
@@ -86,14 +88,14 @@ Full transaction after encryption from U15677078342684640219 to U797213122788995
 {
   "transaction": {
     "type": 8,
-    "amount": 0,
+    "amount": 0, // In case of amount > 0, reply is in-chat ADM transfer with comment
     "senderId": "U15677078342684640219",
     "senderPublicKey": "e16e624fd0a5123294b448c21f30a07a0435533c693b146b14e66830e4e20404",
     "asset": {
       "chat": {
         "message": "70cbd07ff2ceaf0fc38a01ef9...",
         "own_message": "e98794eaedf47e...",
-        "type": 2
+        "type": 2 // 1 for Basic Encrypted Message
       }
     },
     "recipientId": "U7972131227889954319",
