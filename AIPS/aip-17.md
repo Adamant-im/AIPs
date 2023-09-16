@@ -73,7 +73,7 @@ Example of removing a reaction:
 
 ```` json
 {
-  "reactto_id": "Transaction_ID",
+  "reactto_id": "7452709338464950789",
   "react_message": ""
 }
 ````
