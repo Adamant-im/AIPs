@@ -5,7 +5,7 @@ author: Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/48
 requires: 5
 extends: https://aips.adamant.im/AIPS/aip-5
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2022-02-18
@@ -13,35 +13,35 @@ created: 2022-02-18
 
 ## Simple Summary
 
-Adds Quote/Reply-to message possibility for ADAMANT Messenger apps.
+Adds Quote/Reply-to-message possibility for ADAMANT Messenger apps.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
-A message which sent in reply to other message must be stored with reply-to identifier.
+A message sent in reply to another message must be stored with the reply-to identifier.
 
 ## Motivation
 
-To make sure all ADAMANT Messenger apps interpret Quote/Reply-to messages in the same way, a standard needed.
+A standard is needed to ensure all ADAMANT Messenger apps interpret Quote/Reply-to messages in the same way.
 
 ## Specification
 
-When sending a message in a reply to other message (quote), a client must send ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5) and include `replyto_id` field. See syntax below.
+When sending a message in reply to another message (quote), a client must send an ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5) and include `replyto_id` field. See the syntax below.
 
-A client which receives such a message, can process it different ways. A typical scenario:
+A client who receives such a message can process it in different ways. A typical scenario:
 
 - Decrypt a message (identified by `id`) and get `replyto_id`
-- If `replyto_id` message (transaction) is not stored in local database, fetch it from blockchain and decrypt
+- If `replyto_id` message (transaction) is not stored in a local database, fetch it from the blockchain and decrypt
 - In chat, show message `id` with `replyto_id` message text as quoted
-- Check if local database stores all the message history since `replyto_id` message, and fetch them, if not. It's important because there should be no gap between locally stored message and `replyto_id` message.
+- Check if the local database stores all the message history since the `replyto_id` message, and fetch them, if not. It's important because there should be no gap between locally stored message and the `replyto_id` message.
 - Click/tap quoted text: Scroll to `replyto_id` message
-- Consider that `replyto_id` message may not exist, or belongs other sender, or not decryptable
-- Consider that `replyto_id` message may be an ADM simple transfer
+- Consider that the `replyto_id` message may not exist, or belongs th another sender, or is not decryptable
+- Consider that the `replyto_id` message may be an ADM simple transfer
 
 ## Syntax
 
 According to AIP-5, field `transaction.asset.chat.message` must contain *encrypted stringified* JSON. For quote/reply, this JSON includes `replyto_id` and the message itself.
 
-Below shown structure of `message` object:
+Below is the structure of the `message` object:
 
 ````
 {
@@ -52,10 +52,10 @@ Below shown structure of `message` object:
 
 Object's fields as described:
 
-- `replyto_id` — ADM transaction ID of a message which a user replies to. Mandatory.
+- `replyto_id` — ADM transaction ID of a message to which a user replies. Mandatory.
 - `reply_message` — Text of a reply. It may include nested JSON (i. e. Crypto transfer). Mandatory.
 
-Reply transaction is always a message, type `8`. See [AIP-10](https://aips.adamant.im/AIPS/aip-10#transaction-types). In case of `amount` > `0`, reply is in-chat ADM transfer with comment.
+Reply transaction is always a message, type `8`. See [AIP-10](https://aips.adamant.im/AIPS/aip-10#transaction-types). In case of `amount` > `0`, a reply is in-chat ADM transfer with comment.
 
 ### Examples
 
@@ -107,7 +107,7 @@ Full transaction after encryption from U15677078342684640219 to U797213122788995
 
 ## Rationale
 
-Quote/Reply-to messages must be handled in same way between different clients.
+Quote/Reply-to messages must be handled in the same way between different clients.
 
 ## Copyright
 
