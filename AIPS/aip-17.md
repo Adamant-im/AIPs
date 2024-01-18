@@ -5,7 +5,7 @@ author: Aleksei Lebedev (@adamant-al), Stanislav Jelezoglo (@StanislavDevIOS)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/52
 requires: 5
 extends: https://aips.adamant.im/AIPS/aip-5
-status: Draft
+status: Accepted
 type: Standards
 category: ARC
 created: 2023-05-24
@@ -25,13 +25,13 @@ To establish a consistent and standardized approach for implementing message rea
 
 ## Specification
 
-When a user wishes to react to a specific message, the client must send ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5) and include a new field called `reactto_id` in the message structure. See the syntax below.
+When a user wishes to react to a specific message, the client must send the ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5) and include a new field called `reactto_id` in the message structure. See the syntax below.
 
 ## Syntax
 
-According to AIP-5, field `transaction.asset.chat.message` must contain *encrypted stringified* JSON. For reactions, this JSON includes `reactto_id` and `react_message`, representing the chosen emoji reaction.
+According to AIP-5, the field `transaction.asset.chat.message` must contain *encrypted stringified* JSON. For reactions, this JSON includes `reactto_id` and `react_message`, representing the chosen emoji reaction.
 
-Below is shown structure of the `message` object:
+Below is the structure of the `message` object:
 
 ````
 {
@@ -42,8 +42,8 @@ Below is shown structure of the `message` object:
 
 Object's fields as described:
 
-- `reactto_id` - Represents the ADM transaction ID of the message to which the user is reacting. This field is mandatory.
-- `react_message` - Denotes the chosen emoji reaction. This field is also mandatory.
+- `reactto_id` — Represents the ADM transaction ID of the message to which the user is reacting. This field is mandatory.
+- `react_message` — Denotes the chosen emoji reaction. This field is also mandatory.
 
 Users can attach multiple reactions to a single message, *with each new reaction replacing the previous one*. A user's reaction to a specific message will be `react_message` with the latest tx `timestamp`. To remove a reaction, users can send an empty value for the `react_message` field:
 
