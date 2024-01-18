@@ -25,7 +25,7 @@ A standard is needed to ensure all ADAMANT Messenger apps interpret Quote/Reply-
 
 ## Specification
 
-When sending a message in reply to another message (quote), a client must send an ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5) and include `replyto_id` field. See the syntax below.
+When sending a message in reply to another message (quote), a client must send the ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5) and include `replyto_id` field. See the syntax below.
 
 A client who receives such a message can process it in different ways. A typical scenario:
 
