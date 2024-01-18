@@ -107,7 +107,7 @@ Full transaction after encryption from U15677078342684640219 to U797213122788995
 
 ## Rationale
 
-Quote/Reply-to messages must be handled in the same way between different clients.
+Quote/Reply-to messages must be handled in the same way across different clients.
 
 ## Copyright
 
