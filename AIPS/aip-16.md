@@ -34,7 +34,7 @@ A client that receives such a message can process it in different ways. A typica
 - In chat, show message `id` with `replyto_id` message text as quoted
 - Check if the local database stores all the message history since the `replyto_id` message, and fetch them, if not. It's important because there should be no gap between locally stored message and the `replyto_id` message.
 - Click/tap quoted text: Scroll to `replyto_id` message
-- Consider that the `replyto_id` message may not exist, or belongs th another sender, or is not decryptable
+- Consider that the `replyto_id` message may not exist, or belongs to another sender, or is not decryptable
 - Consider that the `replyto_id` message may be an ADM simple transfer
 
 ## Syntax
