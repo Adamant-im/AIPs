@@ -25,7 +25,7 @@ To establish a consistent and standardized approach for implementing message rea
 
 ## Specification
 
-When a user wishes to react to a specific message, the client must send an ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5) and include a new field called `reactto_id` in the message structure. See the syntax below.
+When a user wishes to react to a specific message, the client must send the ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5) and include a new field called `reactto_id` in the message structure. See the syntax below.
 
 ## Syntax
 
