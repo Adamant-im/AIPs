@@ -25,7 +25,7 @@ To establish a consistent and standardized approach for implementing file sendin
 
 ## Specification
 
-To implement reactions to files, the client must send an ADM rich message (as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5)) containing the file's information along with the reaction details. The structure of the message object includes fields for file_id, file_type, file_size, preview_id, file_name, nonce, and preview_nonce.
+To enable file sharing within the chat feature, the client must send an ADM rich message (as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5))) containing the necessary file information. The structure of the message object includes fields such as `file_id`, `file_type`, `file_size`, `preview_id`, `file_name`, `nonce`, and `preview_nonce`.
 
 The file_id field represents the unique identifier of the file. Other fields provide additional information such as file type, size, preview ID, file name, and nonces for encryption.
 
@@ -55,7 +55,7 @@ The structure of the file object is as follows:
 
 Object fields:
 
-`files`: An array containing information about the files to which the user reacts.
+`files`: An array containing information about the files.
 `file_id`: Represents the unique identifier of the file.
 `file_type`: Denotes the type of the file. Optional
 `file_size`: Indicates the size of the file.
@@ -66,7 +66,7 @@ Object fields:
 `storage`: Specifies the storage information for the file.
 `comment`: Сomment associated with the file. Optional
 
-You can combine it with [AIP-16](https://aips.adamant.im/AIPS/aip-16)) to reply with a file. Just send the following structure in the `react_message` field:
+You can combine it with [AIP-16](https://aips.adamant.im/AIPS/aip-16)) to reply with a file. Just send the following structure in the `reply_message` field:
 
 ```` json
 {
@@ -91,7 +91,7 @@ You can combine it with [AIP-16](https://aips.adamant.im/AIPS/aip-16)) to reply 
 
 ### Examples
 
-Object `transaction.asset.chat.message` *before encryption*, sending reaction to a message:
+Object `transaction.asset.chat.message` *before encryption*, sending a file:
 
 ```` json
 {
