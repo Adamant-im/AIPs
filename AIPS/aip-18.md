@@ -45,7 +45,8 @@ The structure of the file object is as follows:
       "preview_id": "String",
       "file_name": "String",
       "nonce": "String",
-      "preview_nonce": "String"
+      "preview_nonce": "String",
+      "file_resolution": [Float]
     }
   ],
   "storage": "String",
@@ -65,6 +66,7 @@ Object fields:
 `preview_nonce`: Nonce for the file's preview.  Optional
 `storage`: Specifies the storage information for the file.
 `comment`: Сomment associated with the file. Optional
+`file_resolution`: File resolution represented as an array values, where the first value denotes the width and the second value denotes the height of the file. Optional
 
 You can combine it with [AIP-16](https://aips.adamant.im/AIPS/aip-16)) to reply with a file. Just send the following structure in the `reply_message` field:
 
@@ -80,7 +82,8 @@ You can combine it with [AIP-16](https://aips.adamant.im/AIPS/aip-16)) to reply 
         "preview_id": "example_preview_id",
         "file_name": "example_file.jpg",
         "nonce": "example_nonce",
-        "preview_nonce": "example_preview_nonce"
+        "preview_nonce": "example_preview_nonce"б
+        "file_resolution": [1024, 1024]
       }
     ],
     "storage": "example_storage",
@@ -105,7 +108,8 @@ Object `transaction.asset.chat.message` *before encryption*, sending a file:
         "preview_id": "ki1wj2dw",
         "file_name": "example.jpg",
         "nonce": "ne27iuh2fje34bfuih2feb2cikjc3bkd...",
-        "preview_nonce": "c23ki24neiuhu43fheuf5heiufe..."
+        "preview_nonce": "c23ki24neiuhu43fheuf5heiufe...",
+        "file_resolution": [1024, 1024]
       }
     ],
     "storage": "IPFS",
