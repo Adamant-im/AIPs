@@ -83,23 +83,20 @@ Object `transaction.asset.chat.message` *before encryption*, which includes a si
 
 ```` json
 {
-  "replyto_id": "7452709338464950789",
-  "reply_message": {
-    "files": [
-      {
-        "file_id": "hydji2id",
-        "file_type": "JPG",
-        "file_size": 1024100,
-        "preview_id": "ki1wj2dw",
-        "file_name": "example.jpg",
-        "nonce": "ne27iuh2fje34bfuih2feb2cikjc3bkd...",
-        "preview_nonce": "c23ki24neiuhu43fheuf5heiufe...",
-        "file_resolution": [2048, 1000]
-      }
-    ],
-    "storage": "IPFS",
-    "comment": "Great!"
-  }
+  "files": [
+    {
+      "file_id": "hydji2id",
+      "file_type": "JPG",
+      "file_size": 1024100,
+      "preview_id": "ki1wj2dw",
+      "file_name": "example.jpg",
+      "nonce": "ne27iuh2fje34bfuih2feb2cikjc3bkd...",
+      "preview_nonce": "c23ki24neiuhu43fheuf5heiufe...",
+      "file_resolution": [2048, 1000]
+    }
+  ],
+  "storage": "IPFS",
+  "comment": "Great!"
 }
 ````
 
@@ -126,7 +123,7 @@ The entire transaction after encryption from U15677078342684640219 to U797213122
 }
 ````
 
-You can combine it with [AIP-16](https://aips.adamant.im/AIPS/aip-16)) to reply to a message with a file attached. Send the following structure in the `reply_message` field:
+You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)) to reply to a message with a file attached. Send the following structure in the `reply_message` field:
 
 ```` json
 {
