@@ -2,7 +2,7 @@
 aip: 18
 title: File sending in chat 
 author: Aleksei Lebedev (@adamant-al), Stanislav Jelezoglo (@StanislavDevIOS)
-discussions-to: https://github.com/Adamant-im/AIPs/issues/52
+discussions-to: https://github.com/Adamant-im/AIPs/issues/55
 requires: 5
 extends: https://aips.adamant.im/AIPS/aip-5
 status: Draft
