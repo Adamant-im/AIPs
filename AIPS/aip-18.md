@@ -30,13 +30,14 @@ A comprehensive specification is necessary to establish a consistent and standar
 In the overview, decentralized file transfer includes:
 
 - Encrypting a file utilizing the same end-to-end encryption as specified in [AIP-4](https://aips.adamant.im/AIPS/aip-4)
-- Uploading an encrypted file to a decentralized storage node and receiving its ID
+- Generating file ID
+- Uploading an encrypted file to a decentralized storage node
 - Sending this ID to a recipient in the ADM rich text message
 - Whenever later, a recipient decrypts the ADM messages, downloads a file (from any node of decentralized storage), and decrypts it
 
 While encrypting and receiving/decrypting steps are described in other AIPs, sending file IDs in messages requires a specification.
 
-After a client has a file ID, it sends an ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5)), containing storage and file information. The `file_id` field represents the unique identifier of a file. Other fields provide additional information such as file type, size, preview ID, file name, and nonces for encryption.
+After a client has the file ID, it sends an ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5)), containing storage and file information. The `file_id` field represents the unique identifier of a file. Other fields provide additional information such as file type, size, preview ID, file name, and nonces for encryption.
 
 ## Syntax
 
@@ -146,6 +147,30 @@ You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)
   }
 }
 ````
+
+## Transfer scenario
+
+To ensure seamless UX, a sender's client app follows the sequencing:
+
+- Encrypts a file
+- Generates the file ID
+- Creates a placeholder for the file transfer in a chat
+- Shows sent files in the placeholder with a spinner
+- Initiates file uploading to a node
+- Sends an ADM rich text message without waiting for the uploading to be completed
+- In case of a network issue, restores the uploading
+- Verifies the file is uploaded
+
+The recipient's app:
+
+- Fetches an ADM message and decrypts it
+- Creates a placeholder in a chat with a spinner
+- Tries to fetch preview (if enabled auto preview in the app settings)
+- Tries to fetch the entire file (if enabled auto download in the app settings)
+- Decrypts files
+- Fills the placeholder
+
+Like in-chat crypto transfers, the fetching algorithm and re-tries count depend on message time. Recent transfers may require more time to reflect on a storage node to which the recipient is connected.
 
 ## Assumptions and limitations
 
