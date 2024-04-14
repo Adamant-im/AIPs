@@ -158,7 +158,7 @@ While the adherence to a privacy approach is a base advantage of ADAMANT, it spa
 
 ## Rationale
 
-Enabling file sharing within the chat feature enhances the overall functionality and user experience of the ADAMANT Messenger platform. By allowing users to exchange files directly within conversations, this feature promotes seamless collaboration and information sharing among users. Whether it's sharing work-related documents, personal photos, or multimedia content, the ability to send files enriches conversations and facilitates the exchange of diverse types of information. Additionally, integrating file sharing into the chat feature streamlines communication by eliminating the need for users to switch between different applications or platforms to share files, thereby enhancing user convenience and productivity. Overall, the introduction of file sharing functionality enhances the utility and versatility of the ADAMANT Messenger platform, making it a more comprehensive solution for communication and collaboration needs.
+This AIP introduces a file sharing feature according to the decentralized concept, offering a layer of privacy and censorship resistance. A standardized approach ensures consistent behavior across different ADAMANT Messenger apps.
 
 ## Copyright
 
