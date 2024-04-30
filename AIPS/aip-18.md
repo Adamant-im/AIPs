@@ -168,11 +168,11 @@ You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)
 To ensure seamless UX, a sender's client app follows the sequencing:
 
 - Encrypts a file
-- Generates the file ID
 - Creates a placeholder for the file transfer in a chat
 - Shows sent files in the placeholder with a spinner
 - Initiates file uploading to a node
-- Sends an ADM rich text message without waiting for the uploading to be completed
+- Wait for the files to be uploaded and get the files ID
+- Sends an ADM rich text message
 - In case of a network issue, restores the uploading
 - Verifies the file is uploaded
 
