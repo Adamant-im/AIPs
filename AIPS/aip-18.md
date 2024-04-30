@@ -49,17 +49,19 @@ The structure of the file transfer object is as follows:
 {
   "files": [
     {
-      "file_id": "String",
-      "file_type": "String",
-      "file_size": Int64,
-      "preview_id": "String",
-      "file_name": "String",
+      "preview": {
+        "id": "String",
+        "nonce": "String"
+      },
+      "id": "String",
+      "type": "String",
+      "size": Int64,
+      "name": "String",
       "nonce": "String",
-      "preview_nonce": "String",
-      "file_resolution": [Float, Float]
+      "resolution": [Float, Float]
     }
   ],
-  "storage": "String",
+  "storage": { "id": "String" },
   "comment": "String"
 }
 ````
@@ -67,16 +69,15 @@ The structure of the file transfer object is as follows:
 Object fields:
 
 - `files`: An array containing information about the attached encrypted files
-- `file_id`: Represents the unique file identifier in the `storage`
-- `file_type`: Denotes the type of the file after decryption. Optional.
-- `file_size`: Indicates the size of the encrypted file in bytes
-- `preview_id`: Represents the unique file identifier of an image preview. Optional.
-- `file_name`: Specifies the name of a file. Optional.
+- `id`: Represents the unique file identifier in the `storage`
+- `type`: Denotes the type of the file after decryption. Optional.
+- `size`: Indicates the size of the encrypted file in bytes
+- `preview`: Image preview. Optional.
+- `name`: Specifies the name of a file. Optional.
 - `nonce`: Nonce used for encryption
-- `preview_nonce`: Nonce used for encryption of a file's preview. Optional.
 - `storage`: Specifies a decentralized storage information where a file is stored
 - `comment`: A comment/caption associated with a file. Optional.
-- `file_resolution`: File resolution as an array of float values, where the first value denotes the width and the second value denotes the height of a file. Useful for images and videos. Optional.
+- `resolution`: File resolution as an array of float values, where the first value denotes the width and the second value denotes the height of a file. Useful for images and videos. Optional.
 
 ### Examples
 
@@ -84,20 +85,27 @@ Object `transaction.asset.chat.message` *before encryption*, which includes a si
 
 ```` json
 {
+  "storage": {
+    "id": "ipfs"
+  },
   "files": [
     {
-      "file_id": "hydji2id",
-      "file_type": "JPG",
-      "file_size": 1024100,
-      "preview_id": "ki1wj2dw",
-      "file_name": "example.jpg",
-      "nonce": "ne27iuh2fje34bfuih2feb2cikjc3bkd...",
-      "preview_nonce": "c23ki24neiuhu43fheuf5heiufe...",
-      "file_resolution": [2048, 1000]
+      "id": "bafkreifxs2buan4anxwhfnt...v25rewteppsh6u4s4x5hi4o4du",
+      "name": "IMG_308",
+      "resolution": [
+        1179,
+        2556
+      ],
+      "preview": {
+        "id": "bafkreidqpnqmqocqp...if4xb3bi76gl6g4kmtg62cmpw5ufu",
+        "nonce": "297d443aa29aa...485309f9f5ae159df9784d"
+      },
+      "nonce": "030aa714943dc1dd...1c7091920d9d",
+      "type": "png",
+      "size": 150998
     }
   ],
-  "storage": "IPFS",
-  "comment": "Great!"
+  "comment": "Hello!"
 }
 ````
 
@@ -130,20 +138,27 @@ You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)
 {
   "replyto_id": "7452709338464950789",
   "reply_message": {
+    "storage": {
+      "id": "ipfs"
+    },
     "files": [
       {
-        "file_id": "example_file_id",
-        "file_type": "JPG",
-        "file_size": 1024,
-        "preview_id": "example_preview_id",
-        "file_name": "example_file.jpg",
-        "nonce": "example_nonce",
-        "preview_nonce": "example_preview_nonce",
-        "file_resolution": [2048, 1000]
+        "id": "bafkreifxs2buan4anxwhfnt...v25rewteppsh6u4s4x5hi4o4du",
+        "name": "IMG_308",
+        "resolution": [
+          1179,
+          2556
+        ],
+        "preview": {
+          "id": "bafkreidqpnqmqocqp...if4xb3bi76gl6g4kmtg62cmpw5ufu",
+          "nonce": "297d443aa29aa...485309f9f5ae159df9784d"
+        },
+        "nonce": "030aa714943dc1dd...1c7091920d9d",
+        "type": "png",
+        "size": 150998
       }
     ],
-    "storage": "IPFS",
-    "comment": "Great file!"
+    "comment": "Hello!"
   }
 }
 ````
