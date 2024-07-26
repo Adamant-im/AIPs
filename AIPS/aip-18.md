@@ -51,14 +51,17 @@ The structure of the file transfer object is as follows:
     {
       "preview": {
         "id": "String",
-        "nonce": "String"
+        "nonce": "String",
+        "extension": "String"
       },
       "id": "String",
-      "type": "String",
+      "mimeType": "String",
+      "extension": "String",
       "size": Int64,
       "name": "String",
       "nonce": "String",
-      "resolution": [Float, Float]
+      "resolution": [Float, Float],
+      "duration": Float
     }
   ],
   "storage": { "id": "String" },
@@ -70,7 +73,8 @@ Object fields:
 
 - `files`: An array containing information about the attached encrypted files
 - `id`: Represents the unique file identifier in the `storage`
-- `type`: Denotes the type of the file after decryption. Optional.
+- `mimeType`: Specifies the MIME type of the file. Optional.
+- `extension`: Indicates the file extension. Optional.
 - `size`: Indicates the size of the encrypted file in bytes
 - `preview`: Image preview. Optional.
 - `name`: Specifies the name of a file. Optional.
@@ -78,6 +82,7 @@ Object fields:
 - `storage`: Specifies a decentralized storage information where a file is stored
 - `comment`: A comment/caption associated with a file. Optional.
 - `resolution`: File resolution as an array of float values, where the first value denotes the width and the second value denotes the height of a file. Useful for images and videos. Optional.
+- `duration`: Video duration in seconds. Optional
 
 ### Examples
 
@@ -98,10 +103,12 @@ Object `transaction.asset.chat.message` *before encryption*, which includes a si
       ],
       "preview": {
         "id": "bafkreidqpnqmqocqp...if4xb3bi76gl6g4kmtg62cmpw5ufu",
-        "nonce": "297d443aa29aa...485309f9f5ae159df9784d"
+        "nonce": "297d443aa29aa...485309f9f5ae159df9784d",
+        "extension": "jpeg"
       },
       "nonce": "030aa714943dc1dd...1c7091920d9d",
-      "type": "png",
+      "mimeType": "image/jpeg",
+      "extension": "jpeg",
       "size": 150998
     }
   ],
@@ -151,11 +158,14 @@ You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)
         ],
         "preview": {
           "id": "bafkreidqpnqmqocqp...if4xb3bi76gl6g4kmtg62cmpw5ufu",
-          "nonce": "297d443aa29aa...485309f9f5ae159df9784d"
+          "nonce": "297d443aa29aa...485309f9f5ae159df9784d",
+          "extension": "jpeg"
         },
         "nonce": "030aa714943dc1dd...1c7091920d9d",
-        "type": "png",
-        "size": 150998
+        "mimeType": "video/qiucktime",
+        "extension": "mov",
+        "size": 150998,
+        "duration": 129.3
       }
     ],
     "comment": "Hello!"
