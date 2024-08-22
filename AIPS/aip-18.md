@@ -37,7 +37,7 @@ In the overview, decentralized file transfer includes:
 
 While encrypting and receiving/decrypting steps are described in other AIPs, sending file IDs in messages requires a specification.
 
-After a client has the file ID, it sends an ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5)), containing storage and file information. The `file_id` field represents the unique identifier of a file. Other fields provide additional information such as file type, size, preview ID, file name, and nonces for encryption.
+After a client has the file ID, it sends an ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5), containing storage and file information. The `file_id` field represents the unique identifier of a file. Other fields provide additional information such as file type, size, preview ID, file name, and nonces for encryption.
 
 ## Syntax
 
