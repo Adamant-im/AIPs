@@ -139,7 +139,7 @@ The entire transaction after encryption from U15677078342684640219 to U797213122
 }
 ````
 
-You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)) to reply to a message with a file attached. Send the following structure in the `reply_message` field:
+You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16) to reply to a message with a file attached. Send the following structure in the `reply_message` field:
 
 ```` json
 {
