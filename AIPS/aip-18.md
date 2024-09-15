@@ -45,7 +45,6 @@ According to [AIP-5](https://aips.adamant.im/AIPS/aip-5)), field `transaction.as
 
 The structure of the file transfer object is as follows:
 
-````
 {
   "files": [
     {
