@@ -45,6 +45,7 @@ According to [AIP-5](https://aips.adamant.im/AIPS/aip-5)), field `transaction.as
 
 The structure of the file transfer object is as follows:
 
+```
 {
   "files": [
     {
@@ -66,7 +67,7 @@ The structure of the file transfer object is as follows:
   "storage": { "id": "String" },
   "comment": "String"
 }
-````
+```
 
 Object fields:
 
@@ -87,7 +88,7 @@ Object fields:
 
 Object `transaction.asset.chat.message` *before encryption*, which includes a single file:
 
-```` json
+``` json
 {
   "storage": {
     "id": "ipfs"
@@ -113,11 +114,11 @@ Object `transaction.asset.chat.message` *before encryption*, which includes a si
   ],
   "comment": "Hello!"
 }
-````
+```
 
 The entire transaction after encryption from U15677078342684640219 to U7972131227889954319 looks like this:
 
-```` json
+``` json
 {
   "transaction": {
     "type": 8,
@@ -136,11 +137,11 @@ The entire transaction after encryption from U15677078342684640219 to U797213122
     "signature": "8fc2a54604109a6fcdccec2..."
   }
 }
-````
+```
 
 You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16) to reply to a message with a file attached. Send the following structure in the `reply_message` field:
 
-```` json
+``` json
 {
   "replyto_id": "7452709338464950789",
   "reply_message": {
@@ -161,7 +162,7 @@ You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)
           "extension": "jpeg"
         },
         "nonce": "030aa714943dc1dd...1c7091920d9d",
-        "mimeType": "video/qiucktime",
+        "mimeType": "video/quicktime",
         "extension": "mov",
         "size": 150998,
         "duration": 129.3
@@ -170,7 +171,7 @@ You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)
     "comment": "Hello!"
   }
 }
-````
+```
 
 ## Transfer scenario
 
