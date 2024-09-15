@@ -82,7 +82,7 @@ Object fields:
 - `storage`: Specifies a decentralized storage information where a file is stored
 - `comment`: A comment/caption associated with a file. Optional.
 - `resolution`: File resolution as an array of float values, where the first value denotes the width and the second value denotes the height of a file. Useful for images and videos. Optional.
-- `duration`: Video duration in seconds. Optional
+- `duration`: Duration of a video or audio file. Optional
 
 ### Examples
 
