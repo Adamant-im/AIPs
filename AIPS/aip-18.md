@@ -177,14 +177,12 @@ You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)
 
 To ensure seamless UX, a sender's client app follows the sequencing:
 
-- Encrypts a file
-- Creates a placeholder for the file transfer in a chat
-- Shows sent files in the placeholder with a spinner
-- Initiates file uploading to a node
-- Wait for the files to be uploaded and get the files ID
-- Sends an ADM rich text message
-- In case of a network issue, restores the uploading
-- Verifies the file is uploaded
+- Create a placeholder in the chat for the file transfer
+- Display the files being sent in the placeholder with a spinner or progress indicator. A user may cancel the file transfer.
+- Encrypt files
+- Initiate files upload to a node
+- Wait for the files to be uploaded and obtain the file ID. In case of a network issue, a user may retry the upload or cancel. Verify that the files has been uploaded successfully.
+- Send an ADM rich text message. In case of a network issue, a user may retry sending or cancel.
 
 The recipient's app:
 
