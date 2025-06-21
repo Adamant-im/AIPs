@@ -1,6 +1,6 @@
 ---
 aip: 18
-title: Decentralized file transfer
+title: Decentralized File Transfer
 author: Aleksei Lebedev (@adamant-al), Stanislav Jelezoglo (@StanislavDevIOS)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/55
 requires: 5
@@ -13,39 +13,39 @@ created: 2024-03-21
 
 ## Simple Summary
 
-This proposal introduces a decentralized file transfer feature in ADAMANT Messenger apps.
+This proposal introduces a decentralized file-transfer feature in ADAMANT Messenger apps.
 
 ## Abstract
 
-The ability to send files within the messaging platform enhances communication by providing users with a versatile and efficient means of sharing information. Sending files allows users to exchange various types of content, including documents, images, videos, and more, directly within the chat interface. This functionality promotes collaboration, facilitates the sharing of important documents, and enriches conversations by providing context and additional information.
+The ability to send files within a messaging platform enhances communication by providing users with a versatile and efficient means of sharing information. Sending files lets users exchange various types of content—documents, images, videos, and more—directly within the chat interface. This functionality promotes collaboration, facilitates the sharing of important documents, and enriches conversations by adding context and additional information.
 
-The critical difference of file transfer in ADAMANT is sticking to a privacy approach, utilizing decentralized file storages such as [InterPlanetary File System (IPFS)](https://en.wikipedia.org/wiki/InterPlanetary_File_System) and different storage blockchains. It follows the concept of privacy and censorship resistance appropriate to ADAMANT.
+The key distinction of file transfer in ADAMANT is its privacy-first approach, which relies on decentralized storage solutions such as the [InterPlanetary File System (IPFS)](https://en.wikipedia.org/wiki/InterPlanetary_File_System) and storage blockchains. This aligns with ADAMANT’s principles of privacy and censorship resistance.
 
 ## Motivation
 
-A comprehensive specification is necessary to establish a consistent and standardized approach for implementing decentralized file transfer in ADAMANT Messenger apps.
+A comprehensive specification is necessary to establish a consistent and standardized approach to implementing decentralized file transfer in ADAMANT Messenger apps.
 
 ## Specification
 
-In the overview, decentralized file transfer includes:
+At a high level, decentralized file transfer consists of the following steps:
 
-- Encrypting a file utilizing the same end-to-end encryption as specified in [AIP-4](https://aips.adamant.im/AIPS/aip-4)
-- Generating file ID
-- Uploading an encrypted file to a decentralized storage node
-- Sending this ID to a recipient in the ADM rich text message
-- Whenever later, a recipient decrypts the ADM messages, downloads a file (from any node of decentralized storage), and decrypts it
+- Encrypting the file using the end-to-end encryption defined in [AIP-4](https://aips.adamant.im/AIPS/aip-4)
+- Generating a file ID
+- Uploading the encrypted file to a decentralized-storage node
+- Sending that ID to the recipient in an ADM rich-text message
+- Later, the recipient decrypts the ADM message, downloads the file (from any decentralized-storage node), and decrypts it.
 
-While encrypting and receiving/decrypting steps are described in other AIPs, sending file IDs in messages requires a specification.
+While the encryption and decryption steps are covered in other AIPs, the process of embedding file IDs in messages requires its own specification.
 
-After a client has the file ID, it sends an ADM rich message as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5), containing storage and file information. The `file_id` field represents the unique identifier of a file. Other fields provide additional information such as file type, size, preview ID, file name, and nonces for encryption.
+Once a client has the file ID, it sends an ADM rich-text message, as described in [AIP-5](https://aips.adamant.im/AIPS/aip-5), containing both storage and file information. The `id` field represents the unique identifier of the file; other fields convey the file type, size, preview ID, file name, and nonces used for encryption.
 
 ## Syntax
 
-According to [AIP-5](https://aips.adamant.im/AIPS/aip-5)), field `transaction.asset.chat.message` must contain *encrypted stringified* JSON with attached file information.
+According to [AIP-5](https://aips.adamant.im/AIPS/aip-5), the field `transaction.asset.chat.message` must contain **encrypted, stringified** JSON that includes the attached-file information.
 
-The structure of the file transfer object is as follows:
+The structure of the file-transfer object is as follows:
 
-```
+```json
 {
   "files": [
     {
@@ -71,18 +71,18 @@ The structure of the file transfer object is as follows:
 
 Object fields:
 
-- `files`: An array containing information about the attached encrypted files
-- `id`: Represents the unique file identifier in the `storage`
-- `mimeType`: Specifies the MIME type of the file. Optional.
-- `extension`: Indicates the file extension. Optional.
-- `size`: Indicates the size of the encrypted file in bytes
-- `preview`: Image preview. Optional.
-- `name`: Specifies the name of a file. Optional.
+- `files`: Array containing metadata for each attached encrypted file
+- `id`: Unique file identifier within `storage`
+- `mimeType`: MIME type of the file (optional)
+- `extension`: File-extension string (optional)
+- `size`: Size of the *encrypted* file in bytes
+- `preview`: Preview-image data (optional)
+- `name`: Original file name (optional)
 - `nonce`: Nonce used for encryption
-- `storage`: Specifies a decentralized storage information where a file is stored
-- `comment`: A comment/caption associated with a file. Optional.
-- `resolution`: File resolution as an array of float values, where the first value denotes the width and the second value denotes the height of a file. Useful for images and videos. Optional.
-- `duration`: Duration of a video or audio file. Optional
+- `storage`: Describes the decentralized storage in which the file resides
+- `comment`: Caption or comment associated with the file (optional)
+- `resolution`: [width, height] in pixels; useful for images and videos (optional)
+- `duration`: Duration of a video or audio file in seconds (optional)
 
 ### Examples
 
@@ -127,7 +127,7 @@ The entire transaction after encryption from U15677078342684640219 to U797213122
     "senderPublicKey": "e16e624fd0a5123294b448c21f30a07a0435533c693b146b14e66830e4e20404",
     "asset": {
       "chat": {
-        "message": "70cbd07ff2ceaf0fc38a01ef9...", // files object encrypted
+        "message": "70cbd07ff2ceaf0fc38a01ef9...", // encrypted files object
         "own_message": "e98794eaedf47e...",
         "type": 2 // Type should be 2 (Rich Content Message)
       }
@@ -139,7 +139,7 @@ The entire transaction after encryption from U15677078342684640219 to U797213122
 }
 ```
 
-You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16) to reply to a message with a file attached. Send the following structure in the `reply_message` field:
+You can combine file sending with [AIP-16](https://aips.adamant.im/AIPS/aip-16) to reply to a message that has an attachment. Supply the following structure in the `reply_message` field:
 
 ``` json
 {
@@ -173,40 +173,40 @@ You can combine sending files with [AIP-16](https://aips.adamant.im/AIPS/aip-16)
 }
 ```
 
-## Transfer scenario
+## Transfer Scenario
 
-To ensure seamless UX, a sender's client app follows the sequencing:
+### Sender’s client
 
-- Create a placeholder in the chat for the file transfer
-- Display the files being sent in the placeholder with a spinner or progress indicator. A user may cancel the file transfer.
-- Encrypt files
-- Initiate files upload to a node
-- Wait for the files to be uploaded and obtain the file ID. In case of a network issue, a user may retry the upload or cancel. Verify that the files has been uploaded successfully.
-- Send an ADM rich text message. In case of a network issue, a user may retry sending or cancel.
+1. Create a placeholder in the chat for the file transfer
+2. Display the file(s) inside the placeholder with a spinner or progress indicator; the user can cancel the transfer at any time.
+3. Encrypt the file(s).
+4. Upload the encrypted file(s) to a storage node
+5. Wait until the upload completes and obtain the file ID(s). If a network issue occurs, let the user retry or cancel. Verify that the file(s) have been uploaded successfully.
+6. Send the ADM rich-text message. If a network issue occurs, let the user retry or cancel.
 
-The recipient's app:
+### Recipient’s client
 
-- Fetches an ADM message and decrypts it
-- Creates a placeholder in a chat with a spinner
-- Tries to fetch preview (if enabled auto preview in the app settings)
-- Tries to fetch the entire file (if enabled auto download in the app settings)
-- Decrypts files
-- Fills the placeholder
+1. Fetch and decrypt the ADM message
+2. Create a placeholder for the file(s) in the chat with a spinner
+3. *(Optional)* Fetch the preview image if *auto-preview* is enabled
+4. *(Optional)* Fetch the full file if *auto-download* is enabled
+5. Decrypt the file(s)
+6. Replace the placeholder with the final content
 
-Like in-chat crypto transfers, the fetching algorithm and re-tries count depend on message time. Recent transfers may require more time to reflect on a storage node to which the recipient is connected.
+As with in-chat crypto transfers, retry logic and timeouts depend on the message age; very recent transfers may need extra time before the file becomes available on the node to which the recipient is connected.
 
-## Assumptions and limitations
+## Assumptions and Limitations
 
-While the adherence to a privacy approach is a base advantage of ADAMANT, it spawns some limitations:
+Although ADAMANT’s privacy-first design is a core strength, it also introduces several limitations:
 
-- Obligatory end-to-end file encryption may lead to a little delay in the UX and requires more hardware resources on a client device
-- Forwarding attachments in chats requires downloading content and re-encryption with a public key of the new recipient
-- Decentralized storage may condition a little delay in file synchronization between storage nodes
-- Usually, decentralized file storages don't guarantee deletion of files. Any node can store a file for unlimited time.
+- Mandatory end-to-end encryption may introduce a slight UX delay and demands additional client-side resources
+- Forwarding attachments requires downloading the content and re-encrypting it with the new recipient’s public key
+- Decentralized storage networks can exhibit propagation delays between nodes
+- Most decentralized-storage solutions cannot guarantee file deletion; any node may retain a file indefinitely
 
 ## Rationale
 
-This AIP introduces a file sharing feature according to the decentralized concept, offering a layer of privacy and censorship resistance. A standardized approach ensures consistent behavior across different ADAMANT Messenger apps.
+This AIP adds a file-sharing feature that follows the decentralized ethos of ADAMANT, providing strong privacy and censorship resistance. A standardized approach guarantees consistent behavior across all ADAMANT Messenger clients.
 
 ## Copyright
 
