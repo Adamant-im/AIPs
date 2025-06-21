@@ -30,7 +30,7 @@ A comprehensive specification is necessary to establish a consistent and standar
 At a high level, decentralized file transfer consists of the following steps:
 
 - Encrypting the file using the end-to-end encryption defined in [AIP-4](https://aips.adamant.im/AIPS/aip-4)
-- Generating a file ID
+- Generating a file ID (locally on device)
 - Uploading the encrypted file to a decentralized-storage node
 - Sending that ID to the recipient in an ADM rich-text message
 - Later, the recipient decrypts the ADM message, downloads the file (from any decentralized-storage node), and decrypts it.
@@ -49,15 +49,15 @@ The structure of the file-transfer object is as follows:
 {
   "files": [
     {
+      "id": "String",
+      "mimeType": "String",
+      "extension": "String",
+      "size": Int64,
       "preview": {
         "id": "String",
         "nonce": "String",
         "extension": "String"
       },
-      "id": "String",
-      "mimeType": "String",
-      "extension": "String",
-      "size": Int64,
       "name": "String",
       "nonce": "String",
       "resolution": [Float, Float],
@@ -72,17 +72,17 @@ The structure of the file-transfer object is as follows:
 Object fields:
 
 - `files`: Array containing metadata for each attached encrypted file
-- `id`: Unique file identifier within `storage`
-- `mimeType`: MIME type of the file (optional)
-- `extension`: File-extension string (optional)
-- `size`: Size of the *encrypted* file in bytes
-- `preview`: Preview-image data (optional)
-- `name`: Original file name (optional)
-- `nonce`: Nonce used for encryption
+  - `id`: Unique file identifier within `storage`
+  - `mimeType`: MIME type of the file (optional)
+  - `extension`: File-extension string (optional)
+  - `size`: Size of the *encrypted* file in bytes
+  - `preview`: Preview-image data (optional)
+  - `name`: Original file name (optional)
+  - `nonce`: Nonce used for encryption
+  - `resolution`: [width, height] in pixels; useful for images and videos (optional)
+  - `duration`: Duration of a video or audio file in seconds (optional)
 - `storage`: Describes the decentralized storage in which the file resides
 - `comment`: Caption or comment associated with the file (optional)
-- `resolution`: [width, height] in pixels; useful for images and videos (optional)
-- `duration`: Duration of a video or audio file in seconds (optional)
 
 ### Examples
 
@@ -179,10 +179,11 @@ You can combine file sending with [AIP-16](https://aips.adamant.im/AIPS/aip-16) 
 
 1. Create a placeholder in the chat for the file transfer
 2. Display the file(s) inside the placeholder with a spinner or progress indicator; the user can cancel the transfer at any time.
-3. Encrypt the file(s).
-4. Upload the encrypted file(s) to a storage node
-5. Wait until the upload completes and obtain the file ID(s). If a network issue occurs, let the user retry or cancel. Verify that the file(s) have been uploaded successfully.
-6. Send the ADM rich-text message. If a network issue occurs, let the user retry or cancel.
+3. Encrypt the file(s)
+4. Calculate the file ID(s) locally on device
+5. Upload the encrypted file(s) to a storage node
+6. Wait until the upload completes, retrieve the file ID(s), and verify that they match the locally calculated value(s). If a network issue occurs, let the user retry or cancel.
+7. Send the ADM rich-text message. If a network issue occurs, let the user retry or cancel.
 
 ### Recipient’s client
 
