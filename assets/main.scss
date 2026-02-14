@@ -11,8 +11,8 @@
     max-width: calc(960px - (30px * 2));
 }
 .uk-position-top-left {
-    top: 0.7rem;
-    left: 30px;
+    top: 0.2rem;
+    left: 20px;
     position: absolute;
 }
 .site-nav {
@@ -27,6 +27,7 @@
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     display: block;
+    padding: 5px;
 }
 .uk-adm-logo:hover {
     box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1);
