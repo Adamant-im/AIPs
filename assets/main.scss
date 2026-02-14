@@ -55,17 +55,24 @@ a:hover {
   padding-right: 15px;
 }
 
-// Header
+// Header — full-width bar
 .site-header {
+  width: 100%;
+  box-sizing: border-box;
   padding-top: 1.25rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--adm-border);
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--adm-bg-subtle);
+  box-shadow: 0 1px 0 0 var(--adm-border);
+}
+.site-header .wrapper {
+  max-width: -webkit-calc(960px - (30px * 2));
+  max-width: calc(960px - (30px * 2));
 }
 
 .uk-position-top-left {
   top: 0.35rem;
-  left: 20px;
+  left: 5px;
   position: absolute;
 }
 .site-nav {
