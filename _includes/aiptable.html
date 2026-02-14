@@ -1,12 +1,3 @@
-<style type="text/css">
-  .aiptable .title {
-    width: 67%;
-  }
-
-  .aiptable .author {
-    width: 33%;
-  }
-</style>
 {% for status in site.data.statuses %}
   {% assign aips = include.aips|where:"status",status|sort:"aip" %}
   {% assign count = aips|size %}
