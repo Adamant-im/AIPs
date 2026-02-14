@@ -48,7 +48,7 @@ Vetting an idea publicly before going as far as writing an AIP is meant to save 
 
 Once the champion has asked the ADAMANT community whether an idea has any chance of acceptance a draft AIP should be presented as a [pull request].
 
-If the AIP editors approve the AIP ([see the AIP editors workflow section below for details](#eip-editor-responsibilities-and-workflow)) and the authors are happy for it to be merged as a draft, the AIP editor will assign the AIP a number and merge your pull request. The AIP editor will not unreasonably deny an AIP. (AIP authors can request for it to be merged after they have finished editing it, and editors can ask if they have finished editing it and would like it to be merged. This prevents merging an AIP when more edits are intended to be made by the author, although it can always be edited after merging.) Reasons for denying AIP status include duplication of effort, being technically unsound, not providing proper motivation or addressing backwards compatibility, or not in keeping with the ADAMANT philosophy.
+If the AIP editors approve the AIP ([see the AIP editors workflow section below for details](#aip-editor-responsibilities-and-workflow)) and the authors are happy for it to be merged as a draft, the AIP editor will assign the AIP a number and merge your pull request. The AIP editor will not unreasonably deny an AIP. (AIP authors can request for it to be merged after they have finished editing it, and editors can ask if they have finished editing it and would like it to be merged. This prevents merging an AIP when more edits are intended to be made by the author, although it can always be edited after merging.) Reasons for denying AIP status include duplication of effort, being technically unsound, not providing proper motivation or addressing backwards compatibility, or not in keeping with the ADAMANT philosophy.
 
 Once the first draft has been merged, you may submit follow-up pull requests with further changes to your draft until such point as you believe the AIP to be mature and ready to proceed to the next phase.
 
@@ -116,7 +116,7 @@ AIP Formats and Templates
 -------------------------
 
 AIPs should be written in [markdown] format.
-Image files should be included in a subdirectory of the `assets` folder for that AIP as follow: `assets/Aip-X` (for AIP **X**). When linking to an image in the AIP, use relative links such as `../assets/aip-X/image.png`.
+Image files should be included in a subdirectory of the `assets` folder for that AIP as follow: `assets/aip-X` (for AIP **X**). When linking to an image in the AIP, use relative links such as `../assets/aip-X/image.png`.
 
 AIP Header Preamble
 -------------------
@@ -220,7 +220,7 @@ Once the AIP is ready for the repository, the AIP editor will:
 
 - Send a message back to the AIP author with the next step.
 
-Many AIPs are written and maintained by developers with write access to the Ethereum codebase. The AIP editors monitor AIP changes, and correct any structure, grammar, spelling, or markup mistakes we see.
+Many AIPs are written and maintained by developers with write access to the ADAMANT codebase. The AIP editors monitor AIP changes, and correct any structure, grammar, spelling, or markup mistakes we see.
 
 The editors don't pass judgment on AIPs. We merely do the administrative & editorial part.
 

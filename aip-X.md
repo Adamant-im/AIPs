@@ -20,7 +20,7 @@ The title should be 44 characters or less.
 
 ## Simple Summary
 <!--"If you can't explain it simply, you don't understand it well enough." Provide a simplified and layman-accessible explanation of the AIP.-->
-If you can't explain it simply, you don't understand it well enough." Provide a simplified and layman-accessible explanation of the AIP.
+"If you can't explain it simply, you don't understand it well enough." Provide a simplified and layman-accessible explanation of the AIP.
 
 ## Abstract
 <!--A short (~200 word) description of the technical issue being addressed.-->
