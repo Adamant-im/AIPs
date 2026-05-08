@@ -4,7 +4,7 @@ title: Behavior for KVS data
 author: Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/27
 requires: 3
-extends: https://aips.adamant.im/AIPS/aip-3
+extends: 3
 status: Draft
 type: Standards
 category: ARC
