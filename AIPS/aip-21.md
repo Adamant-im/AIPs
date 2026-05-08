@@ -17,7 +17,7 @@ Add an optional `timestampMs` field to ADAMANT transactions so clients and nodes
 
 ADAMANT transactions currently include `timestamp`, measured in seconds since the ADAMANT epoch. This value is part of transaction signing and cannot be adjusted by a node after a client creates a transaction. In fast messaging flows, several messages can share the same second-level timestamp, so clients and APIs cannot always reconstruct the intended ordering from confirmed transaction data.
 
-This AIP proposes a protocol upgrade that allows transactions to include `timestampMs`, measured in Unix milliseconds. The field is not included in transaction byte serialization, signature calculation, transaction IDs, or hashes. After activation, nodes validate that an included `timestampMs` belongs to the same ADAMANT timestamp second, store it, and return it in transaction API and socket responses. Before activation, nodes must ignore the field on consensus-sensitive paths.
+This AIP proposes a protocol upgrade that allows transactions to include `timestampMs`, measured in milliseconds since the ADAMANT epoch. The field is not included in transaction byte serialization, signature calculation, transaction IDs, or hashes. After activation, nodes validate that an included `timestampMs` belongs to the same ADAMANT timestamp second, store it, and return it in transaction API and socket responses. Before activation, nodes must ignore the field on consensus-sensitive paths.
 
 ## Motivation
 
@@ -37,7 +37,16 @@ Transactions MAY include:
 }
 ```
 
-`timestampMs` is a Unix timestamp in milliseconds. It describes the client-side transaction creation time.
+`timestampMs` is an ADAMANT epoch timestamp in milliseconds. It describes the client-side transaction creation time using the same epoch as `timestamp`, but with millisecond precision.
+
+Given a Unix timestamp in milliseconds, clients calculate:
+
+```text
+timestampMs = unixTimestampMs - adamantEpochUnixMs
+timestamp = floor(timestampMs / 1000)
+```
+
+Clients MUST NOT calculate `timestamp` from `timestampMs` using `round` or `ceil`, because that can create a pair where `timestampMs` belongs to the previous ADAMANT second while `timestamp` points to the next one.
 
 ### Serialization and Identity
 
@@ -77,8 +86,7 @@ After activation, when a transaction includes `timestampMs`, the node MUST verif
 
 Let:
 
-- `epochMs` be the ADAMANT epoch in Unix milliseconds
-- `timestampMsFromAdamant = epochMs + timestamp * 1000`
+- `timestampMsFromAdamant = timestamp * 1000`
 - `deltaMs = timestampMs - timestampMsFromAdamant`
 
 The transaction is valid only when:
@@ -87,9 +95,11 @@ The transaction is valid only when:
 0 <= deltaMs < 1000
 ```
 
-This rule preserves consistency between the signed second-level timestamp and the unsigned millisecond companion field.
+This rule preserves consistency between the signed second-level timestamp and the unsigned millisecond companion field. A value such as `timestampMs = timestamp * 1000 - 1` is invalid even though it is only 1 ms away, because it belongs to the previous ADAMANT timestamp second.
 
 Nodes MAY keep public API admission checks that compare a newly submitted transaction timestamp with local node time. Such checks are node admission policy and MUST NOT be used for deterministic block replay validity.
+
+Nodes MAY allow a small public-API future-time grace window for newly submitted transactions. The ADAMANT reference implementation uses `maxTransactionFutureMs = 500` to preserve the previous slot-based admission policy while accepting boundary cases where a client clock is only a few hundred milliseconds ahead. This check is not consensus validation, is not gated by this AIP activation height, and MUST NOT be applied during replay or synchronization.
 
 ### Sorting
 
@@ -104,6 +114,8 @@ Implementations SHOULD keep the existing `timestamp` sort direction as a seconda
 
 Clients SHOULD include `timestampMs` with every newly created transaction after they know the network supports this AIP.
 
+Clients SHOULD derive `timestamp` from the same millisecond source using `floor(timestampMs / 1000)`.
+
 Clients SHOULD verify that `timestampMs` belongs to the same ADAMANT timestamp second as `timestamp` before trusting transaction data for local ordering.
 
 Clients SHOULD prefer `timestampMs` over `timestamp` when sorting messages and transactions. If `timestampMs` is missing, clients MUST fall back to `timestamp`.
@@ -116,7 +128,7 @@ The field is still activation-gated because storing and validating additional tr
 
 The validation rule uses the same second as the signed `timestamp` instead of a wider tolerance. This prevents a node or relay from attaching an arbitrary millisecond value that would materially change ordering while keeping the signed second unchanged.
 
-Current-time freshness checks are intentionally left out of consensus validation. A check such as "not more than N seconds in the past" depends on wall-clock time and is not replay-stable. Nodes may use such checks only when accepting new transactions from public APIs.
+Current-time freshness checks are intentionally left out of consensus validation. A check such as "not more than N seconds in the past" depends on wall-clock time and is not replay-stable. Nodes may use such checks only when accepting new transactions from public APIs. A transaction whose signed `timestamp` is slightly ahead of the block timestamp can still be valid; transaction timestamps are signed transaction metadata, not the source of block-slot validity.
 
 ## Backwards Compatibility
 
@@ -137,6 +149,9 @@ Implementations of this AIP MUST include tests for:
 - post-activation transaction normalization preserving `timestampMs`
 - post-activation validation accepting `0 <= deltaMs < 1000`
 - post-activation validation rejecting negative or at least 1000 ms deltas
+- client timestamp construction using `timestamp = floor(timestampMs / 1000)`
+- public API admission accepting a next-slot transaction only within the configured `maxTransactionFutureMs` grace window
+- public API admission rejecting a next-slot transaction beyond the configured `maxTransactionFutureMs` grace window
 - block processing at the activation boundary using the validated block height
 - database storage and API response projection of `timestampMs`
 - transaction and chat sorting by `timestampMs` with fallback to `timestamp`
@@ -148,6 +163,7 @@ Reference implementation work is tracked in:
 
 - Node issue: https://github.com/Adamant-im/adamant/issues/209
 - Initial node implementation: https://github.com/Adamant-im/adamant/pull/93
+- Completion node implementation: https://github.com/Adamant-im/adamant/pull/210
 
 Companion updates may be required in:
 
