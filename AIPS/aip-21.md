@@ -1,5 +1,5 @@
 ---
-aip: <to be assigned>
+aip: 21
 title: Transaction Millisecond Timestamp
 author: ADAMANT contributors
 discussions-to: https://github.com/Adamant-im/adamant/issues/209
