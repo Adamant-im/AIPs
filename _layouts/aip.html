@@ -53,12 +53,6 @@ layout: default
       <td>{% include aipnums.html aips=page.requires %}</td>
     </tr>
     {% endif %}
-    {% if page.extends != undefined %}
-    <tr>
-      <th>Extends</th>
-      <td>{% include aipnums.html aips=page.extends %}</td>
-    </tr>
-    {% endif %}
     {% if page.replaces != undefined %}
     <tr>
       <th>Replaces</th>

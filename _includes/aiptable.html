@@ -1,5 +1,5 @@
 {% for status in site.data.statuses %}
-  {% assign aips = include.aips | where:"status", status | where_exp:"page", "page.aip != '<to be assigned>'" | sort:"aip" %}
+  {% assign aips = include.aips|where:"status",status|sort:"aip" %}
   {% assign count = aips|size %}
   {% if count > 0 %}
     <h2>{{status}}</h2>

@@ -4,7 +4,7 @@ title: Non-ADM crypto transfer messages
 author: Aleksei Lebedev (@adamant-al)
 discussions-to: https://github.com/Adamant-im/AIPs/issues/29
 requires: 5
-extends: 5
+extends: https://aips.adamant.im/AIPS/aip-5
 status: Accepted
 type: Standards
 category: ARC

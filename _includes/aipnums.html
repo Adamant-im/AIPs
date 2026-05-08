@@ -1,15 +1,4 @@
-{% assign aips = include.aips | split:"," %}
+{% assign aips=include.aips|split:"," %}
 {% for aipnum in aips %}
-  {% assign aipnum_stripped = aipnum | strip %}
-  {% assign aip_href = nil %}
-  {% for aip_page in site.pages %}
-    {% if aip_page.aip %}
-      {% assign aip_page_num = aip_page.aip | append: '' %}
-      {% if aip_page_num == aipnum_stripped %}
-        {% assign aip_href = aip_page.url | relative_url %}
-        {% break %}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-  <a href="{% if aip_href %}{{ aip_href }}{% else %}{{ '/AIPS/aip-' | append: aipnum_stripped | relative_url }}{% endif %}">{{ aipnum_stripped }}</a>{% if forloop.last == false %}, {% endif %}
+  <a href="{{ '/' | relative_url }}{{aipnum|strip|prepend:'aip-'}}/">{{aipnum|strip}}</a>{% if forloop.last == false %}, {% endif %}
 {% endfor %}

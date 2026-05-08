@@ -3,7 +3,7 @@ aip: 8
 title: URI Format for ADAMANT
 author: Aleksei Lebedev
 discussions-to: https://github.com/Adamant-im/AIPs/issues/16
-extends: 2
+extends: https://aips.adamant.im/AIPS/aip-2
 status: Accepted
 type: Standards
 category: ARC
