@@ -2,6 +2,44 @@
 
 ADAMANT Improvement Proposal (AIPs) repository describe standards for the ADAMANT Messenger platform, including core protocol specifications and client APIs.
 
+## Site build
+
+This repository is built as a Jekyll site.
+
+- Ruby gems are managed with Bundler via [Gemfile](Gemfile)
+- The site currently builds with Jekyll 4.x and the `minima` theme
+- Local build output is generated into [_site](_site)
+
+### Local setup
+
+Install dependencies:
+
+```sh
+bundle install
+```
+
+Run the local development server:
+
+```sh
+bundle exec jekyll serve
+```
+
+Build the site without serving it:
+
+```sh
+bundle exec jekyll build
+```
+
+If you change [_config.yml](_config.yml), restart `jekyll serve`, because Jekyll does not reload that file automatically.
+
+In VS Code, this workspace disables built-in SCSS validation because Jekyll entrypoint stylesheets with front matter can trigger false parser errors even when `bundle exec jekyll build` succeeds.
+
+### Deployment
+
+The published site is deployed to GitHub Pages for the [Adamant-im/AIPs](https://github.com/Adamant-im/AIPs) repository and served on the custom domain `https://aips.adamant.im` configured in [CNAME](CNAME).
+
+GitHub Pages is configured to publish from the `master` branch. The settings page itself is not publicly readable without repository access, so this README documents the verified public deployment target, branch, and local build process.
+
 ## Contributing
 
  1. Review [AIP-1](AIPS/aip-1.md).
