@@ -38,6 +38,8 @@ In VS Code, this workspace disables built-in SCSS validation because Jekyll entr
 
 The published site is deployed to GitHub Pages for the [Adamant-im/AIPs](https://github.com/Adamant-im/AIPs) repository and served on the custom domain `https://aips.adamant.im` configured in [CNAME](CNAME).
 
+Generated AIP pages currently resolve under paths such as `https://aips.adamant.im/AIPS/aip-21`. When linking to AIP pages from Jekyll templates, prefer each page's generated `page.url` instead of hardcoding `/aip-N` paths.
+
 GitHub Pages is configured to publish from the `master` branch. The settings page itself is not publicly readable without repository access, so this README documents the verified public deployment target, branch, and local build process.
 
 ## Contributing

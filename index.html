@@ -3,11 +3,19 @@ layout: default
 title: Home
 ---
 
+{% assign aip_1_href = '/AIPS/aip-1' | relative_url %}
+{% for aip_page in site.pages %}
+  {% if aip_page.aip == 1 or aip_page.aip == '1' %}
+    {% assign aip_1_href = aip_page.url | relative_url %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
 <h1 class="page-heading">AIPs </h1>
 <p>ADAMANT Improvement Proposals (AIPs) describe standards for the ADAMANT Messenger platform, including core protocol specifications, and client APIs.</p>
 
 <h2>Contributing</h2>
-<p>First review <a href="{{ '/aip-1/' | relative_url }}">AIP-1</a>. Then clone the repository and add your AIP to it. There is a <a href="https://github.com/Adamant-im/AIPs/blob/master/aip-X.md">template AIP here</a>. Then submit a Pull Request to ADAMANT's <a href="https://github.com/Adamant-im/AIPs">AIPs repository</a>.</p>
+<p>First review <a href="{{ aip_1_href }}">AIP-1</a>. Then clone the repository and add your AIP to it. There is a <a href="https://github.com/Adamant-im/AIPs/blob/master/aip-X.md">template AIP here</a>. Then submit a Pull Request to ADAMANT's <a href="https://github.com/Adamant-im/AIPs">AIPs repository</a>.</p>
 
 <h2>AIP status terms</h2>
 <ul>
